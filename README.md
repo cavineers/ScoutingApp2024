@@ -83,11 +83,15 @@ Specify IP and port to host with
 ## Contact Info
 hey, you, yes you, whoever you may be in the future, if you want to contact us or have any questions about the scouting app, do so by emailing us!
 
-&emsp;Max Maginnis : &emsp;`maxmaginnis@yahoo.com`
-
-&emsp;Jake Goodyear : &emsp;`jakengoodyear@gmail.com`
+&emsp;Max Maginnis : &emsp;`maxmaginnis@yahoo.com` or `luigikid76@gmail.com`
 
 &emsp;Charles Hecker : &emsp;`thecheckerbro2007@gmail.com`
+
+&emsp;Aiden Mcmanus : &emsp;`aidenjohnmcmanus@gmail.com`
+
+&emsp;Jonah Abellano : &emsp;`jonahabellano@gmail.com`
+
+&emsp;Peter D’Amico : &emsp;`wpeterdiv@gmail.com`
 
 <br>
 
