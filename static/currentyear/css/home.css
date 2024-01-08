@@ -1,0 +1,22 @@
+.content {
+    margin-top: 10%;
+    margin-left: 0%;
+}
+
+.input {
+    background-color: #2a2a2a;
+    margin-top: 10px;
+    font-weight: bold;
+    color: white;
+    padding: 1em;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    outline: solid white;
+    width: 200px;
+    font-family: Geneva, Segoe UI, Verdana, sans-serif;
+    resize: none;
+}
+
+.input::after {
+    background-color: black;
+}
