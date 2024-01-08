@@ -1,7 +1,6 @@
-# ScoutingApp Gen
-Generic Code template for Scouting app
+# ScoutingApp2024
+Scouting App Code for the 2024 FRC Season
 
-IMPORTANT NOTE: PLEASE USE COMMENTS, BOTH ON GITHUB AND IN THE ACTUAL CODE. HELPS PEOPLE WHO ARE TRYING TO UNDERSTAND WHAT YOUR CODE OR COMMIT IS TRYING TO DO. ALSO HELPS YOU JUSTIFY IN YOUR MIND THAT WHAT YOU ARE DOING MAKES SENSE.
 
 ## Prerequisites
 
@@ -80,3 +79,18 @@ Quickly run the flask app on `0.0.0.0:80` with
 Specify IP and port to host with
 - Windows:  &emsp;`py -m ScoutingApp.__main host=<ip> port=<port>`
 - Linux/Apple: &emsp;`python3 -m ScoutingApp.__main host=<ip> port=<port>`
+
+## Contact Info
+hey, you, yes you, whoever you may be in the future, if you want to contact us or have any questions about the scouting app, do so by emailing us!
+
+&emsp;Max Maginnis : &emsp;`maxmaginnis@yahoo.com`
+
+&emsp;Jake Goodyear : &emsp;`jakengoodyear@gmail.com`
+
+&emsp;Charles Hecker : &emsp;`thecheckerbro2007@gmail.com`
+
+<br>
+
+# Other
+
+Do not delete the coconut -Maginnis and Goodyear
