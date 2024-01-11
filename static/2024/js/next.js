@@ -50,13 +50,13 @@ window.addEventListener("load", async () => {
         endAutoButton.addEventListener("click", (ev) => {
             if(ev.button != 0)
                 return;
-            const chargeOff = document.getElementById("chargeOffAuto");
-            const chargeDocked = document.getElementById("chargeDockedAuto");
-            const chargeEngaged = document.getElementById("chargeEngagedAuto");
-            const state = chargeEngaged.checked ? chargeEngaged.value :
-                      chargeDocked.checked ? chargeDocked.value :
-                      chargeOff.value;
-            localStorage.setItem(AUTO_CHARGE_STORAGE, JSON.stringify(state))
+            const stageOff = document.getElementById("stageOffAuto");
+            const stageOn = document.getElementById("stageOnAuto");
+            const stageHarmony = document.getElementById("stageHarmonyAuto");
+            const state = stageHarmony.checked ? stageHarmony.value :
+                      stageOn.checked ? stageOn.value :
+                      stageOff.value;
+            localStorage.setItem(AUTO_STAGE_STORAGE, JSON.stringify(state))
             localStorage.setItem(END_AUTO_STORAGE, JSON.stringify(getUTCNow()));
 
             //end auto button
@@ -68,14 +68,14 @@ window.addEventListener("load", async () => {
         nextButton2.addEventListener("click", (ev) => {
             if (ev.button != 0)
                 return;
-            const chargeOff = document.getElementById("chargeOff");
-            const chargeDocked = document.getElementById("chargeDocked");
-            const chargeEngaged = document.getElementById("chargeEngaged");
-            const state = chargeEngaged.checked ? chargeEngaged.value :
-                      chargeDocked.checked ? chargeDocked.value :
-                      chargeOff.value;
+            const stageOff = document.getElementById("stageOff");
+            const stageOn = document.getElementById("stageOn");
+            const stageHarmony = document.getElementById("stageHarmony");
+            const state = stateHarmony.checked ? stageHarmony.value :
+                      stageOn.checked ? stageHarmony.value :
+                      stageOff.value;
             //save
-            localStorage.setItem(CHARGE_STORAGE, JSON.stringify(state));
+            localStorage.setItem(STAGE_STORAGE, JSON.stringify(state));
             //redundant save
             localStorage.setItem(SCORE_GRID_STORAGE, JSON.stringify(scoreNodes));
             localStorage.setItem(ACTION1, JSON.stringify(action1));

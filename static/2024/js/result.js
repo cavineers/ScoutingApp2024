@@ -14,8 +14,8 @@ function collectData() {
     contents["shelfPickUps"] = JSON.parse(localStorage.getItem("shelfPickUps"));
     contents["objectDrops"] = JSON.parse(localStorage.getItem("objectDrops"));
     contents["defenses"] = JSON.parse(localStorage.getItem("defenses"));
-    contents["autoChargeState"] = JSON.parse(localStorage.getItem("autoChargeState"));
-    contents["chargeState"] = JSON.parse(localStorage.getItem("chargeState"));
+    contents["autoStageState"] = JSON.parse(localStorage.getItem("autoStageState"));
+    contents["stageState"] = JSON.parse(localStorage.getItem("stageState"));
     contents["endAuto"] = JSON.parse(localStorage.getItem("endAuto"));
     //get result data
     contents["comments"] = JSON.parse(localStorage.getItem("comments"));

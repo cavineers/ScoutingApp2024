@@ -130,27 +130,27 @@
     margin-left: 4px;
 }
 
-.charge {
+.stage {
     margin-top: 5%;
     text-align: center;
 }
 
-.charge label {
+.stage label {
     position: relative;
 }
 
-.charge label input {
+.stage label input {
     display: none;
 }
 
-.charge label input:checked ~ span{
+.stage label input:checked ~ span{
     background-color: #999;
     border: 5px solid #ffa600;
     box-shadow: 0 0px #666;
     transform: translateY(5px);
 }
 
-.charge label span {
+.stage label span {
     position: relative;
     text-align: center;
     display: inline-block;

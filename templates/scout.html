@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block title %}4541 Scouting App | Current Year{% endblock %}
 {% block styles %}
-<link rel="stylesheet" href="/static/currentyear/css/scout.css" />
-<link rel="stylesheet" href="/static/css/commons.css">
+<link rel="stylesheet" href="/static/2024/css/scout.css" />
+<link rel="stylesheet" href="/static/common/commons.css">
 {% endblock %}
 {% block scripts %}
-<script src="/static/currentyear/js/next.js"></script>
-<script src="/static/currentyear/js/scout.js"></script>
-<script src="/static/currentyear/js/navstamp.js"></script>
+<script src="/static/2024/js/next.js"></script>
+<script src="/static/2024/js/scout.js"></script>
+<script src="/static/2024/js/navstamp.js"></script>
 {% endblock %}
 {% block contents %}
 <div>
@@ -62,19 +62,19 @@
             <button class="button_red" id="auto_action4">Auto PlaceHolder#4</button>
         </label>
         <div style="margin-top: 10%; width: 100%; text-align: center;">
-            <div class="charge">
-                <h2>Charge Station</h2>
+            <div class="stage">
+                <h2>Stage</h2>
                 <label>
-                    <input type="radio" id="chargeOffAuto" name="stationAuto" value="off" checked>
-                    <span class="left">Off</span>
+                    <input type="radio" id="stageOffAuto" name="stageAuto" value="off" checked>
+                    <span class="left">Off Stage</span>
                 </label>
                 <label>
-                    <input type="radio" id="chargeDockedAuto" name="stationAuto" value="docked">
-                    <span class="mid">Docked</span>
+                    <input type="radio" id="stageOnAuto" name="stageAuto" value="on">
+                    <span class="mid">On Stage</span>
                 </label>
                 <label>
-                    <input type="radio" id="chargeEngagedAuto" name="stationAuto" value="engaged">
-                    <span class="right">Engaged</span>
+                    <input type="radio" id="stageHarmonyAuto" name="stageAuto" value="harmony">
+                    <span class="right">Harmony</span>
                 </label>
             </div>
         </div>
@@ -98,19 +98,19 @@
             <button class="button_red" id="action4">PlaceHolder#4</button>
         </label>
         <div style="margin-top: 10%; width: 100%; text-align: center;">
-            <div class="charge">
-                <h2>Charge Station</h2>
+            <div class="stage">
+                <h2>Stage</h2>
                 <label>
-                    <input type="radio" id="chargeOff" name="stationTele" value="off" checked>
-                    <span class="left">Off</span>
+                    <input type="radio" id="stageOff" name="stageTele" value="off" checked>
+                    <span class="left">Off Stage</span>
                 </label>
                 <label>
-                    <input type="radio" id="chargeDocked" name="stationTele" value="docked">
-                    <span class="mid">Docked</span>
+                    <input type="radio" id="stageOn" name="stageTele" value="on">
+                    <span class="mid">On Stage</span>
                 </label>
                 <label>
-                    <input type="radio" id="chargeEngaged" name="stationTele" value="engaged">
-                    <span class="right">Engaged</span>
+                    <input type="radio" id="stageHarmony" name="stageTele" value="harmony">
+                    <span class="right">Harmony</span>
                 </label>
             </div>
         </div>

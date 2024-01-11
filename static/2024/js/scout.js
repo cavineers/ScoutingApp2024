@@ -15,8 +15,8 @@ const ACTION1 = "action1"; // actions 1
 const ACTION2 = "action2"; // actions 2
 const ACTION3 = "action3"; // actions 3
 const ACTION4 = "action4"; // action 4
-const CHARGE_STORAGE = "chargeState";
-const AUTO_CHARGE_STORAGE = "autoChargeState";
+const STAGE_STORAGE = "chargeState";
+const AUTO_STAGE_STORAGE = "autoChargeState";
 const END_AUTO_STORAGE = "endAuto";
 const AUTO_ACTION4 = "autoAction4"; // auto 4
 
