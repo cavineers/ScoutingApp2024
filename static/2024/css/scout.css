@@ -6,7 +6,7 @@
     margin-left: 0%;
 }
 
-.node-object1 {
+.node-note {
     height: 35px;
     width: 35px;
     background-color: #777;
@@ -39,7 +39,7 @@
     align-items: center;
 }
 
-.node-object1_button {
+.node-note_button {
     height: 100px;
     width: 100px;
     margin-left: 23%;

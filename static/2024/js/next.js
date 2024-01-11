@@ -31,7 +31,7 @@ window.addEventListener("load", async () => {
         nextButton.addEventListener("click", (ev) => {
             if (ev.button != 0)
                 return;
-            //startObject: startNone|startObject2|startObject1
+            //startObject: startNone|startObject2|startO
             //roboPos: left|mid|right
             localStorage.setItem("objectLayout", JSON.stringify(objectLayout));
             for (let input of document.getElementsByTagName("input")) {
@@ -71,7 +71,7 @@ window.addEventListener("load", async () => {
             const stageOff = document.getElementById("stageOff");
             const stageOn = document.getElementById("stageOn");
             const stageHarmony = document.getElementById("stageHarmony");
-            const state = stateHarmony.checked ? stageHarmony.value :
+            const state = stageHarmony.checked ? stageHarmony.value :
                       stageOn.checked ? stageHarmony.value :
                       stageOff.value;
             //save
