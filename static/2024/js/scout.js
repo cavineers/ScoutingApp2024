@@ -16,24 +16,24 @@ const ACTION2 = "action2"; // actions 2
 const ACTION3 = "action3"; // actions 3
 const ACTION4 = "action4"; // action 4
 const STAGE_STORAGE = "chargeState";
-const AUTO_STAGE_STORAGE = "autoChargeState";
+const AUTO_STAGE_STORAGE = "autoStageState";
 const END_AUTO_STORAGE = "endAuto";
 const AUTO_ACTION4 = "autoAction4"; // auto 4
 
 const NodeType = {
-    Object1: "object1",
+    Note: "note",
     Object2: "object2",
     Both: "both"
 };
 
 const GamePiece = {
-    Object1: "object1",
+    Note: "note",
     Object2: "object2"
 };
 
 const UNSELECTED_COLOR = "#777";
-const OBJECT1_COLOR = "#ff0";
-const OBJECT1_BORDER_COLOR = "#cc0";
+const NOTE_COLOR = "#ff0";
+const NOTE_BORDER_COLOR = "#cc0";
 const OBJECT2_COLOR = "#b0f";
 const OBJECT2_BORDER_COLOR = "#80c";
 
@@ -51,7 +51,7 @@ class ScoreNode {
      */
 
     static nodeTypeFromClass(element) {
-        return element.classList.contains("node-object1") ? NodeType.Object1 : element.classList.contains("node-object2") ? NodeType.Object2 : element.classList.contains("node-both") ? NodeType.Both : null;
+        return element.classList.contains("node-note") ? NodeType.Note : element.classList.contains("node-object2") ? NodeType.Object2 : element.classList.contains("node-both") ? NodeType.Both : null;
     }
 
     /**
@@ -76,9 +76,9 @@ class ScoreNode {
     setGamePiece(gamePiece) {
         this.gamePiece = gamePiece;
         this.history[getUTCNow()] = Object.values(GamePiece).includes(gamePiece) ? gamePiece : null;
-        if (gamePiece==GamePiece.Object1) {
-            this.element.style.background = OBJECT1_COLOR;
-            this.element.style.borderColor = OBJECT1_BORDER_COLOR;
+        if (gamePiece==GamePiece.Note) {
+            this.element.style.background = NOTE_COLOR;
+            this.element.style.borderColor = NOTE_BORDER_COLOR;
         }
         else if (gamePiece==GamePiece.Object2) {
             this.element.style.background = OBJECT2_COLOR;
@@ -94,7 +94,7 @@ class ScoreNode {
 
 
 window.addEventListener("load", () => {
-    const selections = document.querySelectorAll(".node-object1, .node-object2, .node-both");
+    const selections = document.querySelectorAll(".node-note, .node-object2, .node-both");
     selections.forEach((selection) => {
         let node = new ScoreNode(selection);
         scoreNodes.push(node);
@@ -152,9 +152,9 @@ function coordinatesToIndex(col, row) {
 function setNodeClick(scoreNode) {
     scoreNode.element.addEventListener("click", (e) => {
         switch(scoreNode.type) {
-            case NodeType.Object1:
+            case NodeType.Note:
                 if (scoreNode.gamePiece == null)
-                    scoreNode.setGamePiece(GamePiece.Object1);
+                    scoreNode.setGamePiece(GamePiece.Note);
                 else
                     scoreNode.setGamePiece(null);
                 break;
@@ -172,16 +172,16 @@ function setNodeClick(scoreNode) {
                     menu.style.alignItems = "center";
 
                     //define button
-                    let object1Button = document.createElement("button");
+                    let noteButton = document.createElement("button");
                     //set button style
-                    object1Button.classList.add("node-object1_button");
-                    object1Button.style.background = OBJECT1_COLOR;
-                    object1Button.style.borderColor = OBJECT1_BORDER_COLOR;
+                    noteButton.classList.add("node-note_button");
+                    noteButton.style.background = NOTE_COLOR;
+                    noteButton.style.borderColor = NOTE_BORDER_COLOR;
                     //set button click event
-                    object1Button.addEventListener("click", (ev) => {
+                    noteButton.addEventListener("click", (ev) => {
                         if (ev.button != 0)
                             return;
-                        scoreNode.setGamePiece(GamePiece.Object1);
+                        scoreNode.setGamePiece(GamePiece.Note);
                         menuContainer.remove();
                     });
 
@@ -198,7 +198,7 @@ function setNodeClick(scoreNode) {
                         menuContainer.remove();
                     });
 
-                    menu.appendChild(object1Button);
+                    menu.appendChild(noteButton);
                     menu.appendChild(object2Button);
                 }
                 else
