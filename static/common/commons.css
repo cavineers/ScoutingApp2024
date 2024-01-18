@@ -69,3 +69,15 @@
   opacity: 1;
   right: 0;
 }
+
+.note-button {
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+  background-color: #777;
+  border: none;
+  padding: 10px;
+  border-radius: 100%;
+  align-items: center;
+}
+.start label input:checked ~ span.note-button{background-color: rgb(255, 149, 0);}

@@ -8,12 +8,10 @@ function collectData() {
     contents["roboPos"] = JSON.parse(localStorage.getItem("roboPos"));
     contents["objectLayout"] = JSON.parse(localStorage.getItem("objectLayout"));
     //get scout data
-    //scoreGrid: just array of ScoreNode.history    =   [ScoreNode, ScoreNode, ...] -> [ScoreNode.history, ...]
-    contents["scoreGrid"] = trimScoreGrid(JSON.parse(localStorage.getItem("scoreGrid")));
-    contents["pickUps"] = JSON.parse(localStorage.getItem("pickUps"));
-    contents["shelfPickUps"] = JSON.parse(localStorage.getItem("shelfPickUps"));
-    contents["objectDrops"] = JSON.parse(localStorage.getItem("objectDrops"));
-    contents["defenses"] = JSON.parse(localStorage.getItem("defenses"));
+    contents["pick up"] = JSON.parse(localStorage.getItem("pick up"));
+    contents["miss"] = JSON.parse(localStorage.getItem("miss"));
+    contents["drop"] = JSON.parse(localStorage.getItem("drop"));
+    contents["defense"] = JSON.parse(localStorage.getItem("defense"));
     contents["autoStageState"] = JSON.parse(localStorage.getItem("autoStageState"));
     contents["stageState"] = JSON.parse(localStorage.getItem("stageState"));
     contents["endAuto"] = JSON.parse(localStorage.getItem("endAuto"));
@@ -24,10 +22,10 @@ function collectData() {
     return JSON.stringify(contents);
 }
 
-/** @param {Array.<ScoreNode>} array */
+/** @param {Array.<ScoreNote>} array */
 function trimScoreGrid(array) {
     if (array==null || !array) return [];
-    const histories = array.map((scoreNode) => scoreNode.history);
+    const histories = array.map((scoreNote) => scoreNote.history);
     console.log(histories);
     let rtv = {};
     //store only the indexes that have values

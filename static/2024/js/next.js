@@ -1,7 +1,3 @@
-import("./prematch.js");
-import("./scout.js");
-import("./result.js");
-
 window.addEventListener("load", async () => {
 
     if(document.getElementById("submitForm") != null) {
@@ -50,13 +46,6 @@ window.addEventListener("load", async () => {
         endAutoButton.addEventListener("click", (ev) => {
             if(ev.button != 0)
                 return;
-            const stageOff = document.getElementById("stageOffAuto");
-            const stageOn = document.getElementById("stageOnAuto");
-            const stageHarmony = document.getElementById("stageHarmonyAuto");
-            const state = stageHarmony.checked ? stageHarmony.value :
-                      stageOn.checked ? stageOn.value :
-                      stageOff.value;
-            localStorage.setItem(AUTO_STAGE_STORAGE, JSON.stringify(state))
             localStorage.setItem(END_AUTO_STORAGE, JSON.stringify(getUTCNow()));
 
             //end auto button
@@ -68,20 +57,13 @@ window.addEventListener("load", async () => {
         nextButton2.addEventListener("click", (ev) => {
             if (ev.button != 0)
                 return;
-            const stageOff = document.getElementById("stageOff");
-            const stageOn = document.getElementById("stageOn");
-            const stageHarmony = document.getElementById("stageHarmony");
-            const state = stageHarmony.checked ? stageHarmony.value :
-                      stageOn.checked ? stageHarmony.value :
-                      stageOff.value;
             //save
-            localStorage.setItem(STAGE_STORAGE, JSON.stringify(state));
             //redundant save
-            localStorage.setItem(SCORE_GRID_STORAGE, JSON.stringify(scoreNodes));
-            localStorage.setItem(ACTION1, JSON.stringify(action1));
-            localStorage.setItem(ACTION2, JSON.stringify(action2));
-            localStorage.setItem(ACTION3, JSON.stringify(action3));
-            localStorage.setItem(ACTION4, JSON.stringify(action4));
+//          localStorage.setItem(SCORE_GRID_STORAGE, JSON.stringify(scoreNotes));
+            localStorage.setItem(PICK_UP, JSON.stringify(pickUps));
+            localStorage.setItem(MISS, JSON.stringify(misses));
+            localStorage.setItem(DROP, JSON.stringify(drops));
+            localStorage.setItem(DEFENSE, JSON.stringify(defenses));
 
             //go to result.html
             window.location.href = "/result.html";
