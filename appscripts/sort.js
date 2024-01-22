@@ -14,7 +14,7 @@ const valMap = {
 
   //test.py
   "DATE": (value) => Number(value.replaceAll("/","")),
-  "STAGE STATE": (value) => value=="on" ? 1 : value=="harmony" ? 2 : value=="spotlit" ? 3 : 0,
+  "STAGE STATE": (value) => value=="community" ? 1 : value=="on" ? 2 : value=="harmony" ? 3 : value=="spotlit" ? 4 : 0,
 }
 
 /**
