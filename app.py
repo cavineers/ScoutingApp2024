@@ -94,6 +94,10 @@ def scout():
 def auto():
     return render_template("prematch.html")
 
+@app.route("/stage.html")
+def stage():
+    return render_template("stage.html")
+
 @app.route("/result.html")
 def result():
     return render_template("result.html")

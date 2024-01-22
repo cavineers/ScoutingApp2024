@@ -15,6 +15,7 @@ const MISS = "misses"; // misses with note
 const DROP = "drops"; // drops note
 const DEFENSE = "defenses"; // blocks and steals
 const END_AUTO_STORAGE = "endAuto";
+const AUTO_STAGE_STORAGE = "autoStageState";
 
 const NOTE = "note";
 

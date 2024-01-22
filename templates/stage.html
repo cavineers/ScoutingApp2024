@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}4541 Scouting App | 2024{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="/static/2024/css/stage.css">
+<link rel="stylesheet" href="/static/common/commons.css">
+{% endblock %}
+{% block scripts %}
+<script src="/static/2024/js/next.js"></script>
+<script src="/static/2024/js/stage.js"></script>
+<script src="/static/2024/js/navstamp.js"></script>
+{% endblock %}
+{% block contents %}
+<div style="margin-top: 10%; width: 100%; text-align: center;">
+    <div class="stage">
+        <h2>Stage</h2>
+        <label>
+            <input type="radio" id="stageOff" name="stage" value="off" checked>
+            <span class="left">Off Stage</span>
+        </label>
+        <label>
+            <input type="radio" id="stageCommunity" name="stage" value="community">
+            <span class="mid">In Community</span>
+        </label>
+        <label>
+            <input type="radio" id="stageOn" name="stage" value="on">
+            <span class="mid">On Stage</span>
+        </label>
+        <label>
+            <input type="radio" id="stageHarmony" name="stage" value="harmony">
+            <span class="mid">Harmony</span>
+        </label>
+        <label>
+            <input type="radio" id="stageSpotlit" name="stage" value="spotlit">
+            <span class="right">Spotlit</span>
+        </label>
+    </div>
+    <div class="next_container">
+        <button class="next" id="nextButton3">
+            <span>Next</span>
+        </button>
+    </div>
+</div>
+{% endblock %}
+
+<!--TODO: fix placement of buttons if needed-->
