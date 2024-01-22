@@ -59,9 +59,6 @@ window.addEventListener("load", async () => {
             const stageOn = document.getElementById("stageOnAuto");
             const stageHarmony = document.getElementById("stageHarmonyAuto");
             */
-            const state = stageHarmony.checked ? stageHarmony.value :
-                      stageOn.checked ? stageOn.value :
-                      stageOff.value;
             
             localStorage.setItem(END_AUTO_STORAGE, JSON.stringify(getUTCNow()));
             
