@@ -14,15 +14,15 @@
     <form id="submitForm">
         <table class="table" autocomplete="off">
             <tr>
-                <td><label for="matchNumber">Round:&emsp;</label></td>
+                <td class="text"><label for="matchNumber">Round:&emsp;</label></td>
                 <td><input class="input" name="matchNumber" type="number" /></td>
             </tr>
             <tr>
-                <td><label for="teamNumber">Team:&emsp;</label></td>
+                <td class="text"><label for="teamNumber">Team:&emsp;</label></td>
                 <td><input class="input" name="teamNumber" type="number" /></td>
             </tr>
             <tr>
-                <td><label for="scouterName">Name:&emsp;</label></td>
+                <td class="text"><label for="scouterName">Name:&emsp;</label></td>
                 <td class="select">
                     <select class="input" id="name" name="scouterName">
                         <option value="placeholder">Pick Your Name</option>
@@ -35,8 +35,10 @@
                 </td>
             </tr>
         </table>
-        <button class="submit" type="submit">Next</button>
-        <button class="submit" type="button" onclick="localStorage.clear(); location.reload();">Reset</button>
+        <div class="buttons">
+            <button class="submit" type="submit">Next</button>
+            <button class="submit" type="button" onclick="localStorage.clear();location.reload();">Reset</button>
+        </div>
     </form>
 </div>
 {% endblock %}

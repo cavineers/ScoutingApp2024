@@ -1,16 +1,17 @@
 .submit {
-  height: 50px;
-  width: 200px;
-  background-color: #ff0000; /* Red */
+  display: flex;
+  height: 10vh;
+  width: 25vw;
+  background-color: #ff0000;
   border: none;
   color: white;
-  margin-top: 50px;
-  margin-left: 23%;
   text-align: center;
   text-decoration: none;
-  font-size: 24px;
-  border-radius: 5px;
+  font-size: 150%;
+  border-radius: 1%;
   box-shadow: 0 5px #777;
+  justify-content: center;
+  align-items: center;
 }
 
 .submit:active {
@@ -80,4 +81,4 @@
   border-radius: 100%;
   align-items: center;
 }
-.start label input:checked ~ span.note-button{background-color: rgb(255, 149, 0);}
+.start label input:checked ~ span.note-button{background-color: #f1642b;}

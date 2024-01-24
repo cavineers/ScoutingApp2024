@@ -3,10 +3,6 @@ html {
     font-size: 14pt;
 }
 
-body {
-    display: flex;
-}
-
 /* Navigation buttons */
 button {
     padding-top: 0.5%;
