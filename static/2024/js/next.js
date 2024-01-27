@@ -11,7 +11,6 @@ window.addEventListener("load", async () => {
         /*An array containing all the country names in the world:*/
         var names = await namesResponse.json();
         /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-        autocomplete(document.getElementById("name"), names);
         let submitForm = document.getElementById("submitForm");
         submitForm.addEventListener("submit", (ev) => {
             ev.preventDefault();

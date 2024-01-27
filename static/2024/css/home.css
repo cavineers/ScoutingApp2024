@@ -32,6 +32,17 @@ tr {
     display: flex;
 }
 
+.teams input {
+    visibility: hidden;
+}
+
+.teams input:checked ~ span{
+    background-color: #999;
+    border: 5px solid #ffa600;
+    box-shadow: 0 0px #666;
+    transform: translateY(5px);
+}
+
 .input {
     background-color: #2a2a2a;
     margin-top: 2vh;
@@ -48,6 +59,102 @@ tr {
     box-sizing: border-box;
 }
 
-.input::after {
+.table input::after {
     background-color: black;
 }
+
+.red label {
+    position: relative;
+}
+
+.red label input {
+    display: none;
+}
+
+.red label input:checked ~ span{
+    background-color: #999;
+    border: 5px solid #ffa600;
+    box-shadow: 0 0px #666;
+    transform: translateY(5px);
+}
+
+.red label span {
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.red-left {
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    background: #ff0000;
+    color: white;
+    border: 5px solid #ff0000;
+    text-align: center;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    box-shadow: 0 5px #777;
+}
+.red-left:hover {background-color: #cf0000; border-color: #cf0000;}
+
+.red-mid {
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    background: #ff0000;
+    color: white;
+    border: 5px solid #ff0000;
+    text-align: center;
+    box-shadow: 0 5px #777;
+}
+.red-mid:hover {background-color: #cf0000; border-color: #cf0000;}
+
+.blue label {
+    position: relative;
+}
+
+.blue label input {
+    display: none;
+}
+
+.blue label input:checked ~ span{
+    background-color: #999;
+    border: 5px solid #ffa600;
+    box-shadow: 0 0px #666;
+    transform: translateY(5px);
+}
+
+.blue label span {
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.blue-mid {
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    background: #0000FF;
+    color: white;
+    border: 5px solid #0000FF;
+    text-align: center;
+    box-shadow: 0 5px #777;
+}
+.blue-mid:hover {background-color: #0047AB; border-color: #0047AB;}
+
+.blue-right {
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    background: #0000FF;
+    color: white;
+    border: 5px solid #0000FF;
+    text-align: center;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0 5px #777;
+}
+.blue-right:hover {background-color: #0047AB; border-color: #0047AB;}

@@ -1,3 +1,36 @@
+let teamLayout = ["red", "red", "red", "blue", "blue", "blue"];
+const teamOrder = ["red1", "red2", "red3", "blue1", "blue2", "blue3"];
+
+const UNSELECTED_COLOR = "#777";
+const RED_COLOR = "#ff0000";
+const RED_BORDER_COLOR = "#ff0000";
+const BLUE_COLOR = "#0000ff";
+const BLUE_BORDER_COLOR = "#0000ff";
+
+window.addEventListener("load", () => {
+    let teams = document.querySelectorAll(".red, .blue");
+    for (let i = 0; i<teams.length; i++) {
+        teams[i].addEventListener("click", (ev) => {
+            if (ev.button!=0) return;
+            teamLayout[i] = teamOrder[(teamOrder.indexOf(teamLayout[i])+1)%teamOrder.length];
+            switch(teamLayout[i]) {
+                case "red":
+                    teams[i].style.background = RED_COLOR;
+                    teams[i].style.borderColor = RED_BORDER_COLOR;
+                    break;
+                case "blue":
+                    teams[i].style.background = BLUE_COLOR;
+                    teams[i].style.borderColor = BLUE_BORDER_COLOR;
+                    break;
+                default:
+                    teams[i].style.background = UNSELECTED_COLOR;
+                    teams[i].style.borderColor = UNSELECTED_COLOR;
+                    break;
+            }
+        });
+    }
+});
+
 function verifyInfo(inputs) {
     console.log(inputs.matchNumber)
     if (inputs.matchNumber < 1) {
