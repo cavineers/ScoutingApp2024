@@ -8,6 +8,10 @@ let misses = [];
 let drops = [];
 /** @type {Array.<number>} */
 let defenses = [];
+/** @type {Array.<number>} */
+let cooperations = [];
+/** @type {Array.<number>} */
+let amplifies = [];
 
 
 const PICK_UP = "pickUps"; // picks up note
@@ -16,6 +20,8 @@ const DROP = "drops"; // drops note
 const DEFENSE = "defenses"; // blocks and steals
 const END_AUTO_STORAGE = "endAuto";
 const AUTO_STAGE_STORAGE = "autoStageState";
+const COOPERATION = "cooperations";
+const AMPLIFIED = "amplifies";
 
 const NOTE = "note";
 
@@ -82,21 +88,25 @@ window.addEventListener("load", () => {
     });
 
     //track button press times
+    const autoPickUp = document.getElementById("autoPickUp");
+    const autoMiss = document.getElementById("autoMiss");
+    const autoDrop = document.getElementById("autoDrop");
     const pickUp = document.getElementById("pickUp");
     const miss = document.getElementById("miss");
     const drop = document.getElementById("drop");
     const defense = document.getElementById("defense");
-    const autoPickUp = document.getElementById("autoPickUp");
-    const autoMiss = document.getElementById("autoMiss");
-    const autoDrop = document.getElementById("autoDrop");
+    const cooperation = document.getElementById("cooperation")
+    const amplified = document.getElementById("amplified")
 
+    setMarkTime(autoPickUp, PICK_UP, pickUps);
+    setMarkTime(autoMiss, MISS, misses);
+    setMarkTime(autoDrop, DROP, drops);
     setMarkTime(pickUp, PICK_UP, pickUps);
     setMarkTime(miss, MISS, misses);
     setMarkTime(drop, DROP, drops);
     setMarkTime(defense, DEFENSE, defenses);
-    setMarkTime(autoPickUp, PICK_UP, pickUps);
-    setMarkTime(autoMiss, MISS, misses);
-    setMarkTime(autoDrop, DROP, drops);
+    setMarkTime(cooperation, COOPERATION, cooperations);
+    setMarkTime(amplified, AMPLIFIED, amplifies);
 });
 
 function setMarkTime(element, storageKey, array) {

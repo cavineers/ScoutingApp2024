@@ -43,7 +43,7 @@
     height: 15px;
     width: 15px;
     margin: 10px;
-    background-color: #777;
+    background-color: #9a9280;
     border: none;
     padding: 10px;
     border-radius: 20%;
@@ -51,13 +51,13 @@
     clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
     
 }
-.start label input:checked ~ span.none{background-color: #ff0000;}
+.start label input:checked ~ span.none{background-color: #aa0000;}
 
 .note {
     height: 20px;
     width: 20px;
     margin: 10px;
-    background-color: #777;
+    background-color: #9a9280;
     border: none;
     padding: 10px;
     border-radius: 100%;
@@ -83,9 +83,9 @@
 }
 
 .stage label input:checked ~ span{
-    background-color: #999;
-    border: 5px solid #ffa600;
-    box-shadow: 0 0px #666;
+    background-color: #9a9280;
+    border: 5px solid #f4722b;
+    box-shadow: 0 0px #3e3e3e;
     transform: translateY(5px);
 }
 
@@ -100,38 +100,38 @@
     width: 100px;
     height: 50px;
     line-height: 50px;
-    background: #ff0000;
+    background: #aa0000;
     color: white;
-    border: 5px solid #ff0000;
+    border: 5px solid #aa0000;
     text-align: center;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
-    box-shadow: 0 5px #777;
+    box-shadow: 0 5px #9a9280;
 }
-.left:hover {background-color: #cf0000;}
+.left:hover {background-color: #7d0000;}
 
 .mid {
     width: 90px;
     height: 50px;
     line-height: 50px;
-    background: #ff0000;
+    background: #aa0000;
     color: white;
-    border: 5px solid #ff0000;
+    border: 5px solid #aa0000;
     text-align: center;
-    box-shadow: 0 5px #777;
+    box-shadow: 0 5px #9a9280;
 }
-.mid:hover {background-color: #cf0000;}
+.mid:hover {background-color: #7d0000;}
 
 .right {
     width: 100px;
     height: 50px;
     line-height: 50px;
-    background: #ff0000;
+    background: #aa0000;
     color: white;
-    border: 5px solid #ff0000;
+    border: 5px solid #aa0000;
     text-align: center;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
-    box-shadow: 0 5px #777;
+    box-shadow: 0 5px #9a9280;
 }
-.right:hover {background-color: #cf0000;}
+.right:hover {background-color: #7d0000;}

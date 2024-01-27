@@ -85,6 +85,8 @@ window.addEventListener("load", async () => {
             localStorage.setItem(MISS, JSON.stringify(misses));
             localStorage.setItem(DROP, JSON.stringify(drops));
             localStorage.setItem(DEFENSE, JSON.stringify(defenses));
+            localStorage.setItem(COOPERATION, JSON.stringify(cooperations))
+            localStorage.getItem(AMPLIFIED, JSON.stringify(amplifies))
 
             //go to stage.html
             window.location.href = "/stage.html";

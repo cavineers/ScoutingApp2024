@@ -37,9 +37,9 @@ tr {
 }
 
 .teams input:checked ~ span{
-    background-color: #999;
-    border: 5px solid #ffa600;
-    box-shadow: 0 0px #666;
+    background-color: #9a9280;
+    border: 5px solid #f4722b;
+    box-shadow: 0 0px #9a9280;
     transform: translateY(5px);
 }
 
@@ -72,9 +72,9 @@ tr {
 }
 
 .red label input:checked ~ span{
-    background-color: #999;
-    border: 5px solid #ffa600;
-    box-shadow: 0 0px #666;
+    background-color: #9a9280;
+    border: 5px solid #f4722b;
+    box-shadow: 0 0px #3e3e3e;
     transform: translateY(5px);
 }
 
@@ -89,27 +89,27 @@ tr {
     width: 100px;
     height: 50px;
     line-height: 50px;
-    background: #ff0000;
+    background: #aa0000;
     color: white;
-    border: 5px solid #ff0000;
+    border: 5px solid #aa0000;
     text-align: center;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
-    box-shadow: 0 5px #777;
+    box-shadow: 0 5px #9a9280;
 }
-.red-left:hover {background-color: #cf0000; border-color: #cf0000;}
+.red-left:hover {background-color: #7d0000; border-color: #7d0000;}
 
 .red-mid {
     width: 100px;
     height: 50px;
     line-height: 50px;
-    background: #ff0000;
+    background: #aa0000;
     color: white;
-    border: 5px solid #ff0000;
+    border: 5px solid #aa0000;
     text-align: center;
-    box-shadow: 0 5px #777;
+    box-shadow: 0 5px #9a9280;
 }
-.red-mid:hover {background-color: #cf0000; border-color: #cf0000;}
+.red-mid:hover {background-color: #7d0000; border-color: #7d0000;}
 
 .blue label {
     position: relative;
@@ -120,9 +120,9 @@ tr {
 }
 
 .blue label input:checked ~ span{
-    background-color: #999;
-    border: 5px solid #ffa600;
-    box-shadow: 0 0px #666;
+    background-color: #9a9280;
+    border: 5px solid #f4722b;
+    box-shadow: 0 0px #3e3e3e;
     transform: translateY(5px);
 }
 
@@ -137,24 +137,24 @@ tr {
     width: 100px;
     height: 50px;
     line-height: 50px;
-    background: #0000FF;
+    background: #476291;
     color: white;
-    border: 5px solid #0000FF;
+    border: 5px solid #476291;
     text-align: center;
-    box-shadow: 0 5px #777;
+    box-shadow: 0 5px #9a9280;
 }
-.blue-mid:hover {background-color: #0047AB; border-color: #0047AB;}
+.blue-mid:hover {background-color: #293853; border-color: #293853;}
 
 .blue-right {
     width: 100px;
     height: 50px;
     line-height: 50px;
-    background: #0000FF;
+    background: #476291;
     color: white;
-    border: 5px solid #0000FF;
+    border: 5px solid #476291;
     text-align: center;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
-    box-shadow: 0 5px #777;
+    box-shadow: 0 5px #9a9280;
 }
-.blue-right:hover {background-color: #0047AB; border-color: #0047AB;}
+.blue-right:hover {background-color: #293853; border-color: #293853;}
