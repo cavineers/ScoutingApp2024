@@ -10,63 +10,44 @@
     width: 150px;
     margin-top: 10px;
     line-height: 20px;
-    background-color: #ff0000; /* Red */
+    background-color: #aa0000; /* Red */
     border: none;
     color: white;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     border-radius: 5px;
-    box-shadow: 0 5px #777;
+    box-shadow: 0 5px #9a9280;
 }
 
-.button_yellow {
+.button_blu {
     height: 50px;
     width: 150px;
     margin-top: 10px;
     line-height: 20px;
-    background-color: #dba800; /* Yellow */
+    background-color: #476291; /* Blu */
     border: none;
     color: white;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     border-radius: 5px;
-    box-shadow: 0 5px #777;
+    box-shadow: 0 5px #9a9280;
 }
 
-.button_black {
-    height: 50px;
-    width: 150px;
-    margin-top: 10px;
-    line-height: 20px;
-    background-color: #222021; /* Black */
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 5px;
-    box-shadow: 0 5px #777;
-}
+.button_red:hover {background-color: #7d0000}
 
-.button_red:hover {background-color: #cf0000}
+.button_blu:hover {background-color: #293853}
 
 .button_red:active {
-    background-color: #cf0000;
-    box-shadow: 0 0px #666;
+    background-color: #7d0000;
+    box-shadow: 0 0px #3e3e3e;
     transform: translateY(5px);
 }
 
-.button_yellow:active {
-    background-color: #795d00;
-    box-shadow: 0 0px #666;
-    transform: translateY(5px);
-}
-
-.button_black:active {
-    background-color: #0d0d0d;
-    box-shadow: 0 0px #666;
+.button_blu:active {
+    background-color: #293853;
+    box-shadow: 0 0px #3e3e3e;
     transform: translateY(5px);
 }
 
@@ -74,69 +55,42 @@
     margin-left: 4px;
 }
 
-.stage {
-    margin-top: 5%;
-    text-align: center;
-}
-
-.stage label {
-    position: relative;
-}
-
-.stage label input {
-    display: none;
-}
-
-.stage label input:checked ~ span{
-    background-color: #999;
-    border: 5px solid #ffa600;
-    box-shadow: 0 0px #666;
-    transform: translateY(5px);
-}
-
-.stage label span {
-    position: relative;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-}
-
 .left {
     width: 100px;
     height: 50px;
     line-height: 50px;
-    background: #ff0000;
+    background: #aa0000;
     color: white;
-    border: 5px solid #ff0000;
+    border: 5px solid #aa0000;
     text-align: center;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
-    box-shadow: 0 5px #777;
+    box-shadow: 0 5px #9a9280;
 }
-.left:hover {background-color: #cf0000;}
+.left:hover {background-color: #7d0000;}
 
 .mid {
     width: 100px;
     height: 50px;
     line-height: 50px;
-    background: #ff0000;
+    background: #aa0000;
     color: white;
-    border: 5px solid #ff0000;
+    border: 5px solid #aa0000;
     text-align: center;
-    box-shadow: 0 5px #777;
+    box-shadow: 0 5px #9a9280;
 }
-.mid:hover {background-color: #cf0000;}
+.mid:hover {background-color: #7d0000;}
 
 .right {
     width: 100px;
     height: 50px;
     line-height: 50px;
-    background: #ff0000;
+    background: #aa0000;
     color: white;
-    border: 5px solid #ff0000;
+    border: 5px solid #aa0000;
     text-align: center;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
-    box-shadow: 0 5px #777;
+    box-shadow: 0 5px #9a9280;
 }
-.right:hover {background-color: #cf0000;}
+.right:hover {background-color: #7d0000;}
