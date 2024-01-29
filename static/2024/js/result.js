@@ -12,9 +12,10 @@ function collectData() {
     contents["miss"] = JSON.parse(localStorage.getItem("miss"));
     contents["drop"] = JSON.parse(localStorage.getItem("drop"));
     contents["defense"] = JSON.parse(localStorage.getItem("defense"));
+    contents["endAuto"] = JSON.parse(localStorage.getItem("endAuto"));
+    //get stage data
     contents["autoStageState"] = JSON.parse(localStorage.getItem("autoStageState"));
     contents["stageState"] = JSON.parse(localStorage.getItem("stageState"));
-    contents["endAuto"] = JSON.parse(localStorage.getItem("endAuto"));
     //get result data
     contents["comments"] = JSON.parse(localStorage.getItem("comments"));
     //get navigation timestamps
