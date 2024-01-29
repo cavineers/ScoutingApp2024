@@ -10,7 +10,7 @@ window.addEventListener("load", async () => {
         var namesResponse = await fetch("/names");
         /*An array containing all the country names in the world:*/
         var names = await namesResponse.json();
-        /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+        (document.getElementById("name"), names);
         let submitForm = document.getElementById("submitForm");
         submitForm.addEventListener("submit", (ev) => {
             ev.preventDefault();
@@ -109,7 +109,8 @@ window.addEventListener("load", async () => {
                       stageHarmony.checked ? stageHarmony.value :
                       stageOn.checked ? stageOn.value :
                       stageOff.value;
-
+                    
+                      
             //go to result.html
             window.location.href = "/result.html";
         });
