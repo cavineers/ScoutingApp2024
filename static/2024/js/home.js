@@ -1,14 +1,14 @@
-let teamLayout = ["red", "red", "red", "blue", "blue", "blue"];
-const teamOrder = ["red1", "red2", "red3", "blue1", "blue2", "blue3"];
+let teamLayout = ["red", "red", "red", "blu", "blu", "blu"];
+const teamOrder = ["red1", "red2", "red3", "blu1", "blu2", "blu3"];
 
-const UNSELECTED_COLOR = "#777";
-const RED_COLOR = "#ff0000";
-const RED_BORDER_COLOR = "#ff0000";
-const BLUE_COLOR = "#0000ff";
-const BLUE_BORDER_COLOR = "#0000ff";
+const UNSELECTED_COLOR = "#9a9280";
+const RED_COLOR = "#aa0000";
+const RED_BORDER_COLOR = "#aa0000";
+const BLUE_COLOR = "#476291";
+const BLUE_BORDER_COLOR = "#476291";
 
 window.addEventListener("load", () => {
-    let teams = document.querySelectorAll(".red, .blue");
+    let teams = document.querySelectorAll(".red, .blu");
     for (let i = 0; i<teams.length; i++) {
         teams[i].addEventListener("click", (ev) => {
             if (ev.button!=0) return;
@@ -18,7 +18,7 @@ window.addEventListener("load", () => {
                     teams[i].style.background = RED_COLOR;
                     teams[i].style.borderColor = RED_BORDER_COLOR;
                     break;
-                case "blue":
+                case "blu":
                     teams[i].style.background = BLUE_COLOR;
                     teams[i].style.borderColor = BLUE_BORDER_COLOR;
                     break;

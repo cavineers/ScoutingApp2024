@@ -117,7 +117,7 @@ tr {
 }
 .red-mid:hover {background-color: #cf0000;}
 
-.blue-mid {
+.blu-mid {
     width: 100px;
     height: 50px;
     line-height: 50px;
@@ -127,9 +127,9 @@ tr {
     text-align: center;
     box-shadow: 0 5px #9a9280;
 }
-.blue-mid:hover {background-color: #0000FF;}
+.blu-mid:hover {background-color: #293853;}
 
-.blue-right {
+.blu-right {
     width: 100px;
     height: 50px;
     line-height: 50px;
@@ -141,4 +141,4 @@ tr {
     border-bottom-right-radius: 25px;
     box-shadow: 0 5px #9a9280;
 }
-.right:hover {background-color: #0000FF;} 
+.blu-right:hover {background-color: #293853;} 
