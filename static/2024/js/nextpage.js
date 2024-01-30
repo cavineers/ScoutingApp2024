@@ -1,8 +1,3 @@
-import("./prematch.js");
-import("./scout.js");
-import("./stage.js");
-import("./result.js");
-
 window.addEventListener("load", async () => {
 
     //HOME
