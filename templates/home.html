@@ -65,17 +65,17 @@
             </label>-->
         <table class="table" autocomplete="off">
             <tr>
-                <td class="text"><label for="matchNumber">Round:&emsp;</label></td>
-                <td><input class="input" name="matchNumber" type="number" /></td>
+                <td class="text"><label for="match">Round:&emsp;</label></td>
+                <td><input class="input" name="match" type="number" /></td>
             </tr>
             <tr>
-                <td class="text"><label for="teamNumber">Team:&emsp;</label></td>
-                <td><input class="input" name="teamNumber" type="number" /></td>
+                <td class="text"><label for="team">Team:&emsp;</label></td>
+                <td><input class="input" name="team" type="number" /></td>
             </tr>
             <tr>
-                <td class="text"><label for="scouterName">Name:&emsp;</label></td>
+                <td class="text"><label for="scouter">Name:&emsp;</label></td>
                 <td class="select">
-                    <select class="input" id="name" name="scouterName">
+                    <select class="input" id="name" name="scouter">
                         <option value="placeholder">Pick Your Name</option>
                         {% if names %}
                         {% for name in names %}

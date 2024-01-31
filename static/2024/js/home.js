@@ -32,16 +32,16 @@ window.addEventListener("load", () => {
 });
 
 function verifyInfo(inputs) {
-    console.log(inputs.matchNumber)
-    if (inputs.matchNumber < 1) {
+    console.log(inputs.match)
+    if (inputs.match < 1) {
         outputError("Invalid match number.");
         return false;
     }
-    else if (inputs.teamNumber < 1) {
+    else if (inputs.team < 1) {
         outputError("Invalid team number.")
         return false;
     }
-    else if (!inputs.scouterName.trim() || inputs.scouterName=="placeholder") {
+    else if (!inputs.scouter.trim() || inputs.scouter=="placeholder") {
         outputError("Enter your name (The name of the person scouting).");
         return false;
     }

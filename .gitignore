@@ -1,4 +1,5 @@
 **/__pycache__/
 *.py[cod]
 token.json
+config.json
 submissions.txt

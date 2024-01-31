@@ -49,7 +49,7 @@ function multiViewUI(members, memberCount, limitMin, limitMax, compressMethod, i
 }
 
 /**
- * @param {number} teamNumber
+ * @param {number} team
  * @param {number} memberCount
  * @param {string} idColumnName
  * @param {string} limitColumnName
@@ -57,7 +57,7 @@ function multiViewUI(members, memberCount, limitMin, limitMax, compressMethod, i
  * @param {string[][]} columns
  * @param {number[][]|string[][]} weights
  */
-function getScore(teamNumber, memberCount, idColumnName, limitColumnName, rows, columns, weights) {
+function getScore(team, memberCount, idColumnName, limitColumnName, rows, columns, weights) {
   columns = columns[0];
   weights = weights[0];
 
@@ -86,7 +86,7 @@ function getScore(teamNumber, memberCount, idColumnName, limitColumnName, rows, 
     
     //slice row to get team values
     const row = rows[i].slice(0, memberCount*2);
-    const sliced = row.slice(memberCount*(teamNumber-1), memberCount*teamNumber);
+    const sliced = row.slice(memberCount*(team-1), memberCount*team);
     //column numeric converstion data
     const isNumeric = row.every(v => typeof v == "number" || typeof v == "boolean");
     const mapFunc = valMap[columnName];
