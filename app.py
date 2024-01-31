@@ -7,10 +7,60 @@ import waitress #production quality WSGI server to host the flask app with. more
 import traceback
 
 DIR = os.path.dirname(__file__)
+SUBMISSIONS_FILE = os.path.join(DIR, "submissions.txt")
 NAMES_FILE = os.path.join(DIR, "names.txt")
 
 app = Flask("routes")
 app.url_map.strict_slashes = False
+
+#cache control
+
+not_content = []
+
+def not_content_route(rule:str, onto=app, **options):
+    "Mark route as a not-content-returning route. Internally uses route decorator with the object passed to onto. Default is app."
+    def decor(f):
+        not_content.append(rule)
+        return onto.route(rule, **options)(f)
+    return decor
+
+@app.route("/manifest.json")
+def get_manifest():
+    return send_file(os.path.abspath("manifest.json"))
+
+@not_content_route("/sw.js")
+def get_serviceworker():
+    return send_file(os.path.join("static", "js", "sw.js"), mimetype="text/javascript")
+
+#api routes
+#cite: https://stackoverflow.com/a/13318415
+def has_no_empty_params(rule):
+    defaults = rule.defaults if rule.defaults is not None else ()
+    arguments = rule.arguments if rule.arguments is not None else ()
+    return len(defaults) >= len(arguments)
+
+def _get_static_routes(dir="static", name="static")->"list[str]":
+    rtv = []
+    for filename in os.listdir(dir):
+        path = os.path.join(dir, filename)
+        if os.path.isdir(path):
+            rtv.extend(_get_static_routes(path, name=name+"/"+filename))
+        elif os.path.isfile(path):
+            rtv.append(f"/{name}/{filename}")
+    return rtv
+
+@not_content_route("/assets")
+def assets():
+    routes = list({
+        url_for(rule.endpoint, **(rule.defaults or {}))
+        for rule in app.url_map.iter_rules()
+        if "GET" in rule.methods and has_no_empty_params(rule) and url_for(rule.endpoint, **(rule.defaults or {})) not in not_content
+    })
+    return json.dumps(routes+_get_static_routes())
+
+@not_content_route("/ping")
+def ping():
+    return "pong" #TODO return something more useful later
 
 #event handlers
 @app.before_request
@@ -32,7 +82,7 @@ def to_first_page():
 @app.route("/home.html")
 def home():
     with open(NAMES_FILE) as f:
-        return render_template("home.html", names=sorted([name.strip() for name in f.readlines()], key=lambda name: name.rsplit(" ",1)[-1]))
+        return render_template("home.html", names=[name.strip() for name in f.readlines()])
 
 @app.route("/scout.html")
 def scout():
