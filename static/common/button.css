@@ -1,8 +1,5 @@
 .button_red {
-    height: 50px;
-    width: 150px;
-    margin-top: 10px;
-    line-height: 20px;
+    margin-top: 5vh;
     background-color: #aa0000; /* Red */
     border: none;
     color: white;
@@ -14,10 +11,7 @@
 }
 
 .button_blu {
-    height: 50px;
-    width: 150px;
-    margin-top: 10px;
-    line-height: 20px;
+    margin-top: 5vh;
     background-color: #476291; /* Blu */
     border: none;
     color: white;
@@ -47,7 +41,6 @@
 .left {
     width: 100px;
     height: 50px;
-    line-height: 50px;
     background: #aa0000;
     color: white;
     border: 5px solid #aa0000;
@@ -61,7 +54,6 @@
 .mid {
     width: 100px;
     height: 50px;
-    line-height: 50px;
     background: #aa0000;
     color: white;
     border: 5px solid #aa0000;
@@ -73,7 +65,6 @@
 .right {
     width: 100px;
     height: 50px;
-    line-height: 50px;
     background: #aa0000;
     color: white;
     border: 5px solid #aa0000;
@@ -87,7 +78,6 @@
 .blu-left {
     width: 100px;
     height: 50px;
-    line-height: 50px;
     background: #476291;
     color: white;
     border: 5px solid #476291;
@@ -101,7 +91,6 @@
 .blu-mid {
     width: 100px;
     height: 50px;
-    line-height: 50px;
     background: #476291;
     color: white;
     border: 5px solid #476291;
@@ -113,7 +102,6 @@
 .blu-right {
     width: 100px;
     height: 50px;
-    line-height: 50px;
     background: #476291;
     color: white;
     border: 5px solid #476291;

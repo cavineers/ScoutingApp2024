@@ -1,6 +1,15 @@
+.content {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+}
+
 .stage {
-    margin-top: 5%;
+    margin-top: 5vh;
     text-align: center;
+    width: 100%;
+    display: block;
+    height: 50%;
 }
 
 .stage label {
@@ -179,3 +188,4 @@ svg {
     0% {opacity: 0;}
     100% {opacity: 1;}
   }
+
