@@ -1,6 +1,12 @@
 /** @type {Array.<ScoreNote>} */
 let scoreNotes = [];
 /** @type {Array.<number>} */
+let autoPickUps = []
+/** @type {Array.<number>} */
+let autoMisses = []
+/** @type {Array.<number>} */
+let autoDrops = []
+/** @type {Array.<number>} */
 let pickUps = []
 /** @type {Array.<number>} */
 let misses = [];
@@ -13,13 +19,14 @@ let cooperations = [];
 /** @type {Array.<number>} */
 let amplifies = [];
 
-
-const PICK_UP = "pickUps"; // picks up note
-const MISS = "misses"; // misses with note
-const DROP = "drops"; // drops note
-const DEFENSE = "defenses"; // blocks and steals
+const AUTO_PICK_UP = "autoPickUp"; //picks up note during auto
+const AUTO_MISS = "autoMiss"; // misses with note during auto
+const AUTO_DROP = "autoDrop"; // drops note during auto
+const PICK_UP = "pickUps"; // picks up note during teleop
+const MISS = "misses"; // misses with note during teleop
+const DROP = "drops"; // drops note during teleop
+const DEFENSE = "defenses"; // blocks and steals during teleop
 const END_AUTO_STORAGE = "endAuto";
-const AUTO_STAGE_STORAGE = "autoStageState";
 const COOPERATION = "cooperations";
 const AMPLIFIED = "amplifies";
 
@@ -98,9 +105,9 @@ window.addEventListener("load", () => {
     const cooperation = document.getElementById("cooperation")
     const amplified = document.getElementById("amplified")
 
-    setMarkTime(autoPickUp, PICK_UP, pickUps);
-    setMarkTime(autoMiss, MISS, misses);
-    setMarkTime(autoDrop, DROP, drops);
+    setMarkTime(autoPickUp, AUTO_PICK_UP, autoPickUps);
+    setMarkTime(autoMiss, AUTO_MISS, autoMisses);
+    setMarkTime(autoDrop, AUTO_DROP, autoDrops);
     setMarkTime(pickUp, PICK_UP, pickUps);
     setMarkTime(miss, MISS, misses);
     setMarkTime(drop, DROP, drops);

@@ -54,6 +54,9 @@ window.addEventListener("load", async () => {
             const stageHarmony = document.getElementById("stageHarmonyAuto");
             */
             
+            localStorage.setItem(AUTO_PICK_UP, JSON.stringify(autoPickUps))
+            localStorage.setItem(AUTO_MISS, JSON.stringify(autoMisses))
+            localStorage.setItem(AUTO_DROP, JSON.stringify(autoDrops))
             localStorage.setItem(END_AUTO_STORAGE, JSON.stringify(getUTCNow()));
             
 

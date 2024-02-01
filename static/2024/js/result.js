@@ -6,15 +6,18 @@ function collectData() {
     //get prematch data
     contents["startObject"] = JSON.parse(localStorage.getItem("startObject"));
     contents["roboPos"] = JSON.parse(localStorage.getItem("roboPos"));
-    contents["objectLayout"] = JSON.parse(localStorage.getItem("objectLayout"));
     //get scout data
-    contents["pick up"] = JSON.parse(localStorage.getItem("pick up"));
+    //get auto data
+    contents["autoPickUp"] = JSON.parse(localStorage.getItem("autoPickUp"))
+    contents["autoMiss"] = JSON.parse(localStorage.getItem("autoMiss"))
+    contents["autoDrop"] = JSON.parse(localStorage.getItem("autoDrop"))
+    contents["endAuto"] = JSON.parse(localStorage.getItem("endAuto"));
+    //get teleop data
+    contents["pickUp"] = JSON.parse(localStorage.getItem("pickUp"));
     contents["miss"] = JSON.parse(localStorage.getItem("miss"));
     contents["drop"] = JSON.parse(localStorage.getItem("drop"));
     contents["defense"] = JSON.parse(localStorage.getItem("defense"));
-    contents["endAuto"] = JSON.parse(localStorage.getItem("endAuto"));
     //get stage data
-    contents["autoStageState"] = JSON.parse(localStorage.getItem("autoStageState"));
     contents["stageState"] = JSON.parse(localStorage.getItem("stageState"));
     //get result data
     contents["comments"] = JSON.parse(localStorage.getItem("comments"));

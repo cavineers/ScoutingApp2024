@@ -1,9 +1,9 @@
-let objectLayout = [null, null, null];
+let objectLayout = [null, null];
 const objectOrder = ["note"];
 
-const UNSELECTED_COLOR = "#777";
-const NOTE_COLOR = "#ff0";
-const NOTE_BORDER_COLOR = "#cc0";
+const UNSELECTED_COLOR = "#9a9280";
+const NOTE_COLOR = "#f1642b";
+const NOTE_BORDER_COLOR = "#f1642b";
 
 window.addEventListener("load", () => {
     let button = document.getElementsByClassName("note-button");

@@ -50,6 +50,7 @@ def prep_data(data:dict[str]):
 def handle_upload(raw:"dict[str]"):
     "Handle data sent to the upload route"
     #TODO use scoutingutil stuff
+    save_local(raw)
 
 def save_local(raw:"dict[str]|str"):
     "Save (append) the raw data to a local file."
@@ -74,7 +75,8 @@ class ScoutingData(Table):
     match = Column("MATCH", "match", process_data=lambda ctx: int(ctx.data), strict=True)
     scouter = Column("SCOUTER", "scouter")
     #prematch page
-    starting_position = Column("STARTING POSITION", "startingpos") #figure this out later, actually figure this all out later
+    starting_piece = Column("STARTING  PIECE", "startingpiece")
+    starting_position = Column("STARTING POSITION", "startingpos")
     #auto page
     picked_up_note_auto = Column("AUTO:PICKED UP NOTE", "pickup", process_data=count_column_auto)
     missed_shot_auto = Column("AUTO:MISSED SHOT", "missed", process_data=count_column_auto)
@@ -91,4 +93,3 @@ class ScoutingData(Table):
     #result page
     comments = Column("COMMENTS", "comments")
     #done
-    
