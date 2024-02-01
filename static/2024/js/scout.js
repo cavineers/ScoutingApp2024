@@ -29,6 +29,32 @@ const UNSELECTED_COLOR = "#777";
 const NOTE_COLOR = "#ff0";
 const NOTE_BORDER_COLOR = "#cc0";
 
+document.addEventListener("DOMContentLoaded", function() {var undoContainer = document.getElementById("undoContainer");});
+var undoBoxes = [];
+
+var displayTime = "00:00:00";
+var seconds = 0;
+var minutes = 0;
+var hours = 0;
+
+function updateTime() {
+   seconds++;
+   if (seconds==60) {
+       seconds = 0;
+       minutes++;
+   }
+   if (minutes==60) {
+       minutes = 0;
+       hours++;
+   }
+   if (seconds < 10) {displaySeconds = "0" + seconds;} else {displaySeconds = seconds;}
+   if (minutes < 10) {displayMinutes = "0" + minutes;} else {displaySeconds = minutes;}
+   if (hours < 10) {displayHours = "0" + hours;} else {displaySeconds = hours;}
+   displayTime = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+}
+
+setInterval(updateTime, 1000);
+
 function getUTCNow() {
     let d = new Date();
     return d.getTime() + d.getTimezoneOffset()*60000; //60000 ms in 1 minute
@@ -116,6 +142,30 @@ function setMarkTime(element, storageKey, array) {
 
         array.push(getUTCNow());
         localStorage.setItem(storageKey, JSON.stringify(array));
+
+        var buttonName = "";
+        switch(storageKey) {
+           case PICK_UP:
+               buttonName = "Pick Up";
+               break;
+           case MISS:
+               buttonName = "Miss";
+               break;
+           case DROP:
+               buttonName = "Drop";
+               break;
+           case DEFENSE:
+               buttonName = "Defense";
+               break;
+       }
+       var box = undoBoxes[undoBoxes.length];
+       box = document.createElement("div");
+       box.classList.add("undo_box");
+       undoContainer.appendChild(box);
+       var info = document.createElement("label");
+       info.innerHTML = "At " + displayTime + "," + buttonName + " was pressed"
+       info.classList.add("undo_info");
+       box.appendChild(info);
     });
 }
 

@@ -4,3 +4,28 @@
     width: 100%;
     margin-left: 0%;
 }
+
+.undo_container {
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: right;
+    overflow: scroll;
+ }
+ 
+ .undo_box {
+    width: 15vw;
+    height: 20vh;
+    min-width: 15vw;
+ }
+ 
+ .undo_info label{
+    height: 10vh;
+    width: 15vw;
+    min-width: 15vw;
+    padding: 0px;
+    visibility: visible;
+ }
+ 
