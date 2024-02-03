@@ -10,47 +10,48 @@
 <script src="/static/2024/js/navstamp.js"></script>
 {% endblock %}
 {% block contents %}
-<div>
-    <div class="content">
+<div class="content">
+    <div class="title">
         <h1>Pre-Match</h1>
-        <div class="start">
-            <h2>Starting Object</h2>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            <label>
-                                <input type="radio" id="startNone" name="startObject" value="startNone" checked>
-                                <span class="none">
-                            </label>
-                        </td>
-                        <td>
-                            <label>
-                                <input type="radio" id="startObject1" name="startObject" value="startObject1" >
-                                <span class="note">
-                            </label>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    </div>
+    <div class="start">
+        <h2>Starting Object</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <label>
+                            <input type="radio" id="startNone" name="startObject" value="startNone" checked>
+                            <span class="none">
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="radio" id="startObject1" name="startObject" value="startObject1" >
+                            <span class="note">
+                        </label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="stage">
+        <h2>Robot Position</h2>
+        <div class="stage_buttons">
+            <label>
+                <input type="radio" id="leftPos" name="roboPos" value="left" checked>
+                <span class="left">Left</span>
+            </label>
+            <label>
+                <input type="radio" id="middlePos" name="roboPos" value="middle">
+                <span class="mid">Middle</span>
+            </label>
+            <label>
+                <input type="radio" id="rightPos" name="roboPos" value="right">
+                <span class="right">Right</span>
+            </label>
         </div>
-        <div style="margin-top: 10%; width: 100%; text-align: center;">
-            <div class="stage">
-                <h2>Robot Position</h2>
-                <label>
-                    <input type="radio" id="leftPos" name="roboPos" value="left" checked>
-                    <span class="left">Left</span>
-                </label>
-                <label>
-                    <input type="radio" id="middlePos" name="roboPos" value="middle">
-                    <span class="mid">Middle</span>
-                </label>
-                <label>
-                    <input type="radio" id="rightPos" name="roboPos" value="right">
-                    <span class="right">Right</span>
-                </label>
-            </div>
-        </div>
+    </div>
     <div class="next_container">
         <button class="next" id="nextButton">
             <span>Next</span>

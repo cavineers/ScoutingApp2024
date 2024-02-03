@@ -38,43 +38,6 @@
     transform: translateY(5px);
 }
 
-.left {
-    width: 100px;
-    height: 50px;
-    background: #aa0000;
-    color: white;
-    border: 5px solid #aa0000;
-    text-align: center;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    box-shadow: 0 5px #9a9280;
-}
-.left:hover {background-color: #7d0000;}
-
-.mid {
-    width: 100px;
-    height: 50px;
-    background: #aa0000;
-    color: white;
-    border: 5px solid #aa0000;
-    text-align: center;
-    box-shadow: 0 5px #9a9280;
-}
-.mid:hover {background-color: #7d0000;}
-
-.right {
-    width: 100px;
-    height: 50px;
-    background: #aa0000;
-    color: white;
-    border: 5px solid #aa0000;
-    text-align: center;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    box-shadow: 0 5px #9a9280;
-}
-.right:hover {background-color: #7d0000;} 
-
 .blu-left {
     width: 100px;
     height: 50px;

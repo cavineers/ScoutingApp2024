@@ -1,3 +1,14 @@
+.content {
+  width: 100vw;
+  height: 100vh;
+}
+
+.title {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+}
+
 .submit {
   display: flex;
   height: 10vh;
@@ -20,27 +31,33 @@
   transform: translateY(5px);
 }
 
+.next_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10vh;
+}
+
 .next {
-    height: 38px;
-    width: 150px;
-    margin-top: 14%;
-    margin-left: 50%;
+    height: 7vh;
+    width: 20vw;
     background-color: #aa0000; /* Red */
     border: none;
     color: white;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 5px;
     box-shadow: 0 5px #9a9280;
   }
-
-.next span {
+  
+  .next span {
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 25px;
-    display: inline-block;
+    font-size: 3vh;
+    display: flex;
     position: relative;
     transition: 0.5s;
 }
