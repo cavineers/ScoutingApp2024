@@ -169,9 +169,13 @@ function toggleAutoTele() {
 
 let autoAmpCount = 0;
 let autoSpeakerCount = 0;
+let teleOpAmpCount = 0;
+let teleOpSpeakerCount = 0;
 
 document.getElementById("autoAmpScore").innerText = autoAmpCount;
 document.getElementById("autoSpeakerScore").innerText = autoSpeakerCount;
+document.getElementById("teleOpAmpScore").innerText = teleOpAmpCount;
+document.getElementById("teleOpSpeakerCount").innerText = teleOpSpeakerCount;
 
 function incrementAutoAmpCounter() {
     autoAmpCount++;
@@ -197,4 +201,30 @@ function decrementAutoSpeakerCounter() {
     else
         autoSpeakerCounter = 0;
     document.getElementById("autoSpeakerScore").innerText = autoSpeakerCount;
+}
+
+function incrementTeleOpAmpCounter() {
+    teleOpAmpCount++;
+    document.getElementById("teleOpAmpScore").innerText = teleOpAmpCount;
+}
+
+function decrementTeleOpAmpCounter() {
+    if(teleOpAmpCount > 0)
+        teleOpAmpCount--;
+    else
+        teleOpAmpCounter = 0;
+    document.getElementById("teleOpAmpScore").innerText = teleOpAmpCount;
+}
+
+function incrementTeleOpSpeakerCounter() {
+    teleOpSpeakerCount++;
+    document.getElementById("teleOpSpeakerScore").innerText = teleOpSpeakerCount;
+}
+
+function decrementTeleOpSpeakerCounter() {
+    if(teleOpSpeakerCount > 0)
+        teleOpSpeakerCount--;
+    else
+        teleOpSpeakerCounter = 0;
+    document.getElementById("teleOpSpeakerScore").innerText = teleOpSpeakerCount;
 }

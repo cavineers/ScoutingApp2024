@@ -22,12 +22,12 @@
         <label>
             <button class="button_red" id="autoDrop">Dropped Note</button>
         </label>
-        <div class="autoCounter" style="margin-top: 5%; width: 100%; text-align: center;">
+        <div class="counter" style="margin-top: 2%; width: 100%; text-align: center;">
             <div>
                 <label>
                     <h1>Amp</h1>
                     <button class="button_red" onclick="incrementAutoAmpCounter()">+</button>
-                    <h2 id="autoAmpScore"></h2>
+                    <h2 id="autoAmpScore">0</h2>
                     <button class="button_red" onclick="decrementAutoAmpCounter()">-</button>
                 </label>
             </div>
@@ -35,12 +35,12 @@
                 <label>
                     <h1>Speaker</h1>
                     <button class="button_red" onclick="incrementAutoSpeakerCounter()">+</button>
-                    <h2 id="autoSpeakerScore"></h2>
+                    <h2 id="autoSpeakerScore">0</h2>
                     <button class="button_red" onclick="decrementAutoSpeakerCounter()">-</button>
                 </label>
             </div>
         </div>
-        <div style="margin-top: 5%; width: 100%; text-align: center;">
+        <div style="margin-top: 10%; width: 100%; text-align: center;">
             <div>
                 <button class="next" id="endAuto">
                     <span>End Auto</span>
@@ -48,7 +48,7 @@
             </div>
         </div>
     </div>
-    <div class="tele" style="margin-top: 10%; width: 100%; text-align: center;">
+    <div class="tele" style="margin-top: 7%; width: 100%; text-align: center;">
         <label>
             <button class="button_red" id="pickUp">Picked Up Note</button>
         </label>
@@ -61,6 +61,24 @@
         <label>
             <button class="button_red" id="defense">Defense</button>
         </label>
+        <div class="counter" style="margin-top: 5%; width: 100%; text-align: center;">
+            <div>
+                <label>
+                    <h1>Amp</h1>
+                    <button class="button_red" onclick="incrementTeleOpAmpCounter()">+</button>
+                    <h2 id="teleOpAmpScore">0</h2>
+                    <button class="button_red" onclick="decrementTeleOpAmpCounter()">-</button>
+                </label>
+            </div>
+            <div>
+                <label>
+                    <h1>Speaker</h1>
+                    <button class="button_red" onclick="incrementTeleOpSpeakerCounter()">+</button>
+                    <h2 id="teleOpSpeakerScore">0</h2>
+                    <button class="button_red" onclick="decrementTeleOpSpeakerCounter()">-</button>
+                </label>
+            </div>
+        </div>
     <div class="tele" style="margin-top: 10%; width: 100%; text-align: center;">
         <label>
             <button class="button_blu" id="cooperation">Cooperation Bonus</button>

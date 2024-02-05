@@ -4,9 +4,9 @@
     margin-left: 0%;
 }
 
-.autoCounter {
+.counter {
     display: inline-flex;
-    height: 50vh;
+    height: 30vh;
     justify-content: space-evenly;
     align-items: center;
 }
