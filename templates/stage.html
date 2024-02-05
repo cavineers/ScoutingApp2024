@@ -12,43 +12,32 @@
 {% block contents %}
 <div class="content">
     <div class="stage">
-        <h2>Stage</h2>
+        <h1>Stage</h1>
         <label>
             <input type="radio" id="stageOff" name="stage" value="off" checked>
-            <span class="left">Off Stage</span>
+            <span class="red-left">Off Stage</span>
         </label>
         <label>
             <input type="radio" id="stageCommunity" name="stage" value="community">
-            <span class="mid">In Community</span>
+            <span class="red-mid">In Community</span>
         </label>
         <label>
             <input type="radio" id="stageOn" name="stage" value="on">
-            <span class="right">On Stage</span>
+            <span class="red-right">On Stage</span>
         </label>
     </div>
-        <!--TODO: fix placement of buttons if needed-->
-        <div class="harmonyCheckBox">
-            Harmony
-            <label>
-                <input type="checkbox" style="opacity: 100" id="stageHarmony" name="harmony" value="harmony">
-                <svg width="140" height="65" viewBox="0 0 140 65" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0" class="checkbox" width="128.8" height="63.9"/>
-                    <rect x="0" y="22.5" class="harmonyBox" width="20" height="20"/>
-                    <polyline class="harmonyCheckMark" points="4.5, 32.6 8.7, 36.8 16.5, 29.1"/>
-                </svg>
+    <div class="checkbox">
+        <h2>Harmony</h2>
+            <label class="switch">
+                <input type="checkbox", value="checked">
+                <span class="slider"></span>
             </label>
-        </div>
-        <div class="spotlitCheckBox">
-            Spotlit
-            <label>
-                <input type="checkbox" style="opacity: 100"  id="stageSpotlit" name="spotlit" value="spotlit">
-                <svg width="140" height="65" viewBox="0 0 140 65" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0" class="checkbox" width="128.8" height="63.9"/>
-                    <rect x="0" y="22.5" class="spotlitBox" width="20" height="20"/>
-                    <polyline class="spotlitCheckMark" points="4.5, 32.6 8.7, 36.8 16.5, 29.1"/>
-                </svg>
+        <h3>Spotlit</h3>
+            <label class="switch">
+                <input type="checkbox", value="checked">
+                <span class="slider"></span>
             </label>
-        </div>
+        </div>  
     <div class="next_container">
         <button class="next" id="nextButton3">
             <span>Next</span>
