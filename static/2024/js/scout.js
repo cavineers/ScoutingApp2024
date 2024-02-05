@@ -29,6 +29,8 @@ const DEFENSE = "defense"; // blocks and steals during teleop
 const END_AUTO_STORAGE = "endAuto"; // when auto ends
 const COOPERATION = "cooperation"; // cooperation bonus button pressed
 const AMPLIFIED = "amplified"; // amplified bonus button pressed
+const AUTO_AMP = "autoAmpScore" // scored in the amp during auto
+const AUTO_SPEAKER = "autoSpeakerScore" // scored in the speaker during auto
 
 const NOTE = "note"; // note (eek!)
 
@@ -104,7 +106,9 @@ window.addEventListener("load", () => {
     const defense = document.getElementById("defense"); // get the element with the ID "defense"
     const cooperation = document.getElementById("cooperation"); // get the element with the ID "cooperation"
     const amplified = document.getElementById("amplified"); // get the element with the ID "amplified"
-
+    const autoAmpScore = document.getElementById("autoAmpScore"); // get the element with the ID "autoAmpScore"
+    const autoSpeakerScore = document.getElementById("autoSpeakerScore"); // get the element with the ID "autoSpeakerScore"
+ 
     setMarkTime(autoPickUp, AUTO_PICK_UP, autoPickUps); // set a mark time for the element with ID "autoPickUp"
     setMarkTime(autoMiss, AUTO_MISS, autoMisses); // set a mark time for the element with ID "autoMiss"
     setMarkTime(autoDrop, AUTO_DROP, autoDrops); // set a mark time for the element with ID "autoDrop"
@@ -161,4 +165,36 @@ function toggleAutoTele() {
     else
         switchTele();
 
+}
+
+let autoAmpCount = 0;
+let autoSpeakerCount = 0;
+
+document.getElementById("autoAmpScore").innerText = autoAmpCount;
+document.getElementById("autoSpeakerScore").innerText = autoSpeakerCount;
+
+function incrementAutoAmpCounter() {
+    autoAmpCount++;
+    document.getElementById("autoAmpScore").innerText = autoAmpCount;
+}
+
+function decrementAutoAmpCounter() {
+    if(autoAmpCount > 0)
+        autoAmpCount--;
+    else
+        autoAmpCounter = 0;
+    document.getElementById("autoAmpScore").innerText = autoAmpCount;
+}
+
+function incrementAutoSpeakerCounter() {
+    autoSpeakerCount++;
+    document.getElementById("autoSpeakerScore").innerText = autoSpeakerCount;
+}
+
+function decrementAutoSpeakerCounter() {
+    if(autoSpeakerCount > 0)
+        autoSpeakerCount--;
+    else
+        autoSpeakerCounter = 0;
+    document.getElementById("autoSpeakerScore").innerText = autoSpeakerCount;
 }
