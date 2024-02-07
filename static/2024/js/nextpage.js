@@ -93,6 +93,8 @@ window.addEventListener("load", async () => {
                 return;
 
             // get references to various stage-related elements in the document
+            
+            /*
             const stageOff = document.getElementById("stageOff");
             const stageCommunity = document.getElementById("stageCommunity");
             const stageOn = document.getElementById("stageOn");
@@ -106,6 +108,7 @@ window.addEventListener("load", async () => {
                         stageOn.checked ? stageOn.value :
                         stageOff.value;
 
+            */
             // reditect to result.html
             window.location.href = "/result.html";
         });
