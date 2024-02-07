@@ -11,7 +11,10 @@
 {% block contents %}
 <div>
     <!--TODO: fix placement of buttons if needed-->
-    <div class="auto" style="margin-top: 10%; width: 100%; text-align: center;">
+    <div class="auto" style="width: 100%; text-align: center;">
+        <div class="title">
+            <h1>Auto</h1>
+        </div>
         <label>
             <button class="button_red" id="autoPickUp">Picked Up Note</button>
         </label>
@@ -21,15 +24,18 @@
         <label>
             <button class="button_red" id="autoDrop">Dropped Note</button>
         </label>
-        <div style="margin-top: 10%; width: 100%; text-align: center;">
+        <div style="width: 100%; text-align: center;">
         </div>
-        <div>
+        <div class="endauto_container">
             <button class="next" id="endAuto">
                 <span>End Auto</span>
             </button>
         </div>
     </div>
-    <div class="tele" style="margin-top: 10%; width: 100%; text-align: center;">
+    <div class="tele" style="width: 100%; text-align: center;">
+        <div class="title">
+            <h1>Teleop</h1>
+        </div>
         <label>
             <button class="button_red" id="pickUp">Picked Up Note</button>
         </label>
@@ -42,7 +48,7 @@
         <label>
             <button class="button_red" id="defense">Defense</button>
         </label>
-    <div class="tele" style="margin-top: 10%; width: 100%; text-align: center;">
+    <div class="tele" style="width: 100%; text-align: center;">
         <label>
             <button class="button_blu" id="cooperation">Cooperation Bonus</button>
         </label>
