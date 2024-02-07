@@ -44,6 +44,13 @@
   margin-top: 10vh;
 }
 
+.endauto_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10vh;
+}
+
 .next {
     height: 7vh;
     width: 20vw;
