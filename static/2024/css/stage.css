@@ -28,13 +28,72 @@
     font-size: 16px;
 }
 
-.checkbox input[type="checkbox"] {
-  visibility: hidden;
-  display: none;
+.harmonyCheckBox, .spotlitCheckBox {
+    width: 130px;
+    height: 65px;
+    margin: 15px auto;
+    color: #9a9280;
+    font-family: Geneva, Segoe UI, Verdana, sans-serif;
+    font-size: 17px;
+    line-height: 65px;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
 }
 
-.checkbox *, .checkbox ::after, .checkbox ::before {
-  box-sizing: border-box;
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  svg rect, svg path, svg polyline {
+    fill: none;
+    stroke: #476291;
+    stroke-width: 1;
+  }
+
+  .harmonyCheckBox svg, .spotlitCheckBox svg{
+    margin-left: -10px;
+  }
+
+  .harmonyCheckBox svg rect, .spotlitCheckBox svg rect, .harmonyCheckBox svg polyline, .spotlitCheckBox svg polyline {
+    fill: none;
+    stroke:#9a9280;
+    stroke-width: 1;
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -ms-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+  }
+
+  .harmonyCheckBox:hover svg rect, .spotlitCheckBox:hover svg rect {
+    stroke-width: 2;
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -ms-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+  }
+
+  .harmonyCheckBox:hover svg polyline, .spotlitCheckBox:hover svg polyline {
+    stroke-width: 2;
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -ms-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;   
+  }
+
+  .harmonyCheckBox svg .checkbox, .spotitCheckBox svg .checkbox {
+    stroke-dasharray: 400px, 0;
+  }
+
+  .harmonyCheckBox:hover svg .checkbox{
+    stroke-dasharray: 0, 400px;
+    stroke-dashoffset: 33px;
+  }
+
+  .spotlitCheckBox:hover svg .checkbox {
+  stroke-dasharray: 0, 400px;
+  stroke-dashoffset: 33px;
 }
 
 .checkbox .switch {
