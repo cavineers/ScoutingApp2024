@@ -6,7 +6,13 @@
 .title {
   display: inline-block;
   width: 100%;
-  height: auto;
+  height: fit-content;
+}
+
+.title h1 {
+  width: 100%;
+  font-size: 6vh;
+  text-align: center;
 }
 
 .submit {
@@ -14,7 +20,7 @@
   height: 10vh;
   width: 25vw;
   background-color: #aa0000;
-  border: none;
+  border: 5px solid #7d0000;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -38,11 +44,18 @@
   margin-top: 10vh;
 }
 
+.endauto_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10vh;
+}
+
 .next {
     height: 7vh;
     width: 20vw;
     background-color: #aa0000; /* Red */
-    border: none;
+    border: 5px solid #7d0000;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -93,7 +106,7 @@
   width: 50px;
   margin: 10px;
   background-color: #9a9280;
-  border: none;
+  border: 5px solid #3e3e3e;
   padding: 10px;
   border-radius: 100%;
   align-items: center;
@@ -103,7 +116,7 @@
 .button_red {
   margin-top: 5vh;
   background-color: #aa0000; /* Red */
-  border: none;
+  border: 5px solid #7d0000;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -120,7 +133,7 @@
 .button_blu {
   margin-top: 5vh;
   background-color: #476291; /* Blu */
-  border: none;
+  border: 5px solid #293853;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -146,11 +159,9 @@
 }
 
 .blu-left {
-  width: 100px;
-  height: 50px;
   background: #476291;
   color: white;
-  border: 5px solid #476291;
+  border: 5px solid #293853;
   text-align: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
@@ -159,22 +170,18 @@
 .blu-left:hover {background-color: #293853;}
 
 .blu-mid {
-  width: 100px;
-  height: 50px;
   background: #476291;
   color: white;
-  border: 5px solid #476291;
+  border: 5px solid #293853;
   text-align: center;
   box-shadow: 0 5px #9a9280;
 }
 .blu-mid:hover {background-color: #293853;}
 
 .blu-right {
-  width: 100px;
-  height: 50px;
   background: #476291;
   color: white;
-  border: 5px solid #476291;
+  border: 5px solid #293853;
   text-align: center;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
@@ -183,12 +190,9 @@
 .blu-right:hover {background-color: #293853;} 
 
 .left {
-  width: 10vw;
-  min-width: 4em;
-  height: 6vh;
   background: #aa0000;
   color: white;
-  border: 5px solid #aa0000;
+  border: 5px solid #7d0000;
   text-align: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
@@ -197,24 +201,18 @@
 .left:hover {background-color: #7d0000;}
 
 .mid {
-  width: 10vw;
-  min-width: 4em;
-  height: 6vh;
   background: #aa0000;
   color: white;
-  border: 5px solid #aa0000;
+  border: 5px solid #7d0000;
   text-align: center;
   box-shadow: 0 5px #9a9280;
 }
 .mid:hover {background-color: #7d0000;}
 
 .right {
-  width: 10vw;
-  min-width: 4em;
-  height: 6vh;
   background: #aa0000;
   color: white;
-  border: 5px solid #aa0000;
+  border: 5px solid #7d0000;
   text-align: center;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
