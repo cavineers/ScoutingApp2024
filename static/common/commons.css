@@ -75,7 +75,7 @@
   .next span {
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 3vh;
+    font-size: 2vh;
     display: flex;
     position: relative;
     transition: 0.5s;
@@ -126,7 +126,6 @@
   color: white;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
   border-radius: 5px;
   box-shadow: 0 5px #9a9280;
 }
@@ -138,7 +137,6 @@
   color: white;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
   border-radius: 5px;
   box-shadow: 0 5px #9a9280;
 }
