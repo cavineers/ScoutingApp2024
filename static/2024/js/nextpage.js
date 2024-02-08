@@ -92,23 +92,20 @@ window.addEventListener("load", async () => {
             if (ev.button != 0)
                 return;
 
-            // get references to various stage-related elements in the document
-            
-            /*
-            const stageOff = document.getElementById("stageOff");
-            const stageCommunity = document.getElementById("stageCommunity");
-            const stageOn = document.getElementById("stageOn");
-            const stageHarmony = document.getElementById("stageHarmony");
-            const stageSpotlit = document.getElementById("stageSpotlit");
+            // get references to various chain-related elements in the document 
+            const chainLeft = document.getElementById("chainLeft");
+            const chainCenter = document.getElementById("chainCenter");
+            const chainRight = document.getElementById("chainRight");
+            // determine the selected chain based on the checked state of radio buttons
+            const state = chainLeft.checked ? chainLeft.value :
+                        chainCenter.checked ? chainCenter.value :
+                        chainRight.checked ? chainRight.value :
+            localStorage.setItem(CHAIN_STORAGE, JSON.stringify(state))
 
-            // determine the selected stage based on the checked state of radio buttons
-            const state = stageSpotlit.checked ? stageSpotlit.value :
-                        stageCommunity.checked ? stageCommunity.value :
-                        stageHarmony.checked ? stageHarmony.value :
-                        stageOn.checked ? stageOn.value :
-                        stageOff.value;
-
-            */
+            for (let input of document.getElementsByTagName("input")) {
+                if (input.type == "radio" && !input.checked) continue;
+                localStorage.setItem(input.name, JSON.stringify(input.value));
+            }
             // reditect to result.html
             window.location.href = "/result.html";
         });
