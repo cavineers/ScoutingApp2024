@@ -104,9 +104,7 @@ class ScoutingData(Table):
     amplified = Column("AMPLIFIED BONUS", "amplified", process_data=count_column_teleop)
     
     #stage page
-    stage_state = Column("STAGE STATE", "stage")
-    harmony = Column("HARMONY", "harmony") 
-    spotlit = Column("SPOTLIT", "spotlit") 
+    chainState = Column("CHAIN STATE", "chainState") 
     
     #result page
     comments = Column("COMMENTS", "comments")
