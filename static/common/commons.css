@@ -16,25 +16,31 @@
 }
 
 .submit {
-  display: flex;
-  height: 10vh;
-  width: 25vw;
-  background-color: #aa0000;
+  height: 7vh;
+  width: 20vw;
+  background-color: #aa0000; /* Red */
   border: 5px solid #7d0000;
   color: white;
   text-align: center;
   text-decoration: none;
-  font-size: 3vh;
-  border-radius: 10px;
-  box-shadow: 0 5px #9a9280;
+  display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 5px #9a9280;
 }
 
 .submit:active {
   background-color: #7d0000;
   box-shadow: 0 0px #3e3e3e;
   transform: translateY(5px);
+}
+
+.submit_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10vh;
 }
 
 .next_container {
