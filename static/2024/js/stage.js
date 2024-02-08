@@ -28,3 +28,7 @@ function setMarkTime(element, storageKey, array) {
         localStorage.setItem(storageKey, JSON.stringify(array));
     });
 }
+
+function updateSliderHandle(){
+    
+}

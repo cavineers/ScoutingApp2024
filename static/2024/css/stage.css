@@ -92,6 +92,30 @@
   	height: 100%;
 }
 
+.arc-slider {
+	width: 400px;
+	height: 200px;
+}
+
+.slider-track {
+	width: 100%;
+	height: 100%;
+	border: 4px solid #ccc;
+	border-radius: 50%;
+	position: relative;
+	overflow: hidden;
+}
+
+.slider-handle {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background: #dc0000;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
 .checkbox input[type="checkbox"] {
 	visibility: hidden;
 	display: none;
