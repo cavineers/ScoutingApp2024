@@ -23,43 +23,36 @@
                 </div>
                 <div class="chain_selection_button">
                     <label>
-                        <input type="radio" name="chain" class="leftChain">
-                        <span class="left">L</span>
+                        <input type="radio" id="chainLeft" name="chainState" class="leftChain" value="left">
+                        <span class="left">Left</span>
                     </label>
                     <label>
-                        <input type="radio" name="chain" class="centerChain">
-                        <span class="mid">C</span>
+                        <input type="radio" id="chainCenter" name="chainState" class="centerChain" value="middle">
+                        <span class="mid">Center</span>
                     </label>
                     <label>
-                        <input type="radio" name="chain" class="rightChain">
-                        <span class="right">R</span>
+                        <input type="radio" id="chainRight" name="chainState" class="rightChain" value="right"> 
+                        <span class="right">Right</span>
                     </label>
                 </div>
-            </div>
-            <div class="checkbox">
-                <h2>Harmony</h2>
-                    <label class="switch">
-                        <input type="checkbox">
-                    <span class="slider"></span>
-                    </label>
-                <h2>Spotlit</h2>
-                    <label class="switch">
-                        <input type="checkbox">
-                    <span class="slider"></span>
-                    </label>
             </div>
             <div class="robot_position_container">
-                <div class="robot_position">
-                    <div id="arc-slider" class="arc-slider">
-                        <div class="slider-track">
-                            <div id="slider-handle" class="slider-handle"></div>
-                        </div>
+                <div class="robot_position_img">
+                    <div class="spotlight">
+                        <!-- This goes above the entire stage where the mic would be -->
+                        <input type="checkbox">
                     </div>
+                    <div class="trap">
+                        <!-- This goes in the black square above the april tage -->
+                        <input type="checkbox">
+                    </div>
+                    <img class="chain_img">
+                    <div class="location"></div>
+                </div>
+                <div class="robot_position">
+                    <input type="range" min="-5" max="5" value="0">
                 </div>
             </div>
-        </div>
-        <div class="harmony_container">
-
         </div>
     </div>
     <div class="next_container">
