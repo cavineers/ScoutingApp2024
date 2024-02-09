@@ -105,6 +105,7 @@ class ScoutingData(Table):
     
     #stage page
     chainState = Column("CHAIN STATE", "chainState") 
+    chainPosition = Column("CHAIN_POSITION", "chainPosition")
     
     #result page
     comments = Column("COMMENTS", "comments")
