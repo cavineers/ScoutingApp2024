@@ -21,3 +21,24 @@ function setMarkTime(element, storageKey, array) {
         localStorage.setItem(storageKey, JSON.stringify(array));
     });
 }
+
+function showStageLeft() {
+
+    document.getElementById("stage_left_img").style.visibility = "visible";
+    document.getElementById("stage_center_img").style.visibility = "hidden";
+    document.getElementById("stage_right_img").style.visibility = "hidden";
+}
+
+function showStageCenter() {
+
+    document.getElementById("stage_left_img").style.visibility = "hidden";
+    document.getElementById("stage_center_img").style.visibility = "visible";
+    document.getElementById("stage_right_img").style.visibility = "hidden";
+}
+
+function showStageRight() {
+
+    document.getElementById("stage_left_img").style.visibility = "hidden";
+    document.getElementById("stage_center_img").style.visibility = "hidden";
+    document.getElementById("stage_right_img").style.visibility = "visible";
+}

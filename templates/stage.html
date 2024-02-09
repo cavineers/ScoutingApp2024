@@ -17,22 +17,22 @@
         <div class="img_div_container">
             <div class="chain_selection_container">
                 <div class="chain_selection_img">
-                    <img class="stage_right_img">
-                    <img class="stage_center_img">
-                    <img class="stage_left_img">
+                    <img class="stage_right_img" id="stage_right_img">
+                    <img class="stage_center_img" id="stage_center_img">
+                    <img class="stage_left_img" id="stage_left_img">
                 </div>
                 <div class="chain_selection_button">
                     <label>
                         <input type="radio" id="chainLeft" name="chainState" class="leftChain" value="left">
-                        <span class="left">Left</span>
+                        <span class="left" onclick="showStageLeft()">Left</span>
                     </label>
                     <label>
                         <input type="radio" id="chainCenter" name="chainState" class="centerChain" value="middle">
-                        <span class="mid">Center</span>
+                        <span class="mid" onclick="showStageCenter()">Center</span>
                     </label>
                     <label>
                         <input type="radio" id="chainRight" name="chainState" class="rightChain" value="right"> 
-                        <span class="right">Right</span>
+                        <span class="right" onclick="showStageRight()">Right</span>
                     </label>
                 </div>
             </div>
@@ -47,10 +47,10 @@
                         <input type="checkbox">
                     </div>
                     <img class="chain_img">
-                    <div class="location"></div>
+                    <div class="location" id="location"></div>
                 </div>
                 <div class="robot_position">
-                    <input type="range" min="-5" max="5" value="0">
+                    <input class="robot_position_slider" id="robot_position_slider" type="range" min="-5" max="5" value="0" onchange="followLocationSlider">
                 </div>
             </div>
         </div>
