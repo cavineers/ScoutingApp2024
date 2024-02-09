@@ -55,9 +55,9 @@ window.addEventListener("load", async () => {
                 return;
         
             // save auto-related data to local storage
-            localStorage.setItem(AUTO_PICK_UP, JSON.stringify(autoPickUps))
-            localStorage.setItem(AUTO_MISS, JSON.stringify(autoMisses))
-            localStorage.setItem(AUTO_DROP, JSON.stringify(autoDrops))
+            localStorage.setItem(AUTO_PICK_UP, JSON.stringify(autoPickUps));
+            localStorage.setItem(AUTO_MISS, JSON.stringify(autoMisses));
+            localStorage.setItem(AUTO_DROP, JSON.stringify(autoDrops));
             localStorage.setItem(END_AUTO_STORAGE, JSON.stringify(getUTCNow()));
 
             // switch to teleop phase
@@ -72,8 +72,8 @@ window.addEventListener("load", async () => {
             localStorage.setItem(MISS, JSON.stringify(misses));
             localStorage.setItem(DROP, JSON.stringify(drops));
             localStorage.setItem(DEFENSE, JSON.stringify(defenses));
-            localStorage.setItem(COOPERATION, JSON.stringify(cooperations))
-            localStorage.setItem(AMPLIFIED, JSON.stringify(amplifies))
+            localStorage.setItem(COOPERATION, JSON.stringify(cooperations));
+            localStorage.setItem(AMPLIFIED, JSON.stringify(amplifies));
 
             // redirect to stage.html
             window.location.href = "/stage.html";
@@ -96,14 +96,20 @@ window.addEventListener("load", async () => {
             const chainLeft = document.getElementById("chainLeft");
             const chainCenter = document.getElementById("chainCenter");
             const chainRight = document.getElementById("chainRight");
+            const chainPosition = document.getElementById("chainPosition");
             // determine the selected chain based on the checked state of radio buttons
             const state = chainLeft.checked ? chainLeft.value :
                         chainCenter.checked ? chainCenter.value :
                         chainRight.checked ? chainRight.value :
-            localStorage.setItem(CHAIN_STORAGE, JSON.stringify(state))
+            localStorage.setItem(CHAIN_STORAGE, JSON.stringify(state));
+            localStorage.setItem(CHAIN_POSITION, JSON.stringify(chainPosition));
 
             for (let input of document.getElementsByTagName("input")) {
                 if (input.type == "radio" && !input.checked) continue;
+                localStorage.setItem(input.name, JSON.stringify(input.value));
+            }
+            for (let input of document.getElementsByTagName("input")) {
+                if (input.type == "range" && !input.checked) continue;
                 localStorage.setItem(input.name, JSON.stringify(input.value));
             }
             // reditect to result.html
