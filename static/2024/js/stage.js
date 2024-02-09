@@ -2,12 +2,9 @@ const CHAIN_STORAGE = "chainState";
 const CHAIN_LEFT = "chainLeft";
 const CHAIN_CENTER = "chainCenter";
 const CHAIN_RIGHT = "chainRight";
+const CHAIN_POSITION = "chainPosition";
 const UNSELECTED_COLOR = "#9a9280";
 
-function getUTCNow() {
-    let d = new Date();
-    return d.getTime() + d.getTimezoneOffset()*60000; //60000 ms in 1 minute
-}
 
     //TODO: work on this page
 
@@ -20,4 +17,25 @@ function setMarkTime(element, storageKey, array) {
         array.push(getUTCNow());
         localStorage.setItem(storageKey, JSON.stringify(array));
     });
+}
+
+function showStageLeft() {
+
+    document.getElementById("stage_left_img").style.visibility = "visible";
+    document.getElementById("stage_center_img").style.visibility = "hidden";
+    document.getElementById("stage_right_img").style.visibility = "hidden";
+}
+
+function showStageCenter() {
+
+    document.getElementById("stage_left_img").style.visibility = "hidden";
+    document.getElementById("stage_center_img").style.visibility = "visible";
+    document.getElementById("stage_right_img").style.visibility = "hidden";
+}
+
+function showStageRight() {
+
+    document.getElementById("stage_left_img").style.visibility = "hidden";
+    document.getElementById("stage_center_img").style.visibility = "hidden";
+    document.getElementById("stage_right_img").style.visibility = "visible";
 }
