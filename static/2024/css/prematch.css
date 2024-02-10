@@ -1,9 +1,3 @@
-h1 {
-    width: 100%;
-    font-size: 6vh;
-    text-align: center;
-}
-
 .start {
     display: inline-block;
     align-items: center;
@@ -69,84 +63,46 @@ h1 {
     margin-left: 4px;
 }
 
-.stage {
+.position {
     width: 100%;
 }
 
-.stage h2 {
+.position h2 {
     font-size: 3vh;
     font-weight: bold;
     margin-top: 2%;
     text-align: center;
 }
 
-.stage_buttons {
+.position_buttons {
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
 }
 
-.stage label {
+.position label {
     margin: 3px;
 }
 
-.stage label input {
+.position label input {
     display: none;
 }
 
-.stage label input:checked ~ span{
+.position label input:checked ~ span{
     background-color: #9a9280;
     border: 5px solid #f4722b;
     box-shadow: 0 0px #3e3e3e;
     transform: translateY(5px);
 }
 
-.stage label span {
-    display: flex;
+.position label span {
     position: relative;
-    justify-content: center;
+    display: flex;
     align-items: center;
-    font-size: 2vh;
-}
-
-.left {
-    width: 10vw;
+    justify-content: center;
+    font-size: 3vh;
+    width: 15vw;
     min-width: 4em;
     height: 6vh;
-    background: #aa0000;
-    color: white;
-    border: 5px solid #7d0000;
-    text-align: center;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    box-shadow: 0 5px #9a9280;
 }
-.left:hover {background-color: #7d0000;}
-
-.mid {
-    width: 10vw;
-    min-width: 4em;
-    height: 6vh;
-    background: #aa0000;
-    color: white;
-    border: 5px solid #7d0000;
-    text-align: center;
-    box-shadow: 0 5px #9a9280;
-}
-.mid:hover {background-color: #7d0000;}
-
-.right {
-    width: 10vw;
-    min-width: 4em;
-    height: 6vh;
-    background: #aa0000;
-    color: white;
-    border: 5px solid #7d0000;
-    text-align: center;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    box-shadow: 0 5px #9a9280;
-}
-.right:hover {background-color: #7d0000;} 
-

@@ -28,7 +28,8 @@ function collectData() {
     contents["amplified"] = JSON.parse(localStorage.getItem("amplified"));
 
     // retrieve and store stage-related data
-    contents["stageState"] = JSON.parse(localStorage.getItem("stageState"));
+    contents["chainState"] = JSON.parse(localStorage.getItem("chainState"));
+    contents["chainPosition"] = JSON.parse(localStorage.getItem("chainPosition"));
 
     // retrieve and store result-related data (e.g., comments)
     contents["comments"] = JSON.parse(localStorage.getItem("comments"));
