@@ -144,32 +144,22 @@ function setMarkTime(element, storageKey, array) {
         array.push(getUTCNow());
         localStorage.setItem(storageKey, JSON.stringify(array));
 
-        var box = undoBoxes[undoBoxes.length];
-        box = document.createElement("div");
-        box.classList.add("undo_box");
-        undoContainer.insertAdjacentElement('afterbegin', box);
-
-        var buttonName = element.innerHTML;
-        var info = document.createElement("label");
-        info.innerHTML = displayTime + ", " + buttonName
-        info.classList.add("undo_info");
-        box.appendChild(info);
-
         var button = document.createElement("button");
         undoValues[undoValues.length] = 1
-        button.classList.add("button_red")
-        button.textContent = "Undo (1)";
+        button.classList.add("undo_button")
+        button.textContent = displayTime + " - " + element.innerHTML;
         button.number = undoValues.length
+        button.text = displayTime + " - " + element.innerHTML;
         button.addEventListener("click", function() {
             if (undoValues[button.number] == 1) {
-                button.textContent = "Redo (0)"
+                button.style.textDecoration = "line-through";
                 undoValues[button.number] = 0
             } else {
-                button.textContent = "Undo (1)"
+                button.style.textDecoration = "none";
                 undoValues[button.number] = 1
             }
         });
-        box.appendChild(button);
+        undoContainer.insertAdjacentElement('afterbegin', button)
 
     });
 }

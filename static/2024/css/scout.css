@@ -6,25 +6,22 @@
 }
 
 .undo_container {
-    width: 100vw;
-    height: 20vh;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    overflow: scroll;
+   margin-top: 3vh;
+   width: 100vw;
+   height: 10vh;
+   display: flex;
+   flex-wrap: nowrap;
+   flex-direction: row;
+   overflow: scroll;
  }
  
- .undo_box {
-    width: 15vw;
-    height: 20vh;
-    min-width: 15vw;
- }
- 
- .undo_info label{
-    height: 10vh;
-    width: 15vw;
-    min-width: 15vw;
-    padding: 0px;
-    visibility: visible;
+ .undo_button button{
+   background-color: #727272;
+   border: 0 5px rgb(135, 135, 135);
+   color: rgb(152, 152, 152);
+   text-align: center;
+   text-decoration: none;
+   font-size: 16px;
+   border-radius: 5px;
  }
  
