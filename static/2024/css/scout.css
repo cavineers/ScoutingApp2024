@@ -8,7 +8,7 @@
 .undo_container {
    margin-top: 3vh;
    width: 100vw;
-   height: 5vh;
+   height: 8vh;
    display: flex;
    flex-wrap: nowrap;
    flex-direction: row;
@@ -17,6 +17,7 @@
  
  .undo_button {
    margin-right: 1vw;
+   margin-bottom: 2vh;
    width: fit-content;
    min-width: fit-content;
    background-color: #727272;
