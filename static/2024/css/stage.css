@@ -109,17 +109,6 @@
 	background-position: center;
 }
 
-.robot_position {
-	width: 100%;
-    height: fit-content;
-    margin-top: 50%;
-    margin-bottom: 10%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
-
 .robot_position_img img{
 	grid-area: 1 / 1;
 	position: relative;
@@ -131,9 +120,6 @@
 }
 
 .chain_img {
-	display: grid;
-	width: 80%;
-	aspect-ratio: 1;
 	background-image: url("/static/img/field/stage/chain.png");
 	background-repeat: no-repeat;
 	background-size: contain;
