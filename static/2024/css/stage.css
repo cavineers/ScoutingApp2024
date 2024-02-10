@@ -1,8 +1,9 @@
 .img_div_container {
   	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-around;
   	width: 100%;
   	height: fit-content;
+	flex-wrap: wrap;
 }
 
 .chain_selection_container {
@@ -10,7 +11,7 @@
 	align-items: center;
 	flex-direction: column;
   	width: 40%;
-	min-width: 200px;
+	min-width: 250px;
 	max-width: 500px;
 	height: 100%;
 }
@@ -53,8 +54,9 @@
 
 .chain_selection_button {
     width: 100%;
-    margin-top: 3vh;
-    margin-bottom: 1vh;
+	height: fit-content;
+    margin-top: 5%;
+    margin-bottom: 10%;
     text-align: center;
 	display: flex;
 	justify-content: center;
@@ -92,7 +94,7 @@
   	align-items: center;
   	flex-direction: column;
 	width: 40%;
-  	min-width: 200px;
+  	min-width: 250px;
   	max-width: 500px;
   	height: 100%;
 }
@@ -130,7 +132,7 @@
 	z-index: 2;
 	width: 22.5%;
 	height: 40%;
-	margin-top: 47%;
+	margin-top: 46.5%;
 	background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 190, 0, .75));
 }
 
