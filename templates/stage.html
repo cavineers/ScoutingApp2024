@@ -3,7 +3,6 @@
 {% block styles %}
 <link rel="stylesheet" href="/static/2024/css/stage.css">
 <link rel="stylesheet" href="/static/common/commons.css">
-<link rel="stylesheet" href="/static/common/button.css">
 {% endblock %}
 {% block scripts %}
 <script src="/static/2024/js/stage.js"></script>
@@ -11,44 +10,51 @@
 {% endblock %}
 {% block contents %}
 <div class="content">
-    <div class="stage">
-        <h2>Stage</h2>
-        <label>
-            <input type="radio" id="stageOff" name="stage" value="off" checked>
-            <span class="left">Off Stage</span>
-        </label>
-        <label>
-            <input type="radio" id="stageCommunity" name="stage" value="community">
-            <span class="mid">In Community</span>
-        </label>
-        <label>
-            <input type="radio" id="stageOn" name="stage" value="on">
-            <span class="right">On Stage</span>
-        </label>
+    <div class="title">
+        <h1>Stage</h1>
     </div>
-        <!--TODO: fix placement of buttons if needed-->
-        <div class="harmonyCheckBox">
-            Harmony
-            <label>
-                <input type="checkbox" style="opacity: 100" id="stageHarmony" name="harmony" value="harmony">
-                <svg width="140" height="65" viewBox="0 0 140 65" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0" class="checkbox" width="128.8" height="63.9"/>
-                    <rect x="0" y="22.5" class="harmonyBox" width="20" height="20"/>
-                    <polyline class="harmonyCheckMark" points="4.5, 32.6 8.7, 36.8 16.5, 29.1"/>
-                </svg>
-            </label>
+    <div class="stage">
+        <div class="img_div_container">
+            <div class="chain_selection_container">
+                <div class="chain_selection_img">
+                    <img class="stage_right_img" id="stage_right_img">
+                    <img class="stage_center_img" id="stage_center_img">
+                    <img class="stage_left_img" id="stage_left_img">
+                </div>
+                <div class="chain_selection_button">
+                    <label>
+                        <input type="radio" id="chainLeft" name="chainState" class="leftChain" value="left">
+                        <span class="left" onclick="showStageLeft()">Left</span>
+                    </label>
+                    <label>
+                        <input type="radio" id="chainCenter" name="chainState" class="centerChain" value="middle">
+                        <span class="mid" onclick="showStageCenter()">Center</span>
+                    </label>
+                    <label>
+                        <input type="radio" id="chainRight" name="chainState" class="rightChain" value="right"> 
+                        <span class="right" onclick="showStageRight()">Right</span>
+                    </label>
+                </div>
+            </div>
+            <div class="robot_position_container">
+                <div class="robot_position_img">
+                    <div class="spotlight">
+                        <!-- This goes above the entire stage where the mic would be -->
+                        <input type="checkbox">
+                    </div>
+                    <div class="trap">
+                        <!-- This goes in the black square above the april tage -->
+                        <input type="checkbox">
+                    </div>
+                    <img class="chain_img">
+                    <div class="location" id="location"></div>
+                </div>
+                <div class="robot_position">
+                    <input type="range" id="chainPosition" name="chainPosition" min="-5" max="5" value="0" step="0.1" oninput="followLocationSlider()">
+                </div>
+            </div>
         </div>
-        <div class="spotlitCheckBox">
-            Spotlit
-            <label>
-                <input type="checkbox" style="opacity: 100"  id="stageSpotlit" name="spotlit" value="spotlit">
-                <svg width="140" height="65" viewBox="0 0 140 65" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0" class="checkbox" width="128.8" height="63.9"/>
-                    <rect x="0" y="22.5" class="spotlitBox" width="20" height="20"/>
-                    <polyline class="spotlitCheckMark" points="4.5, 32.6 8.7, 36.8 16.5, 29.1"/>
-                </svg>
-            </label>
-        </div>
+    </div>
     <div class="next_container">
         <button class="next" id="nextButton3">
             <span>Next</span>

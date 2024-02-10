@@ -1,17 +1,33 @@
+.content {
+  width: 100vw;
+  height: 100vh;
+}
+
+.title {
+  display: inline-block;
+  width: 100%;
+  height: fit-content;
+}
+
+.title h1 {
+  width: 100%;
+  font-size: 6vh;
+  text-align: center;
+}
+
 .submit {
-  display: flex;
-  height: 10vh;
-  width: 25vw;
-  background-color: #aa0000;
-  border: none;
+  height: 7vh;
+  width: 20vw;
+  background-color: #aa0000; /* Red */
+  border: 5px solid #7d0000;
   color: white;
   text-align: center;
   text-decoration: none;
-  font-size: 3vh;
-  border-radius: 10px;
-  box-shadow: 0 5px #9a9280;
+  display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 5px #9a9280;
 }
 
 .submit:active {
@@ -20,27 +36,47 @@
   transform: translateY(5px);
 }
 
+.submit_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10vh;
+}
+
+.next_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10vh;
+}
+
+.endauto_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10vh;
+}
+
 .next {
-    height: 38px;
-    width: 150px;
-    margin-top: 14%;
-    margin-left: 50%;
+    height: 7vh;
+    width: 20vw;
     background-color: #aa0000; /* Red */
-    border: none;
+    border: 5px solid #7d0000;
     color: white;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 5px;
     box-shadow: 0 5px #9a9280;
   }
-
-.next span {
+  
+  .next span {
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 25px;
-    display: inline-block;
+    font-size: 2vh;
+    display: flex;
     position: relative;
     transition: 0.5s;
 }
@@ -76,9 +112,109 @@
   width: 50px;
   margin: 10px;
   background-color: #9a9280;
-  border: none;
+  border: 5px solid #3e3e3e;
   padding: 10px;
   border-radius: 100%;
   align-items: center;
 }
 .start label input:checked ~ span.note-button{background-color: #f1642b;}
+
+.button_red {
+  margin-top: 5vh;
+  background-color: #aa0000; /* Red */
+  border: 5px solid #7d0000;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 5px #9a9280;
+}
+
+.button_blu {
+  margin-top: 5vh;
+  background-color: #476291; /* Blu */
+  border: 5px solid #293853;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 5px #9a9280;
+}
+
+.button_red:hover {background-color: #7d0000}
+
+.button_blu:hover {background-color: #293853}
+
+.button_red:active {
+  background-color: #7d0000;
+  box-shadow: 0 0px #3e3e3e;
+  transform: translateY(5px);
+}
+
+.button_blu:active {
+  background-color: #293853;
+  box-shadow: 0 0px #3e3e3e;
+  transform: translateY(5px);
+}
+
+.blu-left {
+  background: #476291;
+  color: white;
+  border: 5px solid #293853;
+  text-align: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  box-shadow: 0 5px #9a9280;
+}
+.blu-left:hover {background-color: #293853;}
+
+.blu-mid {
+  background: #476291;
+  color: white;
+  border: 5px solid #293853;
+  text-align: center;
+  box-shadow: 0 5px #9a9280;
+}
+.blu-mid:hover {background-color: #293853;}
+
+.blu-right {
+  background: #476291;
+  color: white;
+  border: 5px solid #293853;
+  text-align: center;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  box-shadow: 0 5px #9a9280;
+}
+.blu-right:hover {background-color: #293853;} 
+
+.left {
+  background: #aa0000;
+  color: white;
+  border: 5px solid #7d0000;
+  text-align: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  box-shadow: 0 5px #9a9280;
+}
+.left:hover {background-color: #7d0000;}
+
+.mid {
+  background: #aa0000;
+  color: white;
+  border: 5px solid #7d0000;
+  text-align: center;
+  box-shadow: 0 5px #9a9280;
+}
+.mid:hover {background-color: #7d0000;}
+
+.right {
+  background: #aa0000;
+  color: white;
+  border: 5px solid #7d0000;
+  text-align: center;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  box-shadow: 0 5px #9a9280;
+}
+.right:hover {background-color: #7d0000;} 

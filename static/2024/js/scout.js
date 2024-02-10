@@ -1,6 +1,12 @@
 /** @type {Array.<ScoreNote>} */
 let scoreNotes = [];
 /** @type {Array.<number>} */
+let autoPickUps = []
+/** @type {Array.<number>} */
+let autoMisses = []
+/** @type {Array.<number>} */
+let autoDrops = []
+/** @type {Array.<number>} */
 let pickUps = []
 /** @type {Array.<number>} */
 let misses = [];
@@ -13,21 +19,22 @@ let cooperations = [];
 /** @type {Array.<number>} */
 let amplifies = [];
 
+const AUTO_PICK_UP = "autoPickUp"; //picks up note during auto
+const AUTO_MISS = "autoMiss"; // misses with note during auto
+const AUTO_DROP = "autoDrop"; // drops note during auto
+const PICK_UP = "pickUp"; // picks up note during teleop
+const MISS = "miss"; // misses with note during teleop
+const DROP = "drop"; // drops note during teleop
+const DEFENSE = "defense"; // blocks and steals during teleop
+const END_AUTO_STORAGE = "endAuto"; // when auto ends
+const COOPERATION = "cooperation"; // cooperation bonus button pressed
+const AMPLIFIED = "amplified"; // amplified bonus button pressed
 
-const PICK_UP = "pickUps"; // picks up note
-const MISS = "misses"; // misses with note
-const DROP = "drops"; // drops note
-const DEFENSE = "defenses"; // blocks and steals
-const END_AUTO_STORAGE = "endAuto";
-const AUTO_STAGE_STORAGE = "autoStageState";
-const COOPERATION = "cooperations";
-const AMPLIFIED = "amplifies";
+const NOTE = "note"; // note (eek!)
 
-const NOTE = "note";
-
-const UNSELECTED_COLOR = "#777";
-const NOTE_COLOR = "#ff0";
-const NOTE_BORDER_COLOR = "#cc0";
+const UNSELECTED_COLOR = "#9a9280";
+const NOTE_COLOR = "#F1642B";
+const NOTE_BORDER_COLOR = "#F1642B";
 
 document.addEventListener("DOMContentLoaded", function() {var undoContainer = document.getElementById("undoContainer");});
 var undoBoxes = [];
@@ -58,7 +65,7 @@ setInterval(updateTime, 1000);
 
 function getUTCNow() {
     let d = new Date();
-    return d.getTime() + d.getTimezoneOffset()*60000; //60000 ms in 1 minute
+    return d.getTime() + d.getTimezoneOffset()*60000; //60000 ms in 1 minute 
 }
 
 class ScoreNote {
@@ -115,25 +122,25 @@ window.addEventListener("load", () => {
     });
 
     //track button press times
-    const autoPickUp = document.getElementById("autoPickUp");
-    const autoMiss = document.getElementById("autoMiss");
-    const autoDrop = document.getElementById("autoDrop");
-    const pickUp = document.getElementById("pickUp");
-    const miss = document.getElementById("miss");
-    const drop = document.getElementById("drop");
-    const defense = document.getElementById("defense");
-    const cooperation = document.getElementById("cooperation")
-    const amplified = document.getElementById("amplified")
+    const autoPickUp = document.getElementById("autoPickUp"); // get the element with the ID "autoPickUp"
+    const autoMiss = document.getElementById("autoMiss"); // get the element with the ID "autoMiss"
+    const autoDrop = document.getElementById("autoDrop"); // get the element with the ID "autoDrop"
+    const pickUp = document.getElementById("pickUp"); // get the element with the ID "pickUp"
+    const miss = document.getElementById("miss"); // get the element with the ID "miss"
+    const drop = document.getElementById("drop"); // get the element with the ID "drop"
+    const defense = document.getElementById("defense"); // get the element with the ID "defense"
+    const cooperation = document.getElementById("cooperation"); // get the element with the ID "cooperation"
+    const amplified = document.getElementById("amplified"); // get the element with the ID "amplified"
 
-    setMarkTime(autoPickUp, PICK_UP, pickUps);
-    setMarkTime(autoMiss, MISS, misses);
-    setMarkTime(autoDrop, DROP, drops);
-    setMarkTime(pickUp, PICK_UP, pickUps);
-    setMarkTime(miss, MISS, misses);
-    setMarkTime(drop, DROP, drops);
-    setMarkTime(defense, DEFENSE, defenses);
-    setMarkTime(cooperation, COOPERATION, cooperations);
-    setMarkTime(amplified, AMPLIFIED, amplifies);
+    setMarkTime(autoPickUp, AUTO_PICK_UP, autoPickUps); // set a mark time for the element with ID "autoPickUp"
+    setMarkTime(autoMiss, AUTO_MISS, autoMisses); // set a mark time for the element with ID "autoMiss"
+    setMarkTime(autoDrop, AUTO_DROP, autoDrops); // set a mark time for the element with ID "autoDrop"
+    setMarkTime(pickUp, PICK_UP, pickUps); // set a mark time for the element with ID "pickUp"
+    setMarkTime(miss, MISS, misses); // set a mark time for the element with ID "miss"
+    setMarkTime(drop, DROP, drops); // set a mark time for the element with ID "drop"
+    setMarkTime(defense, DEFENSE, defenses); // set a mark time for the element with ID "defense"
+    setMarkTime(cooperation, COOPERATION, cooperations); // set a mark time for the element with ID "cooperation"
+    setMarkTime(amplified, AMPLIFIED, amplifies); // set a mark time for the element with ID "amplified"
 });
 
 function setMarkTime(element, storageKey, array) {
@@ -166,16 +173,6 @@ function setMarkTime(element, storageKey, array) {
         undoContainer.insertAdjacentElement('afterbegin', button)
 
     });
-}
-
-/**
- * 
- * @param {number} col The column that the score note is on (start at 0)
- * @param {number} row The row that the score note is on (start at 0)
- * @returns {number} The index in the list scoreNotes that the scoreNote in the specified column and row is at.
- */
-function coordinatesToIndex(col, row) {
-    return row*9+col;
 }
 
 /**

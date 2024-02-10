@@ -1,27 +1,46 @@
+// function to collect and organize various types of match data and return it as a JSON string (submission.txt)
 function collectData() {
+    // create an object to store collected data
     let contents = {};
+
+    // identify the type of content as "match"
     contents["contentType"] = "match";
-    //get home data
+
+    // retrieve and store preliminary match data
     contents["preliminaryData"] = JSON.parse(localStorage.getItem("preliminaryData"));
-    //get prematch data
+
+    // retrieve and store pre-match data
     contents["startObject"] = JSON.parse(localStorage.getItem("startObject"));
     contents["roboPos"] = JSON.parse(localStorage.getItem("roboPos"));
-    contents["objectLayout"] = JSON.parse(localStorage.getItem("objectLayout"));
-    //get scout data
-    contents["pick up"] = JSON.parse(localStorage.getItem("pick up"));
+
+    // retrieve and store scout data for the auto phase
+    contents["autoPickUp"] = JSON.parse(localStorage.getItem("autoPickUp"))
+    contents["autoMiss"] = JSON.parse(localStorage.getItem("autoMiss"))
+    contents["autoDrop"] = JSON.parse(localStorage.getItem("autoDrop"))
+    contents["endAuto"] = JSON.parse(localStorage.getItem("endAuto"));
+
+    // retrieve and store scout data for the teleop phase
+    contents["pickUp"] = JSON.parse(localStorage.getItem("pickUp"));
     contents["miss"] = JSON.parse(localStorage.getItem("miss"));
     contents["drop"] = JSON.parse(localStorage.getItem("drop"));
     contents["defense"] = JSON.parse(localStorage.getItem("defense"));
-    contents["endAuto"] = JSON.parse(localStorage.getItem("endAuto"));
-    //get stage data
-    contents["autoStageState"] = JSON.parse(localStorage.getItem("autoStageState"));
-    contents["stageState"] = JSON.parse(localStorage.getItem("stageState"));
-    //get result data
+    contents["cooperation"] = JSON.parse(localStorage.getItem("cooperation"));
+    contents["amplified"] = JSON.parse(localStorage.getItem("amplified"));
+
+    // retrieve and store stage-related data
+    contents["chainState"] = JSON.parse(localStorage.getItem("chainState"));
+    contents["chainPosition"] = JSON.parse(localStorage.getItem("chainPosition"));
+
+    // retrieve and store result-related data (e.g., comments)
     contents["comments"] = JSON.parse(localStorage.getItem("comments"));
-    //get navigation timestamps
+
+    // retrieve and store navigation timestamps
     contents["navStamps"] = JSON.parse(localStorage.getItem("navStamps"));
+
+    // return the collected data as a JSON string
     return JSON.stringify(contents);
 }
+
 
 /** @param {Array.<ScoreNote>} array */
 function trimScoreGrid(array) {
