@@ -153,9 +153,13 @@ function setMarkTime(element, storageKey, array) {
         button.addEventListener("click", function() {
             if (undoValues[button.number] == 1) {
                 button.style.textDecoration = "line-through";
+                button.style.backgroundColor = "#505050";
+                button.style.color = "#808080";
                 undoValues[button.number] = 0
             } else {
                 button.style.textDecoration = "none";
+                button.style.backgroundColor = "#727272";
+                button.style.color = "white";
                 undoValues[button.number] = 1
             }
         });
