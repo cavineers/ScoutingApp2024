@@ -38,9 +38,9 @@ function showStageRight() {
 }
 
 function followLocationSlider() {
-    v = document.getElementById("chainPosition").innerHTML;
-    vUnits = v.concat("px")
+    v = document.getElementById("chainPosition").value;
+    vUnits = (v * 4.65) + "%";
 
-    document.getElementById("location").style.transform = "translateX(vUnits)";
+    document.getElementById("location").style.left = vUnits;
 
 }
