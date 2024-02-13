@@ -20,22 +20,27 @@ function setMarkTime(element, storageKey, array) {
 }
 
 function showStageLeft() {
-
     document.getElementById("stage_left_img").style.visibility = "visible";
     document.getElementById("stage_center_img").style.visibility = "hidden";
     document.getElementById("stage_right_img").style.visibility = "hidden";
 }
 
 function showStageCenter() {
-
     document.getElementById("stage_left_img").style.visibility = "hidden";
     document.getElementById("stage_center_img").style.visibility = "visible";
     document.getElementById("stage_right_img").style.visibility = "hidden";
 }
 
 function showStageRight() {
-
     document.getElementById("stage_left_img").style.visibility = "hidden";
     document.getElementById("stage_center_img").style.visibility = "hidden";
     document.getElementById("stage_right_img").style.visibility = "visible";
+}
+
+function followLocationSlider() {
+    v = document.getElementById("chainPosition").value;
+    vUnits = (v * 4.65) + "%";
+
+    document.getElementById("location").style.left = vUnits;
+
 }
