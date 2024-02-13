@@ -37,7 +37,6 @@ const NOTE_COLOR = "#F1642B";
 const NOTE_BORDER_COLOR = "#F1642B";
 
 document.addEventListener("DOMContentLoaded", function() {var undoContainer = document.getElementById("undoContainer");});
-var undoBoxes = [];
 var undoValues = [];
 
 var displayTime = "00:00:00";
@@ -156,7 +155,6 @@ function setMarkTime(element, storageKey, array) {
         button.classList.add("undo_button")
         button.textContent = displayTime + " - " + element.innerHTML;
         button.number = undoValues.length
-        button.text = displayTime + " - " + element.innerHTML;
         button.addEventListener("click", function() {
             if (undoValues[button.number] == 1) {
                 button.style.textDecoration = "line-through";
