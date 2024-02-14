@@ -1,5 +1,4 @@
 window.addEventListener("load", async () => {
-
     // HOME PAGE
     if(document.getElementById("submitForm") != null) {
         /*An array containing all the country names in the world:*/
@@ -9,6 +8,11 @@ window.addEventListener("load", async () => {
         // add event listener to the submitForm
         let submitForm = document.getElementById("submitForm");
         submitForm.addEventListener("submit", (ev) => {
+            for (let input of document.getElementsByTagName("input")) {
+                if (input.type == "radio" && !input.checked) continue;
+                localStorage.setItem(input.name, JSON.stringify(input.value));
+            }
+            localStorage.setItem(robotOrder, JSON.stringify(robotOrder));
             ev.preventDefault();
             // collect form inputs into an object
             const found = document.getElementsByClassName("input");
@@ -32,6 +36,7 @@ window.addEventListener("load", async () => {
         nextButton.addEventListener("click", (ev) => {
             if (ev.button != 0)
                 return;       
+            localStorage.setItem(START, JSON.stringify(getUTCNow()));
             // save selected options to local storage
             localStorage.setItem("objectLayout", JSON.stringify(objectLayout));
             for (let input of document.getElementsByTagName("input")) {
@@ -103,6 +108,7 @@ window.addEventListener("load", async () => {
                         chainRight.checked ? chainRight.value :
             localStorage.setItem(CHAIN_STORAGE, JSON.stringify(state));
             localStorage.setItem(CHAIN_POSITION, JSON.stringify(chainPosition));
+            localStorage.setItem(END, JSON.stringify(getUTCNow()));
 
             for (let input of document.getElementsByTagName("input")) {
                 if (input.type == "radio" && !input.checked) continue;
@@ -125,10 +131,9 @@ window.addEventListener("load", async () => {
         finishButton.addEventListener("click", async (ev) => {
             if (ev.button != 0)
                 return;
-
             // save comments to local storage
             localStorage.setItem("comments", JSON.stringify([document.getElementById("commentarea1").value]));
-
+            setTimeout(() => finishButton.type = "submit", 100);
             // create FormData and send collected data to the server via POST request
             const data = new FormData();
             data.set("data", JSON.stringify(collectData()));

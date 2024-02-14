@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 import json
 import os
 import scoutingutil
-from scoutingutil import Column, Table
+from scoutingutil import Column, configs, Table, SheetsService
 
 # constants used for key names
 START = "start"
@@ -13,6 +13,22 @@ MATCH_INPUT_NAMES = ("score", "move", "pickup", "dropped", "defend")
 # directory and file paths
 DIR = os.path.dirname(__file__)
 SUBMISSIONS_FILE = os.path.join(DIR, "submissions.txt")
+
+sheets_api = SheetsService()
+
+def init_sheets_api():
+    if not os.path.isfile(scoutingutil.configs.CONFIG_PATH):
+        raise FileNotFoundError("Must create a config.json file to read from.")
+    cnfg = scoutingutil.configs.load()
+    try:
+        sheets_api.config(cnfg)
+    except Exception as e:
+        token_path = os.path.abspath(cnfg.get(configs.SHEETS_TOKEN_PATH, "token.json"))
+        if os.path.isfile(token_path):
+            os.remove(token_path)
+            sheets_api.config(cnfg)
+        else:
+            raise
 
 # function to parse ISO date string to datetime object
 def parse_isodate(dstr:str):
@@ -38,6 +54,7 @@ def iter_teleop(data, raw:dict[str]):
             yield dt
 
 # function to prepare data by converting ISO date strings to datetime objects
+# im going to kill this stupid start/end def
 def prep_data(data:dict[str]):
     #set all iso datetime strings to datetime objects
     data[START] = parse_isodate(data[START])
@@ -56,10 +73,14 @@ def prep_data(data:dict[str]):
 # function to handle data uploaded to the server
 def handle_upload(raw:"dict[str]"):
     "Handle data sent to the upload route"
-    #TODO use scoutingutil stuff
-    # save_local(raw) remove this comment if you want to physically see the submission.txt file
+    save_local(raw)
+    
+    prep_data(raw)
+    
+    row = ScoutingData.process_data(raw)
+    
+    sheets_api.save_to_sheets(row)
 
-# function to save (append) raw data to a local file
 def save_local(raw:"dict[str]|str"):
     "Save (append) the raw data to a local file."
     if not isinstance(raw, str):
@@ -87,7 +108,7 @@ class ScoutingData(Table):
     scouter = Column("SCOUTER", "scouter")
     
     #prematch page
-    starting_piece = Column("STARTING  PIECE", "startingpiece")
+    starting_piece = Column("STARTING PIECE", "startingpiece")
     starting_position = Column("STARTING POSITION", "startingpos")
     
     #auto page
@@ -105,7 +126,7 @@ class ScoutingData(Table):
     
     #stage page
     chainState = Column("CHAIN STATE", "chainState") 
-    chainPosition = Column("CHAIN_POSITION", "chainPosition")
+    chainPosition = Column("CHAIN POSITION", "chainPosition")
     
     #result page
     comments = Column("COMMENTS", "comments")

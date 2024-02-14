@@ -1,5 +1,6 @@
-let teamLayout = ["red", "red", "red", "blu", "blu", "blu"];
-const teamOrder = ["red1", "red2", "red3", "blu1", "blu2", "blu3"];
+let robotLayout = ["red", "red", "red", "blu", "blu", "blu"];
+const robotOrder = ["red1", "red2", "red3", "blu1", "blu2", "blu3"];
+
 
 const UNSELECTED_COLOR = "#9a9280";
 const RED_COLOR = "#aa0000";
@@ -8,23 +9,23 @@ const BLUE_COLOR = "#476291";
 const BLUE_BORDER_COLOR = "#476291";
 
 window.addEventListener("load", () => {
-    let teams = document.querySelectorAll(".red, .blu");
-    for (let i = 0; i<teams.length; i++) {
-        teams[i].addEventListener("click", (ev) => {
+    let robot = document.querySelectorAll(".red, .blu");
+    for (let i = 0; i<robot.length; i++) {
+        robot[i].addEventListener("click", (ev) => {
             if (ev.button!=0) return;
-            teamLayout[i] = teamOrder[(teamOrder.indexOf(teamLayout[i])+1)%teamOrder.length];
-            switch(teamLayout[i]) {
+            robotLayout[i] = robotOrder[(robotOrder.indexOf(robotLayout[i])+1)%robotOrder.length];
+            switch(robotLayout[i]) {
                 case "red":
-                    teams[i].style.background = RED_COLOR;
-                    teams[i].style.borderColor = RED_BORDER_COLOR;
+                    robot[i].style.background = RED_COLOR;
+                    robot[i].style.borderColor = RED_BORDER_COLOR;
                     break;
                 case "blu":
-                    teams[i].style.background = BLUE_COLOR;
-                    teams[i].style.borderColor = BLUE_BORDER_COLOR;
+                    robot[i].style.background = BLUE_COLOR;
+                    robot[i].style.borderColor = BLUE_BORDER_COLOR;
                     break;
                 default:
-                    teams[i].style.background = UNSELECTED_COLOR;
-                    teams[i].style.borderColor = UNSELECTED_COLOR;
+                    robot[i].style.background = UNSELECTED_COLOR;
+                    robot[i].style.borderColor = UNSELECTED_COLOR;
                     break;
             }
         });
@@ -32,20 +33,25 @@ window.addEventListener("load", () => {
 });
 
 function verifyInfo(inputs) {
-    console.log(inputs.match)
-    if (inputs.match < 1) {
-        outputError("Invalid match number.");
-        return false;
-    }
-    else if (inputs.team < 1) {
-        outputError("Invalid team number.")
-        return false;
-    }
-    else if (!inputs.scouter.trim() || inputs.scouter=="placeholder") {
-        outputError("Enter your name (The name of the person scouting).");
-        return false;
-    }
-    return true;
+  console.log(inputs.match)
+  if (inputs.match < 1) {
+      outputError("Invalid match number.");
+      return false;
+  }
+  else if (inputs.team < 1) {
+      outputError("Invalid team number.")
+      return false;
+  }
+  else if (!inputs.scouter.trim() || inputs.scouter=="placeholder") {
+      outputError("Enter your name (The name of the person scouting).");
+      return false;
+  }
+  //TODO fix this
+  else if (inputs.robot !== undefined) {
+      outputError("Select alliance robot.")
+      return false;
+  }
+  return true;
 }
 
 function outputError(message) {

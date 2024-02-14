@@ -16,43 +16,43 @@
         </div>
         <div class="teams">
             <label>
-                <input type="radio" id="red1" name="team" value="r1" checked>
-                <span class="left">R1</span>
+                <input type="radio" id="red1" name="robot" value="r1" required>
+                <span class="left">Red 1</span>
             </label>
             <label>
-                <input type="radio" id="red2" name="team" value="r2">
-                <span class="mid">R2</span>
+                <input type="radio" id="red2" name="robot" value="r2" required>
+                <span class="mid">Red 2</span>
             </label>
             <label>
-                <input type="radio" id="red3" name="team" value="r3">
-                <span class="mid">R3</span>
+                <input type="radio" id="red3" name="robot" value="r3" required>
+                <span class="mid">Red 3</span>
             </label>
             <label>
-                <input type="radio" id="blu1" name="team" value="b1" checked>
-                <span class="blu-mid">B1</span>
+                <input type="radio" id="blu1" name="robot" value="b1" required>
+                <span class="blu-mid">Blu 1</span>
             </label>
             <label>
-                <input type="radio" id="blu2" name="team" value="b2">
-                <span class="blu-mid">B2</span>
+                <input type="radio" id="blu2" name="robot" value="b2" required>
+                <span class="blu-mid">Blu 2</span>
             </label>
             <label>
-                <input type="radio" id="blu3" name="team" value="b3">
-                <span class="blu-right">B3</span>
+                <input type="radio" id="blu3" name="robot" value="b3" required>
+                <span class="blu-right">Blu 3</span>
             </label>
         </div>
         <table class="table" autocomplete="off">
             <tr>
-                <td class="text"><label for="match">Round:&emsp;</label></td>
-                <td><input class="input" name="match" type="number" /></td>
+                <td class="text"><label for="match">Match:&emsp;</label></td>
+                <td><input class="input" name="match" type="number" required/></td>
             </tr>
             <tr>
                 <td class="text"><label for="team">Team:&emsp;</label></td>
-                <td><input class="input" name="team" type="number" /></td>
+                <td><input class="input" name="team" type="number" required min="1"/></td>
             </tr>
             <tr>
                 <td class="text"><label for="scouter">Name:&emsp;</label></td>
                 <td class="select">
-                    <select class="input" id="name" name="scouter">
+                    <select class="input" id="name" name="scouter" required>
                         <option value="placeholder">Pick Your Name</option>
                         {% if names %}
                         {% for name in names %}

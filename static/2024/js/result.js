@@ -7,7 +7,9 @@ function collectData() {
     contents["contentType"] = "match";
 
     // retrieve and store preliminary match data
+    contents["robotOrder"] = JSON.parse(localStorage.getItem("robotOrder"));
     contents["preliminaryData"] = JSON.parse(localStorage.getItem("preliminaryData"));
+    contents["start"] = JSON.parse(localStorage.getItem("start"));
 
     // retrieve and store pre-match data
     contents["startObject"] = JSON.parse(localStorage.getItem("startObject"));
@@ -33,6 +35,7 @@ function collectData() {
 
     // retrieve and store result-related data (e.g., comments)
     contents["comments"] = JSON.parse(localStorage.getItem("comments"));
+    contents["end"] = JSON.parse(localStorage.getItem("end"));
 
     // retrieve and store navigation timestamps
     contents["navStamps"] = JSON.parse(localStorage.getItem("navStamps"));

@@ -4,10 +4,15 @@ const CHAIN_CENTER = "chainCenter";
 const CHAIN_RIGHT = "chainRight";
 const CHAIN_POSITION = "chainPosition";
 const UNSELECTED_COLOR = "#9a9280";
+const END = "end"; // when the match ends
 
 
     //TODO: work on this page
 
+function getUTCNow() {
+    let d = new Date();
+    return d.getTime() + d.getTimezoneOffset()*60000; //60000 ms in 1 minute 
+}
 
 function setMarkTime(element, storageKey, array) {
     element.addEventListener("click", (ev) => {
