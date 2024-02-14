@@ -213,17 +213,17 @@ opacity: 1;
 	opacity: 100%;
 }
 .slider::-webkit-slider-thumb {
-	-webkit-appearance: none; /* Override default look */
+	-webkit-appearance: none;
 	appearance: none;
-	width: 25px; /* Set a specific slider handle width */
-	height: 25px; /* Slider handle height */
-	background: #c40000; /* Green background */
-	cursor: pointer; /* Cursor on hover */
+	width: 25px;
+	height: 25px;
+	background: #c40000;
+	cursor: pointer;
   }
   
   .slider::-moz-range-thumb {
-	width: 25px; /* Set a specific slider handle width */
-	height: 25px; /* Slider handle height */
-	background: #c40000; /* Green background */
-	cursor: pointer; /* Cursor on hover */
+	width: 25px;
+	height: 25px;
+	background: #c40000;
+	cursor: pointer;
   }
