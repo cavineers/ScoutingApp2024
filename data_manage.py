@@ -7,7 +7,7 @@ from scoutingutil import Column, configs, Table, SheetsService
 # constants used for key names
 START = "start"
 END = "end"
-END_AUTO = "end-auto"
+END_AUTO = "endAuto"
 MATCH_INPUT_NAMES = ("score", "move", "pickup", "dropped", "defend")
 
 # directory and file paths
@@ -56,6 +56,8 @@ def iter_teleop(data, raw:dict[str]):
 # function to prepare data by converting ISO date strings to datetime objects
 # im going to kill this stupid start/end def
 def prep_data(data:dict[str]):
+    if "start" not in data or "end" not in data:
+        return
     #set all iso datetime strings to datetime objects
     data[START] = parse_isodate(data[START])
     data[END] = parse_isodate(data[END])
@@ -75,7 +77,7 @@ def handle_upload(raw:"dict[str]"):
     "Handle data sent to the upload route"
     save_local(raw)
     
-    prep_data(raw)
+    # prep_data(raw)
     
     row = ScoutingData.process_data(raw)
     
@@ -104,7 +106,7 @@ class ScoutingData(Table):
     date = Column("DATE", "date")
     robot = Column("ROBOT", "robot")
     team = Column("TEAM", "team")
-    match = Column("MATCH", "match", process_data=lambda ctx: int(ctx.data), strict=True)
+    match = Column("MATCH", "preliminaryData", process_data=lambda ctx: ctx.data["match"], strict=True)
     scouter = Column("SCOUTER", "scouter")
     
     #prematch page
@@ -129,6 +131,6 @@ class ScoutingData(Table):
     chainPosition = Column("CHAIN POSITION", "chainPosition")
     
     #result page
-    comments = Column("COMMENTS", "comments")
+    comments = Column("COMMENTS", "comments", lambda ctx: ctx.data[0])
     
     #done

@@ -24,7 +24,7 @@ window.addEventListener("load", async () => {
                 return;
             // save the collected information to local storage
             localStorage.setItem("preliminaryData", JSON.stringify(inputs));          
-            // redirect to prematch.html
+            // redirect to prematch
             window.location.href = "/prematch.html";
         });
     }
@@ -44,7 +44,7 @@ window.addEventListener("load", async () => {
                 localStorage.setItem(input.name, JSON.stringify(input.value));
             }
 
-            // redirect to scout.html
+            // redirect to scout
             window.location.href = "/scout.html";
         });
     }
@@ -80,7 +80,7 @@ window.addEventListener("load", async () => {
             localStorage.setItem(COOPERATION, JSON.stringify(cooperations));
             localStorage.setItem(AMPLIFIED, JSON.stringify(amplifies));
 
-            // redirect to stage.html
+            // redirect to stage
             window.location.href = "/stage.html";
         });
     }
@@ -118,7 +118,7 @@ window.addEventListener("load", async () => {
                 if (input.type == "range" && !input.checked) continue;
                 localStorage.setItem(input.name, JSON.stringify(input.value));
             }
-            // reditect to result.html
+            // reditect to result
             window.location.href = "/result.html";
         });
     }
@@ -142,7 +142,7 @@ window.addEventListener("load", async () => {
                 body: data
             });
 
-            // redirect back to home.html
+            // redirect back to home
             window.location.href = "/home.html";
         });
     }
