@@ -7,7 +7,7 @@ function collectData() {
     contents["contentType"] = "match";
 
     // retrieve and store preliminary match data
-    contents["robotOrder"] = JSON.parse(localStorage.getItem("robotOrder"));
+    contents["robotState"] = JSON.parse(localStorage.getItem("robotState"));
     contents["preliminaryData"] = JSON.parse(localStorage.getItem("preliminaryData"));
     contents["start"] = JSON.parse(localStorage.getItem("start"));
 
@@ -44,6 +44,9 @@ function collectData() {
     return JSON.stringify(contents);
 }
 
+function handleClick() {
+  document.getElementById("finishButton").disabled = true;
+}
 
 /** @param {Array.<ScoreNote>} array */
 function trimScoreGrid(array) {

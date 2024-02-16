@@ -29,3 +29,10 @@ h1 {
   font-family: Geneva, Segoe UI, Verdana, sans-serif;
   resize: none;
 }
+
+.textsubmit {
+  width: 100%;
+  font-size: 2vh;
+  text-align: center;
+  font-weight: bold;
+}

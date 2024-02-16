@@ -8,6 +8,21 @@ window.addEventListener("load", async () => {
         // add event listener to the submitForm
         let submitForm = document.getElementById("submitForm");
         submitForm.addEventListener("submit", (ev) => {
+            // get references to various chain-related elements in the document 
+            const red1 = document.getElementById("red1");
+            const red2 = document.getElementById("red2");
+            const red3 = document.getElementById("red3");
+            const blu1 = document.getElementById("blu1");
+            const blu2 = document.getElementById("blu2");
+            const blu3 = document.getElementById("blu3");
+            // determine the selected chain based on the checked state of radio buttons
+            const robotState = red1.checked ? red1.value :
+                        red2.checked ? red2.value :
+                        red3.checked ? red3.value :
+                        blu1.checked ? blu1.value :
+                        blu2.checked ? blu2.value :
+                        blu3.checked ? blu3.value :
+            localStorage.setItem(ROBOT_STORAGE, JSON.stringify(robotState));  
             for (let input of document.getElementsByTagName("input")) {
                 if (input.type == "radio" && !input.checked) continue;
                 localStorage.setItem(input.name, JSON.stringify(input.value));
@@ -35,7 +50,7 @@ window.addEventListener("load", async () => {
         const nextButton = document.getElementById("nextButton");
         nextButton.addEventListener("click", (ev) => {
             if (ev.button != 0)
-                return;       
+                return;
             localStorage.setItem(START, JSON.stringify(getUTCNow()));
             // save selected options to local storage
             localStorage.setItem("objectLayout", JSON.stringify(objectLayout));
@@ -96,16 +111,14 @@ window.addEventListener("load", async () => {
             // check if the click event is the primary button (usually left mouse button)
             if (ev.button != 0)
                 return;
-
-            // get references to various chain-related elements in the document 
             const chainLeft = document.getElementById("chainLeft");
             const chainCenter = document.getElementById("chainCenter");
             const chainRight = document.getElementById("chainRight");
             const chainPosition = document.getElementById("chainPosition");
-            // determine the selected chain based on the checked state of radio buttons
+            // determines the selected team you are scouting
             const state = chainLeft.checked ? chainLeft.value :
                         chainCenter.checked ? chainCenter.value :
-                        chainRight.checked ? chainRight.value :
+                        chainRight.checked ? chainRight.value :  
             localStorage.setItem(CHAIN_STORAGE, JSON.stringify(state));
             localStorage.setItem(CHAIN_POSITION, JSON.stringify(chainPosition));
             localStorage.setItem(END, JSON.stringify(getUTCNow()));

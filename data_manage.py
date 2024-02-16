@@ -103,25 +103,25 @@ class ScoutingData(Table):
     "Data on robot/human player's performance"
     
     #home page
-    date = Column("DATE", "date")
-    robot = Column("ROBOT", "robot")
-    team = Column("TEAM", "team")
+    date = Column("DATE", "date") #TODO: work on date
+    robotState = Column("ROBOT", "robotState")
+    team = Column("TEAM", "preliminaryData", process_data=lambda ctx: ctx.data["team"])
     match = Column("MATCH", "preliminaryData", process_data=lambda ctx: ctx.data["match"], strict=True)
-    scouter = Column("SCOUTER", "scouter")
+    scouter = Column("SCOUTER", "preliminaryData", process_data=lambda ctx: ctx.data["scouter"])
     
     #prematch page
-    starting_piece = Column("STARTING PIECE", "startingpiece")
-    starting_position = Column("STARTING POSITION", "startingpos")
+    starting_piece = Column("STARTING PIECE", "startObject")
+    starting_position = Column("STARTING POSITION", "roboPos")
     
     #auto page
-    picked_up_note_auto = Column("AUTO:PICKED UP NOTE", "pickup", process_data=count_column_auto)
-    missed_shot_auto = Column("AUTO:MISSED SHOT", "missed", process_data=count_column_auto)
-    dropped_note_auto = Column("AUTO:DROPPED NOTE", "dropped", process_data=count_column_auto)
+    picked_up_note_auto = Column("AUTO:PICKED UP NOTE", "autoPickUp", process_data=count_column_auto)
+    missed_shot_auto = Column("AUTO:MISSED SHOT", "autoMiss", process_data=count_column_auto)
+    dropped_note_auto = Column("AUTO:DROPPED NOTE", "autoDrop", process_data=count_column_auto)
     
     #teleop page
-    picked_up_note = Column("PICKED UP NOTE", "pickup", process_data=count_column_teleop)
-    missed_shot = Column("MISSED SHOT", "missed", process_data=count_column_teleop)
-    dropped_note = Column("DROPPED NOTE", "dropped", process_data=count_column_teleop)
+    picked_up_note = Column("PICKED UP NOTE", "pickUp", process_data=count_column_teleop)
+    missed_shot = Column("MISSED SHOT", "miss", process_data=count_column_teleop)
+    dropped_note = Column("DROPPED NOTE", "drop", process_data=count_column_teleop)
     defense = Column("DEFENSE", "defense", process_data=count_column_teleop)
     cooperation = Column("COOPERATION BONUS", "cooperation", process_data=count_column_teleop)
     amplified = Column("AMPLIFIED BONUS", "amplified", process_data=count_column_teleop)

@@ -1,6 +1,15 @@
 let robotLayout = ["red", "red", "red", "blu", "blu", "blu"];
 const robotOrder = ["red1", "red2", "red3", "blu1", "blu2", "blu3"];
 
+const RED1 = "red1";
+const RED2 = "red2";
+const RED3 = "red3";
+
+const BLU1 = "blu1";
+const BLU2 = "blu2";
+const BLU3 = "blu3";
+
+const ROBOT_STORAGE = "robot";
 
 const UNSELECTED_COLOR = "#9a9280";
 const RED_COLOR = "#aa0000";
