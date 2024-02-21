@@ -4,9 +4,11 @@ html {
 
 /* Navigation buttons */
 button {
+    height: 9vh;
+    width: 40vw;
     padding-top: 0.5%;
     padding-bottom: 0.5%;
-    font-size: 14pt;
+    font-size: 20pt;
 }
 
 /* Navigation button themes */

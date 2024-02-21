@@ -114,12 +114,14 @@ class ScoutingData(Table):
     starting_position = Column("STARTING POSITION", "roboPos")
     
     #auto page
-    picked_up_note_auto = Column("AUTO:PICKED UP NOTE", "autoPickUp", process_data=count_column_auto)
+    picked_up_note_amp_auto = Column("AUTO:PICKED UP FROM AMP", "autoPickUpAmp", process_data=count_column_auto)
+    picked_up_note_floor_auto = Column("AUTO:PICKED UP FROM FLOOR", "autoPickUpFloor", process_data=count_column_auto)
     missed_shot_auto = Column("AUTO:MISSED SHOT", "autoMiss", process_data=count_column_auto)
     dropped_note_auto = Column("AUTO:DROPPED NOTE", "autoDrop", process_data=count_column_auto)
     
     #teleop page
-    picked_up_note = Column("PICKED UP NOTE", "pickUp", process_data=count_column_teleop)
+    picked_up_note_amp = Column("PICKED UP FROM AMP", "pickUpAmp", process_data=count_column_teleop)
+    picked_up_note_floor = Column("PICKED UP FROM FLOOR", "pickUpFloor", process_data=count_column_teleop)
     missed_shot = Column("MISSED SHOT", "miss", process_data=count_column_teleop)
     dropped_note = Column("DROPPED NOTE", "drop", process_data=count_column_teleop)
     defense = Column("DEFENSE", "defense", process_data=count_column_teleop)

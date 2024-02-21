@@ -1,13 +1,17 @@
 /** @type {Array.<ScoreNote>} */
 let scoreNotes = [];
 /** @type {Array.<number>} */
-let autoPickUps = []
+let autoPickUpAmps = []
+/** @type {Array.<number>} */
+let autoPickUpFloors = []
 /** @type {Array.<number>} */
 let autoMisses = []
 /** @type {Array.<number>} */
 let autoDrops = []
 /** @type {Array.<number>} */
-let pickUps = []
+let pickUpAmps = []
+/** @type {Array.<number>} */
+let pickUpFloors = []
 /** @type {Array.<number>} */
 let misses = [];
 /** @type {Array.<number>} */
@@ -19,10 +23,12 @@ let cooperations = [];
 /** @type {Array.<number>} */
 let amplifies = [];
 
-const AUTO_PICK_UP = "autoPickUp"; //picks up note during auto
+const AUTO_PICK_UP_AMP = "autoPickUpAmp"; //picks up note from amp during auto
+const AUTO_PICK_UP_FLOOR = "autoPickUpFloor"; //picks up note from floor during auto
 const AUTO_MISS = "autoMiss"; // misses with note during auto
 const AUTO_DROP = "autoDrop"; // drops note during auto
-const PICK_UP = "pickUp"; // picks up note during teleop
+const PICK_UP_AMP = "pickUpAmp"; // picks up note from amp during teleop
+const PICK_UP_FLOOR = "pickUpFloor"; // picks up note from floor during teleop
 const MISS = "miss"; // misses with note during teleop
 const DROP = "drop"; // drops note during teleop
 const DEFENSE = "defense"; // blocks and steals during teleop
@@ -95,20 +101,24 @@ window.addEventListener("load", () => {
     });
 
     //track button press times
-    const autoPickUp = document.getElementById("autoPickUp"); // get the element with the ID "autoPickUp"
+    const autoPickUpAmp = document.getElementById("autoPickUpAmp"); // get the element with the ID "autoPickUpAmp"
+    const autoPickUpFloor = document.getElementById("autoPickUpFloor"); // get the element with the ID "autoPickUpFloor"
     const autoMiss = document.getElementById("autoMiss"); // get the element with the ID "autoMiss"
     const autoDrop = document.getElementById("autoDrop"); // get the element with the ID "autoDrop"
-    const pickUp = document.getElementById("pickUp"); // get the element with the ID "pickUp"
+    const pickUpAmp = document.getElementById("pickUpAmp"); // get the element with the ID "pickUpAmp"
+    const pickUpFloor = document.getElementById("pickUpFloor"); // get the element with the ID "pickUpFloor"
     const miss = document.getElementById("miss"); // get the element with the ID "miss"
     const drop = document.getElementById("drop"); // get the element with the ID "drop"
     const defense = document.getElementById("defense"); // get the element with the ID "defense"
     const cooperation = document.getElementById("cooperation"); // get the element with the ID "cooperation"
     const amplified = document.getElementById("amplified"); // get the element with the ID "amplified"
 
-    setMarkTime(autoPickUp, AUTO_PICK_UP, autoPickUps); // set a mark time for the element with ID "autoPickUp"
+    setMarkTime(autoPickUpAmp, AUTO_PICK_UP_AMP, autoPickUpAmps); // set a mark time for the element with ID "autoPickUpAmp"
+    setMarkTime(autoPickUpFloor, AUTO_PICK_UP_FLOOR, autoPickUpFloors); // set a mark time for the element with ID "autoPickUpFloor"
     setMarkTime(autoMiss, AUTO_MISS, autoMisses); // set a mark time for the element with ID "autoMiss"
     setMarkTime(autoDrop, AUTO_DROP, autoDrops); // set a mark time for the element with ID "autoDrop"
-    setMarkTime(pickUp, PICK_UP, pickUps); // set a mark time for the element with ID "pickUp"
+    setMarkTime(pickUpAmp, PICK_UP_AMP, pickUpAmps); // set a mark time for the element with ID "pickUpAmp"
+    setMarkTime(pickUpFloor, PICK_UP_FLOOR, pickUpFloors); // set a mark time for the element with ID "pickUpFloor"
     setMarkTime(miss, MISS, misses); // set a mark time for the element with ID "miss"
     setMarkTime(drop, DROP, drops); // set a mark time for the element with ID "drop"
     setMarkTime(defense, DEFENSE, defenses); // set a mark time for the element with ID "defense"

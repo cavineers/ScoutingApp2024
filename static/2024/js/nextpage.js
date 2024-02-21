@@ -75,7 +75,8 @@ window.addEventListener("load", async () => {
                 return;
         
             // save auto-related data to local storage
-            localStorage.setItem(AUTO_PICK_UP, JSON.stringify(autoPickUps));
+            localStorage.setItem(AUTO_PICK_UP_AMP, JSON.stringify(autoPickUpAmps));
+            localStorage.setItem(AUTO_PICK_UP_FLOOR, JSON.stringify(autoPickUpFloors));
             localStorage.setItem(AUTO_MISS, JSON.stringify(autoMisses));
             localStorage.setItem(AUTO_DROP, JSON.stringify(autoDrops));
             localStorage.setItem(END_AUTO_STORAGE, JSON.stringify(getUTCNow()));
@@ -88,7 +89,8 @@ window.addEventListener("load", async () => {
         const nextButton2 = document.getElementById("nextButton2");
         nextButton2.addEventListener("click", (ev) => {
             // save scout-related data to local storage
-            localStorage.setItem(PICK_UP, JSON.stringify(pickUps));
+            localStorage.setItem(PICK_UP_AMP, JSON.stringify(pickUpAmps));
+            localStorage.setItem(PICK_UP_FLOOR, JSON.stringify(pickUpFloors));
             localStorage.setItem(MISS, JSON.stringify(misses));
             localStorage.setItem(DROP, JSON.stringify(drops));
             localStorage.setItem(DEFENSE, JSON.stringify(defenses));
