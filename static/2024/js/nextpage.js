@@ -88,6 +88,8 @@ window.addEventListener("load", async () => {
         // add event listener to the nextButton2
         const nextButton2 = document.getElementById("nextButton2");
         nextButton2.addEventListener("click", (ev) => {
+            if(ev.button != 0)
+                return;
             // save scout-related data to local storage
             localStorage.setItem(PICK_UP_AMP, JSON.stringify(pickUpAmps));
             localStorage.setItem(PICK_UP_FLOOR, JSON.stringify(pickUpFloors));
