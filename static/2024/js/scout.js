@@ -42,6 +42,33 @@ const UNSELECTED_COLOR = "#9a9280";
 const NOTE_COLOR = "#F1642B";
 const NOTE_BORDER_COLOR = "#F1642B";
 
+document.addEventListener("DOMContentLoaded", function() {var undoContainer = document.getElementById("undoContainer");});
+
+var undoValues = [];
+
+var displayTime = "00:00:00";
+var seconds = 0;
+var minutes = 0;
+var hours = 0;
+
+function updateTime() {
+  seconds++;
+  if (seconds==60) {
+      seconds = 0;
+      minutes++;
+  }
+  if (minutes==60) {
+      minutes = 0;
+      hours++;
+  }
+  if (seconds < 10) {displaySeconds = "0" + seconds;} else {displaySeconds = seconds;}
+  if (minutes < 10) {displayMinutes = "0" + minutes;} else {displaySeconds = minutes;}
+  if (hours < 10) {displayHours = "0" + hours;} else {displaySeconds = hours;}
+  displayTime = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+}
+
+setInterval(updateTime, 1000);
+
 function getUTCNow() {
     let d = new Date();
     return d.getTime() + d.getTimezoneOffset()*60000; //60000 ms in 1 minute 
@@ -133,6 +160,26 @@ function setMarkTime(element, storageKey, array) {
 
         array.push(getUTCNow());
         localStorage.setItem(storageKey, JSON.stringify(array));
+
+        var button = document.createElement("button");
+       undoValues[undoValues.length] = 1
+       button.classList.add("undo_button")
+       button.textContent = displayTime + " - " + element.innerHTML;
+       button.number = undoValues.length
+       button.addEventListener("click", function() {
+           if (undoValues[button.number] == 1) {
+               button.style.textDecoration = "line-through";
+               button.style.backgroundColor = "#505050";
+               button.style.color = "#808080";
+               undoValues[button.number] = 0
+           } else {
+               button.style.textDecoration = "none";
+               button.style.backgroundColor = "#727272";
+               button.style.color = "white";
+               undoValues[button.number] = 1
+           }
+       });
+       undoContainer.insertAdjacentElement('afterbegin', button)
     });
 }
 
