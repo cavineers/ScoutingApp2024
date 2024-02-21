@@ -198,3 +198,31 @@ border-color: #f1642b;;
 .spotlight .round input[type="checkbox"]:checked + label:after, .trap .round input[type="checkbox"]:checked + label:after {
 opacity: 1;
 }
+
+.slider {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 100%;
+	height: 1.25vh;
+	outline: none;
+	background: #9a9280;
+	opacity: 70%;
+}
+.slider:hover {
+    opacity: 100%;
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #c40000;
+    cursor: pointer;
+  }
+
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #c40000;
+    cursor: pointer;
+  }
