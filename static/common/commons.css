@@ -70,7 +70,7 @@
     align-items: center;
     border-radius: 5px;
     box-shadow: 0 5px #9a9280;
-    font-size: 20pt
+    font-size: 120%; 
   }
   
   .next span {
