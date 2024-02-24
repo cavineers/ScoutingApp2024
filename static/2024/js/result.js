@@ -16,7 +16,7 @@ function collectData() {
     contents["roboPos"] = JSON.parse(localStorage.getItem("roboPos"));
 
     // retrieve and store scout data for the auto phase
-    contents["autoPickUpAmp"] = JSON.parse(localStorage.getItem("autoPickUpAmp"))
+    contents["autoPickUpSource"] = JSON.parse(localStorage.getItem("autoPickUpSource"))
     contents["autoPickUpFloor"] = JSON.parse(localStorage.getItem("autoPickUpFloor"))
     contents["autoScoreNote"] = JSON.parse(localStorage.getItem("autoScoreNote"))
     contents["autoMiss"] = JSON.parse(localStorage.getItem("autoMiss"))

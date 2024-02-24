@@ -75,7 +75,7 @@ window.addEventListener("load", async () => {
                 return;
         
             // save auto-related data to local storage
-            localStorage.setItem(AUTO_PICK_UP_AMP, JSON.stringify(autoPickUpAmps));
+            localStorage.setItem(AUTO_PICK_UP_SOURCE, JSON.stringify(autoPickUpSources));
             localStorage.setItem(AUTO_PICK_UP_FLOOR, JSON.stringify(autoPickUpFloors));
             localStorage.setItem(AUTO_SCORED_NOTES, JSON.stringify(autoScoreNotes));
             localStorage.setItem(AUTO_MISS, JSON.stringify(autoMisses));
@@ -92,7 +92,7 @@ window.addEventListener("load", async () => {
             if(ev.button != 0)
                 return;
             // save scout-related data to local storage
-            localStorage.setItem(PICK_UP_AMP, JSON.stringify(pickUpAmps));
+            localStorage.setItem(PICK_UP_SOURCE, JSON.stringify(pickUpSources));
             localStorage.setItem(PICK_UP_FLOOR, JSON.stringify(pickUpFloors));
             localStorage.setItem(SCORED_NOTES, JSON.stringify(scores));
             localStorage.setItem(MISS, JSON.stringify(misses));
