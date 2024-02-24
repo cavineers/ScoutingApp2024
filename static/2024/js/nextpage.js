@@ -120,11 +120,13 @@ window.addEventListener("load", async () => {
             const chainLeft = document.getElementById("chainLeft");
             const chainCenter = document.getElementById("chainCenter");
             const chainRight = document.getElementById("chainRight");
+            const chainNone = document.getElementById("chainNone");
             const chainPosition = document.getElementById("chainPosition");
             // determines the selected team you are scouting
             const state = chainLeft.checked ? chainLeft.value :
                         chainCenter.checked ? chainCenter.value :
                         chainRight.checked ? chainRight.value :  
+                        chainNone.checked ? chainNone.value :
             localStorage.setItem(CHAIN_STORAGE, JSON.stringify(state));
             localStorage.setItem(CHAIN_POSITION, JSON.stringify(chainPosition));
             localStorage.setItem(END, JSON.stringify(getUTCNow()));

@@ -2,6 +2,7 @@ const CHAIN_STORAGE = "chainState";
 const CHAIN_LEFT = "chainLeft";
 const CHAIN_CENTER = "chainCenter";
 const CHAIN_RIGHT = "chainRight";
+const CHAIN_NONE = "chainNone";
 const CHAIN_POSITION = "chainPosition";
 const UNSELECTED_COLOR = "#9a9280";
 const END = "end"; // when the match ends
@@ -40,6 +41,12 @@ function showStageRight() {
     document.getElementById("stage_left_img").style.visibility = "hidden";
     document.getElementById("stage_center_img").style.visibility = "hidden";
     document.getElementById("stage_right_img").style.visibility = "visible";
+}
+
+function showStageNone() {
+    document.getElementById("stage_left_img").style.visibility = "hidden";
+    document.getElementById("stage_center_img").style.visibility = "hidden";
+    document.getElementById("stage_right_img").style.visibility = "hidden";
 }
 
 function followLocationSlider() {
