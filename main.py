@@ -10,7 +10,7 @@ def parse_args():
         arg = sys.argv[i]
         if arg.lower() == "--port":
             i += 1
-            args["port"] = sys.argv[i]
+            args["port"] = int(sys.argv[i])
         i += 1
     return args
 

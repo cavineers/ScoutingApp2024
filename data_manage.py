@@ -116,14 +116,16 @@ class ScoutingData(Table):
     #auto page
     picked_up_note_amp_auto = Column("AUTO:PICKED UP FROM AMP", "autoPickUpAmp", process_data=count_column_auto)
     picked_up_note_floor_auto = Column("AUTO:PICKED UP FROM FLOOR", "autoPickUpFloor", process_data=count_column_auto)
+    scored_notes_auto = Column("AUTO:SCORED NOTES", "autoScoreNote", process_data=count_column_auto)
     missed_shot_auto = Column("AUTO:MISSED SHOT", "autoMiss", process_data=count_column_auto)
-    dropped_note_auto = Column("AUTO:DROPPED NOTE", "autoDrop", process_data=count_column_auto)
+    dropped_notes_auto = Column("AUTO:DROPPED NOTES", "autoDrop", process_data=count_column_auto)
     
     #teleop page
     picked_up_note_amp = Column("PICKED UP FROM AMP", "pickUpAmp", process_data=count_column_teleop)
     picked_up_note_floor = Column("PICKED UP FROM FLOOR", "pickUpFloor", process_data=count_column_teleop)
+    scored_notes = Column("SCORED NOTES", "scoreNote", process_data=count_column_teleop)
     missed_shot = Column("MISSED SHOT", "miss", process_data=count_column_teleop)
-    dropped_note = Column("DROPPED NOTE", "drop", process_data=count_column_teleop)
+    dropped_notes = Column("DROPPED NOTES", "drop", process_data=count_column_teleop)
     defense = Column("DEFENSE", "defense", process_data=count_column_teleop)
     cooperation = Column("COOPERATION BONUS", "cooperation", process_data=count_column_teleop)
     amplified = Column("AMPLIFIED BONUS", "amplified", process_data=count_column_teleop)
