@@ -11,7 +11,7 @@
 
 .title h1 {
   width: 100%;
-  font-size: 6vh;
+  font-size: 4vh;
   text-align: center;
 }
 
@@ -47,7 +47,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 10vh;
+  margin-top: 5vh;
 }
 
 .endauto_container {
@@ -120,7 +120,7 @@
 .start label input:checked ~ span.note-button{background-color: #f1642b;}
 
 .button_red {
-  margin-top: 5vh;
+  margin-top: 3vh;
   background-color: #aa0000; /* Red */
   border: 5px solid #7d0000;
   color: white;
@@ -131,7 +131,7 @@
 }
 
 .button_blu {
-  margin-top: 5vh;
+  margin-top: 3vh;
   background-color: #476291; /* Blu */
   border: 5px solid #293853;
   color: white;

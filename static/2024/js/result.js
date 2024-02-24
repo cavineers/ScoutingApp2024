@@ -16,17 +16,19 @@ function collectData() {
     contents["roboPos"] = JSON.parse(localStorage.getItem("roboPos"));
 
     // retrieve and store scout data for the auto phase
-    contents["autoPickUpSource"] = JSON.parse(localStorage.getItem("autoPickUpSource"))
-    contents["autoPickUpFloor"] = JSON.parse(localStorage.getItem("autoPickUpFloor"))
-    contents["autoScoreNote"] = JSON.parse(localStorage.getItem("autoScoreNote"))
-    contents["autoMiss"] = JSON.parse(localStorage.getItem("autoMiss"))
-    contents["autoDrop"] = JSON.parse(localStorage.getItem("autoDrop"))
+    contents["autoPickUpSource"] = JSON.parse(localStorage.getItem("autoPickUpSource"));
+    contents["autoPickUpFloor"] = JSON.parse(localStorage.getItem("autoPickUpFloor"));
+    contents["autoScoreSpeaker"] = JSON.parse(localStorage.getItem("autoScoreSpeaker"));
+    contents["autoScoreAmp"] = JSON.parse(localStorage.getItem("autoScoreAmp"));
+    contents["autoMiss"] = JSON.parse(localStorage.getItem("autoMiss"));
+    contents["autoDrop"] = JSON.parse(localStorage.getItem("autoDrop"));
     contents["endAuto"] = JSON.parse(localStorage.getItem("endAuto"));
 
     // retrieve and store scout data for the teleop phase
     contents["pickUpAmp"] = JSON.parse(localStorage.getItem("pickUpAmp"));
     contents["pickUpFloor"] = JSON.parse(localStorage.getItem("pickUpFloor"));
-    contents["scoreNote"] = JSON.parse(localStorage.getItem("scoreNote"));
+    contents["scoreSpeaker"] = JSON.parse(localStorage.getItem("scoreSpeaker"));
+    contents["scoreAmp"] = JSON.parse(localStorage.getItem("scoreAmp"));
     contents["miss"] = JSON.parse(localStorage.getItem("miss"));
     contents["drop"] = JSON.parse(localStorage.getItem("drop"));
     contents["defense"] = JSON.parse(localStorage.getItem("defense"));

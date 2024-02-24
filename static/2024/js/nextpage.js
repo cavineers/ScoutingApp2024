@@ -77,7 +77,8 @@ window.addEventListener("load", async () => {
             // save auto-related data to local storage
             localStorage.setItem(AUTO_PICK_UP_SOURCE, JSON.stringify(autoPickUpSources));
             localStorage.setItem(AUTO_PICK_UP_FLOOR, JSON.stringify(autoPickUpFloors));
-            localStorage.setItem(AUTO_SCORED_NOTES, JSON.stringify(autoScoreNotes));
+            localStorage.setItem(AUTO_SCORED_SPEAKER, JSON.stringify(autoScoreSpeakers));
+            localStorage.setItem(AUTO_SCORED_AMP, JSON.stringify(autoScoreAmps));
             localStorage.setItem(AUTO_MISS, JSON.stringify(autoMisses));
             localStorage.setItem(AUTO_DROP, JSON.stringify(autoDrops));
             localStorage.setItem(END_AUTO_STORAGE, JSON.stringify(getUTCNow()));
@@ -94,7 +95,8 @@ window.addEventListener("load", async () => {
             // save scout-related data to local storage
             localStorage.setItem(PICK_UP_SOURCE, JSON.stringify(pickUpSources));
             localStorage.setItem(PICK_UP_FLOOR, JSON.stringify(pickUpFloors));
-            localStorage.setItem(SCORED_NOTES, JSON.stringify(scores));
+            localStorage.setItem(SCORED_SPEAKER, JSON.stringify(scoreSpeakers));
+            localStorage.setItem(SCORED_AMP, JSON.stringify(scoreAmps));
             localStorage.setItem(MISS, JSON.stringify(misses));
             localStorage.setItem(DROP, JSON.stringify(drops));
             localStorage.setItem(DEFENSE, JSON.stringify(defenses));
