@@ -103,7 +103,6 @@ class ScoutingData(Table):
     "Data on robot/human player's performance"
     
     #home page
-    date = Column("DATE", "date") #TODO: work on date
     robotState = Column("ROBOT", "robotState")
     team = Column("TEAM", "preliminaryData", process_data=lambda ctx: ctx.data["team"])
     match = Column("MATCH", "preliminaryData", process_data=lambda ctx: ctx.data["match"], strict=True)
