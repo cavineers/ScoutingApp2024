@@ -27,3 +27,11 @@ window.addEventListener("load", () => {
         });
     }
 });
+
+function followLocationSlider() {
+    v = document.getElementById("chainPosition").value;
+    vUnits = (v * 4.65) + "%";
+
+    document.getElementById("location").style.left = vUnits;
+
+}

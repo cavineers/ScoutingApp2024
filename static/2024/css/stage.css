@@ -179,24 +179,24 @@
 	left: 8px;
 	opacity: 0;
 	position: absolute;
-top: 9px;
-transform: rotate(-45deg);
-width: 12px;
+	top: 9px;
+	transform: rotate(-45deg);
+	width: 12px;
 }
 
 .spotlight .round input[type="checkbox"], .trap .round input[type="checkbox"]{
-visibility: hidden;
-display: none;
-opacity: 0;
+	visibility: hidden;
+	display: none;
+	opacity: 0;
 }
 
 .spotlight .round input[type="checkbox"]:checked + label, .trap .round input[type="checkbox"]:checked + label {
-background-color: #f1642b;;
-border-color: #f1642b;;
+	background-color: #f1642b;;
+	border-color: #f1642b;;
 }
 
 .spotlight .round input[type="checkbox"]:checked + label:after, .trap .round input[type="checkbox"]:checked + label:after {
-opacity: 1;
+	opacity: 1;
 }
 
 .slider {
