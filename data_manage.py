@@ -82,14 +82,24 @@ def to_utc_timestamp(dt:datetime)->int:
 # function to handle data uploaded to the server
 def handle_upload(raw:"dict[str]"):
     "Handle data sent to the upload route"
-    raw['upload_date'] = datetime.now().isoformat()
-    
+    upload_datetime_str = datetime.now().isoformat()  # Get current date and time as ISO 8601 string
+    raw['upload_date'] = upload_datetime_str
+
+    # Parse ISO 8601 formatted string into datetime object
+    upload_datetime = datetime.fromisoformat(upload_datetime_str)
+
+    # Format datetime into a more human-readable format
+    formatted_upload_date = upload_datetime.strftime('%m/%d/%Y')
+
+    # Add formatted upload date to the data
+    raw['formatted_upload_date'] = formatted_upload_date
+
     save_local(raw)
-    
+
     # prep_data(raw)
-    
+
     row = ScoutingData.process_data(raw)
-    
+
     sheets_api.save_to_sheets(row)
 
 def save_local(raw:"dict[str]|str"):
@@ -116,7 +126,7 @@ class ScoutingData(Table):
     team = Column("TEAM", "preliminaryData", process_data=lambda ctx: ctx.data["team"])
     match = Column("MATCH", "preliminaryData", process_data=lambda ctx: ctx.data["match"], strict=True)
     scouter = Column("SCOUTER", "preliminaryData", process_data=lambda ctx: ctx.data["scouter"])
-    upload_date = Column("DATE", "upload_date")
+    upload_date = Column("DATE", "formatted_upload_date")
     
     #prematch page
     starting_piece = Column("STARTING PIECE", "startObject")
@@ -144,6 +154,7 @@ class ScoutingData(Table):
     #stage page
     chainState = Column("CHAIN STATE", "chainState") 
     chainPosition = Column("CHAIN POSITION", "chainPosition")
+    # trap = Column("TRAP", "trap") figure this out later
     
     #result page
     comments = Column("COMMENTS", "comments", lambda ctx: ctx.data[0])

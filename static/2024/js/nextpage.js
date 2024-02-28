@@ -8,14 +8,14 @@ window.addEventListener("load", async () => {
         // add event listener to the submitForm
         let submitForm = document.getElementById("submitForm");
         submitForm.addEventListener("submit", (ev) => {
-            // get references to various chain-related elements in the document 
+            // get references to various robot-related elements in the document 
             const red1 = document.getElementById("red1");
             const red2 = document.getElementById("red2");
             const red3 = document.getElementById("red3");
             const blu1 = document.getElementById("blu1");
             const blu2 = document.getElementById("blu2");
             const blu3 = document.getElementById("blu3");
-            // determine the selected chain based on the checked state of radio buttons
+            // determine the selected robot based on the checked state of radio buttons
             const robotState = red1.checked ? red1.value :
                         red2.checked ? red2.value :
                         red3.checked ? red3.value :
@@ -140,7 +140,23 @@ window.addEventListener("load", async () => {
             for (let input of document.getElementsByTagName("input")) {
                 if (input.type == "range" && !input.checked) continue;
                 localStorage.setItem(input.name, JSON.stringify(input.value));
+            }        
+            // function to toggle the value of the checkbox
+            function toggleCheckbox(checkboxId) {
+                var checkbox = document.getElementById(checkboxId);
+                checkbox.checked = !checkbox.checked; // toggling the checked state
             }
+
+            // adding event listeners to the checkboxes
+            document.getElementById('spotlit').addEventListener('click', function() {
+                toggleCheckbox('spotlit');
+            });
+
+            document.getElementById('trap').addEventListener('click', function() {
+                toggleCheckbox('trap');
+            });
+            localStorage.setItem(SPOTLIT, JSON.stringify(spotlit));
+            localStorage.setItem(TRAP, JSON.stringify(trap));
             // reditect to result
             window.location.href = "/result.html";
         });

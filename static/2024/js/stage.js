@@ -4,6 +4,8 @@ const CHAIN_CENTER = "chainCenter";
 const CHAIN_RIGHT = "chainRight";
 const CHAIN_NONE = "chainNone";
 const CHAIN_POSITION = "chainPosition";
+const TRAP = "trap";
+const SPOTLIT = "spotlit";
 const UNSELECTED_COLOR = "#9a9280";
 const END = "end"; // when the match ends
 

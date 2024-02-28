@@ -9,7 +9,7 @@ function collectData() {
     // retrieve and store preliminary match data
     contents["robotState"] = JSON.parse(localStorage.getItem("robotState"));
     contents["preliminaryData"] = JSON.parse(localStorage.getItem("preliminaryData"));
-    contents["upload_date"] = JSON.parse(localStorage.getItem("upload_date"));
+    contents["formatted_upload_date"] = JSON.parse(localStorage.getItem("formatted_upload_date"));
     contents["start"] = JSON.parse(localStorage.getItem("start"));
 
     // retrieve and store pre-match data
@@ -39,6 +39,7 @@ function collectData() {
     // retrieve and store stage-related data
     contents["chainState"] = JSON.parse(localStorage.getItem("chainState"));
     contents["chainPosition"] = JSON.parse(localStorage.getItem("chainPosition"));
+    contents["trap"] = JSON.parse(localStorage.getItem("trap"));
 
     // retrieve and store result-related data (e.g., comments)
     contents["comments"] = JSON.parse(localStorage.getItem("comments"));
