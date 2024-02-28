@@ -9,6 +9,7 @@ function collectData() {
     // retrieve and store preliminary match data
     contents["robotState"] = JSON.parse(localStorage.getItem("robotState"));
     contents["preliminaryData"] = JSON.parse(localStorage.getItem("preliminaryData"));
+    contents["upload_date"] = JSON.parse(localStorage.getItem("upload_date"));
     contents["start"] = JSON.parse(localStorage.getItem("start"));
 
     // retrieve and store pre-match data

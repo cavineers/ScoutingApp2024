@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, tzinfo, timedelta, timezone
 import json
 import os
 import scoutingutil
@@ -9,6 +9,7 @@ START = "start"
 END = "end"
 END_AUTO = "endAuto"
 MATCH_INPUT_NAMES = ("score", "move", "pickup", "dropped", "defend")
+LOCAL_TIMEZONE:tzinfo = datetime.now().astimezone().tzinfo
 
 # directory and file paths
 DIR = os.path.dirname(__file__)
@@ -72,9 +73,17 @@ def prep_data(data:dict[str]):
     else:
         data[END_AUTO] = parse_isodate(data[END_AUTO])
 
+def from_utc_timestamp(value:int)->datetime: #assuming that value is a javascript timestamp in ms since python takes timestamp in seconds
+    return datetime.fromtimestamp(value/1000, tz=timezone.utc).astimezone(LOCAL_TIMEZONE)
+
+def to_utc_timestamp(dt:datetime)->int:
+    return int(dt.astimezone(timezone.utc).timestamp()*1000) #from f"{seconds}.{microseconds}" -> milliseconds
+
 # function to handle data uploaded to the server
 def handle_upload(raw:"dict[str]"):
     "Handle data sent to the upload route"
+    raw['upload_date'] = datetime.now().isoformat()
+    
     save_local(raw)
     
     # prep_data(raw)
@@ -107,6 +116,7 @@ class ScoutingData(Table):
     team = Column("TEAM", "preliminaryData", process_data=lambda ctx: ctx.data["team"])
     match = Column("MATCH", "preliminaryData", process_data=lambda ctx: ctx.data["match"], strict=True)
     scouter = Column("SCOUTER", "preliminaryData", process_data=lambda ctx: ctx.data["scouter"])
+    upload_date = Column("DATE", "upload_date")
     
     #prematch page
     starting_piece = Column("STARTING PIECE", "startObject")
