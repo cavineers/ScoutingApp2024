@@ -26,7 +26,7 @@ function collectData() {
     contents["endAuto"] = JSON.parse(localStorage.getItem("endAuto"));
 
     // retrieve and store scout data for the teleop phase
-    contents["pickUpAmp"] = JSON.parse(localStorage.getItem("pickUpAmp"));
+    contents["pickUpSource"] = JSON.parse(localStorage.getItem("pickUpSource"));
     contents["pickUpFloor"] = JSON.parse(localStorage.getItem("pickUpFloor"));
     contents["scoreSpeaker"] = JSON.parse(localStorage.getItem("scoreSpeaker"));
     contents["scoreAmp"] = JSON.parse(localStorage.getItem("scoreAmp"));

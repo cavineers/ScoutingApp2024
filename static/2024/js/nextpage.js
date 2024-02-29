@@ -124,12 +124,12 @@ window.addEventListener("load", async () => {
             const chainRight = document.getElementById("chainRight");
             const chainNone = document.getElementById("chainNone");
             const chainPosition = document.getElementById("chainPosition");
-            // determines the selected team you are scouting
-            const state = chainLeft.checked ? chainLeft.value :
+            // determines the selected side of the stage your robot is on
+            const chainState = chainLeft.checked ? chainLeft.value :
                         chainCenter.checked ? chainCenter.value :
                         chainRight.checked ? chainRight.value :  
                         chainNone.checked ? chainNone.value :
-            localStorage.setItem(CHAIN_STORAGE, JSON.stringify(state));
+            localStorage.setItem(CHAIN_STORAGE, JSON.stringify(chainState));
             localStorage.setItem(CHAIN_POSITION, JSON.stringify(chainPosition));
             localStorage.setItem(END, JSON.stringify(getUTCNow()));
 
@@ -157,6 +157,7 @@ window.addEventListener("load", async () => {
             });
             localStorage.setItem(SPOTLIT, JSON.stringify(spotlit));
             localStorage.setItem(TRAP, JSON.stringify(trap));
+            ev.preventDefault();
             // reditect to result
             window.location.href = "/result.html";
         });
