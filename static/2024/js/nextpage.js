@@ -51,6 +51,8 @@ window.addEventListener("load", async () => {
         nextButton.addEventListener("click", (ev) => {
             if (ev.button != 0)
                 return;
+            const robotPosition = document.getElementById("robotPosition");
+            localStorage.setItem(ROBOT_POSITION, JSON.stringify(robotPosition));
             localStorage.setItem(START, JSON.stringify(getUTCNow()));
             // save selected options to local storage
             localStorage.setItem("objectLayout", JSON.stringify(objectLayout));

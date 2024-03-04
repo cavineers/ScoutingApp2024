@@ -130,7 +130,7 @@ class ScoutingData(Table):
     
     #prematch page
     starting_piece = Column("STARTING PIECE", "startObject")
-    starting_position = Column("STARTING POSITION", "roboPos")
+    robot_position = Column("ROBOT POSITION", "robotPosition")
     
     #auto page
     picked_up_note_amp_auto = Column("AUTO:PICKED UP FROM SOURCE", "autoPickUpSource", process_data=count_column_auto)

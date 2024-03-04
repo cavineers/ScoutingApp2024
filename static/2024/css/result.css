@@ -31,8 +31,21 @@ h1 {
 }
 
 .textsubmit {
+  margin-top: 50%;
   width: 100%;
-  font-size: 2vh;
   text-align: center;
   font-weight: bold;
+}
+
+@keyframes moveRightToLeft {
+  0% { transform: translateX(400%); }
+  100% { transform: translateX(-100%); }
+}
+
+.moving-text {
+  position: absolute;
+  top: 70%;
+  animation: moveRightToLeft 7s linear infinite;
+  font-size: 2vh;
+  color: white;
 }

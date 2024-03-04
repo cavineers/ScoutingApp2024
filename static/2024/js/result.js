@@ -14,7 +14,7 @@ function collectData() {
 
     // retrieve and store pre-match data
     contents["startObject"] = JSON.parse(localStorage.getItem("startObject"));
-    contents["roboPos"] = JSON.parse(localStorage.getItem("roboPos"));
+    contents["robotPosition"] = JSON.parse(localStorage.getItem("robotPosition"));
 
     // retrieve and store scout data for the auto phase
     contents["autoPickUpSource"] = JSON.parse(localStorage.getItem("autoPickUpSource"));
