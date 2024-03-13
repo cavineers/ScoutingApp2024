@@ -11,13 +11,13 @@
 
 .title h1 {
   width: 100%;
-  font-size: 6vh;
+  font-size: 4vh;
   text-align: center;
 }
 
 .submit {
   height: 7vh;
-  width: 20vw;
+  width: 40vw;
   background-color: #aa0000; /* Red */
   border: 5px solid #7d0000;
   color: white;
@@ -47,7 +47,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 10vh;
+  margin-top: 5vh;
 }
 
 .endauto_container {
@@ -59,7 +59,7 @@
 
 .next {
     height: 7vh;
-    width: 20vw;
+    width: 40vw;
     background-color: #aa0000; /* Red */
     border: 5px solid #7d0000;
     color: white;
@@ -70,12 +70,12 @@
     align-items: center;
     border-radius: 5px;
     box-shadow: 0 5px #9a9280;
+    font-size: 120%; 
   }
   
   .next span {
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 2vh;
     display: flex;
     position: relative;
     transition: 0.5s;
@@ -120,7 +120,7 @@
 .start label input:checked ~ span.note-button{background-color: #f1642b;}
 
 .button_red {
-  margin-top: 5vh;
+  margin-top: 3vh;
   background-color: #aa0000; /* Red */
   border: 5px solid #7d0000;
   color: white;
@@ -131,7 +131,7 @@
 }
 
 .button_blu {
-  margin-top: 5vh;
+  margin-top: 3vh;
   background-color: #476291; /* Blu */
   border: 5px solid #293853;
   color: white;

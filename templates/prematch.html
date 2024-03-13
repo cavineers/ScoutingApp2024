@@ -20,13 +20,13 @@
                 <tr>
                     <td>
                         <label>
-                            <input type="radio" id="startNone" name="startObject" value="startNone" checked>
+                            <input type="radio" id="startNone" name="startObject" value="none" required checked>
                             <span class="none">
                         </label>
                     </td>
                     <td>
                         <label>
-                            <input type="radio" id="startObject1" name="startObject" value="startObject1" >
+                            <input type="radio" id="startObject1" name="startObject" value="note" required>
                             <span class="note">
                         </label>
                     </td>
@@ -36,21 +36,16 @@
     </div>
     <div class="position">
         <h2>Robot Position</h2>
-        <div class="position_buttons">
-            <label>
-                <input type="radio" id="leftPos" name="roboPos" value="left" checked>
-                <span class="left">Left</span>
-            </label>
-            <label>
-                <input type="radio" id="middlePos" name="roboPos" value="middle">
-                <span class="mid">Middle</span>
-            </label>
-            <label>
-                <input type="radio" id="rightPos" name="roboPos" value="right">
-                <span class="right">Right</span>
-            </label>
+        <div class="img_div_container">
+            <div class="robot_position_container">
+                <div class="robot_position_img">
+                    <div class="location" id="location"></div>
+                </div>
+                <div class="robot_position">
+                    <input type="range" id="robotPosition" name="robotPosition" min="-5" max="5" value="0" step="0.1" class="slider" oninput="followLocationSlider()">
+                </div>
+            </div>
         </div>
-    </div>
     <div class="next_container">
         <button class="next" id="nextButton">
             <span>Next</span>

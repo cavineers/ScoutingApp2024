@@ -29,3 +29,23 @@ h1 {
   font-family: Geneva, Segoe UI, Verdana, sans-serif;
   resize: none;
 }
+
+.textsubmit {
+  margin-top: 50%;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+@keyframes moveRightToLeft {
+  0% { transform: translateX(400%); }
+  100% { transform: translateX(-100%); }
+}
+
+.moving-text {
+  position: absolute;
+  top: 70%;
+  animation: moveRightToLeft 7s linear infinite;
+  font-size: 2vh;
+  color: white;
+}

@@ -1,9 +1,18 @@
 let objectLayout = [null, null];
 const objectOrder = ["note"];
 
+const ROBOT_POSITION = "robotPosition";
 const UNSELECTED_COLOR = "#9a9280";
 const NOTE_COLOR = "#f1642b";
 const NOTE_BORDER_COLOR = "#f1642b";
+const START = "start"; // when the match starts
+
+document.getElementById("positionDisplay").textContent = position;
+
+function getUTCNow() {
+    let d = new Date();
+    return d.getTime() + d.getTimezoneOffset()*60000; //60000 ms in 1 minute 
+}
 
 window.addEventListener("load", () => {
     let button = document.getElementsByClassName("note-button");
@@ -21,3 +30,10 @@ window.addEventListener("load", () => {
         });
     }
 });
+
+function followLocationSlider() {
+    v = document.getElementById("robotPosition").value;
+    vUnits = (v * 4.65) + "%";
+
+    document.getElementById("location").style.left = vUnits;
+}

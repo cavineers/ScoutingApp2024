@@ -23,34 +23,44 @@
                 </div>
                 <div class="chain_selection_button">
                     <label>
-                        <input type="radio" id="chainLeft" name="chainState" class="leftChain" value="left">
+                        <input type="radio" id="chainLeft" name="chainState" class="leftChain" value="left" required>
                         <span class="left" onclick="showStageLeft()">Left</span>
                     </label>
                     <label>
-                        <input type="radio" id="chainCenter" name="chainState" class="centerChain" value="middle">
+                        <input type="radio" id="chainCenter" name="chainState" class="centerChain" value="middle" required>
                         <span class="mid" onclick="showStageCenter()">Center</span>
                     </label>
                     <label>
-                        <input type="radio" id="chainRight" name="chainState" class="rightChain" value="right"> 
-                        <span class="right" onclick="showStageRight()">Right</span>
+                        <input type="radio" id="chainRight" name="chainState" class="rightChain" value="right" required> 
+                        <span class="mid" onclick="showStageRight()">Right</span>
+                    </label>
+                    <label>
+                        <input type="radio" id="chainNone" name="chainState" class="noneChain" value="none" required> 
+                        <span class="right" onclick="showStageNone()">Off Stage</span>
                     </label>
                 </div>
             </div>
             <div class="robot_position_container">
                 <div class="robot_position_img">
                     <div class="spotlight">
-                        <!-- This goes above the entire stage where the mic would be -->
-                        <input type="checkbox">
+                        <div class="round">
+                            <!-- This goes above the entire stage where the mic would be -->
+                            <input type="checkbox" id="spotlit" name="spotlit" value="spotlit">
+                            <label for="spotlit"></label>
+                        </div>
                     </div>
                     <div class="trap">
-                        <!-- This goes in the black square above the april tage -->
-                        <input type="checkbox">
+                        <div class="round">
+                            <!-- This goes in the black square above the april tage -->
+                            <input type="checkbox" id="trap" name="trap" value="trap">
+                            <label for="trap"></label>
+                        </div>
                     </div>
                     <img class="chain_img">
                     <div class="location" id="location"></div>
                 </div>
                 <div class="robot_position">
-                    <input type="range" id="chainPosition" name="chainPosition" min="-5" max="5" value="0" step="0.1" oninput="followLocationSlider()">
+                    <input type="range" id="chainPosition" name="chainPosition" min="-5" max="5" value="0" step="0.1" class="slider" oninput="followLocationSlider()">
                 </div>
             </div>
         </div>

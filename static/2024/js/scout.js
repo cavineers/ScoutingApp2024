@@ -1,13 +1,25 @@
 /** @type {Array.<ScoreNote>} */
 let scoreNotes = [];
 /** @type {Array.<number>} */
-let autoPickUps = []
+let autoPickUpSources = []
+/** @type {Array.<number>} */
+let autoPickUpFloors = []
+/** @type {Array.<number>} */
+let autoScoreSpeakers = [];
+/** @type {Array.<number>} */
+let autoScoreAmps = [];
 /** @type {Array.<number>} */
 let autoMisses = []
 /** @type {Array.<number>} */
 let autoDrops = []
 /** @type {Array.<number>} */
-let pickUps = []
+let pickUpSources = []
+/** @type {Array.<number>} */
+let pickUpFloors = []
+/** @type {Array.<number>} */
+let scoreSpeakers = [];
+/** @type {Array.<number>} */
+let scoreAmps = [];
 /** @type {Array.<number>} */
 let misses = [];
 /** @type {Array.<number>} */
@@ -19,10 +31,16 @@ let cooperations = [];
 /** @type {Array.<number>} */
 let amplifies = [];
 
-const AUTO_PICK_UP = "autoPickUp"; //picks up note during auto
+const AUTO_PICK_UP_SOURCE = "autoPickUpSource"; // picks up note from source during auto
+const AUTO_PICK_UP_FLOOR = "autoPickUpFloor"; // picks up note from floor during auto
+const AUTO_SCORED_SPEAKER = "autoScoreSpeaker"; // scored notes during auto
+const AUTO_SCORED_AMP = "autoScoreAmp"; // scored notes during auto
 const AUTO_MISS = "autoMiss"; // misses with note during auto
 const AUTO_DROP = "autoDrop"; // drops note during auto
-const PICK_UP = "pickUp"; // picks up note during teleop
+const PICK_UP_SOURCE = "pickUpSource"; // picks up note from amp during teleop
+const PICK_UP_FLOOR = "pickUpFloor"; // picks up note from floor during teleop
+const SCORED_SPEAKER = "scoreSpeaker"; // scored notes through speaker during teleop
+const SCORED_AMP = "scoreAmp"; // scored notes through amp during teleop
 const MISS = "miss"; // misses with note during teleop
 const DROP = "drop"; // drops note during teleop
 const DEFENSE = "defense"; // blocks and steals during teleop
@@ -37,6 +55,7 @@ const NOTE_COLOR = "#F1642B";
 const NOTE_BORDER_COLOR = "#F1642B";
 
 document.addEventListener("DOMContentLoaded", function() {var undoContainer = document.getElementById("undoContainer");});
+
 var undoValues = [];
 
 var displayTime = "00:00:00";
@@ -45,19 +64,20 @@ var minutes = 0;
 var hours = 0;
 
 function updateTime() {
-   seconds++;
-   if (seconds==60) {
-       seconds = 0;
-       minutes++;
-   }
-   if (minutes==60) {
-       minutes = 0;
-       hours++;
-   }
-   if (seconds < 10) {displaySeconds = "0" + seconds;} else {displaySeconds = seconds;}
-   if (minutes < 10) {displayMinutes = "0" + minutes;} else {displaySeconds = minutes;}
-   if (hours < 10) {displayHours = "0" + hours;} else {displaySeconds = hours;}
-   displayTime = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+  seconds++;
+  if (seconds==60) {
+      seconds = 0;
+      minutes++;
+  }
+  if (minutes==60) {
+      minutes = 0;
+      hours++;
+  }
+  if (seconds < 10) {displaySeconds = "0" + seconds;} else {displaySeconds = seconds;}
+  if (minutes < 10) {displayMinutes = "0" + minutes;} else {displaySeconds = minutes;}
+  if (hours < 10) {displayHours = "0" + hours;} else {displaySeconds = hours;}
+  displayTime = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+
 }
 
 setInterval(updateTime, 1000);
@@ -121,20 +141,32 @@ window.addEventListener("load", () => {
     });
 
     //track button press times
-    const autoPickUp = document.getElementById("autoPickUp"); // get the element with the ID "autoPickUp"
+    const autoPickUpSource = document.getElementById("autoPickUpSource"); // get the element with the ID "autoPickUpSource"
+    const autoPickUpFloor = document.getElementById("autoPickUpFloor"); // get the element with the ID "autoPickUpFloor"
+    const autoScoreSpeaker = document.getElementById("autoScoreSpeaker"); // get the element with the ID "autoPickUpSpeaker"
+    const autoScoreAmp = document.getElementById("autoScoreAmp"); // get the element with the ID "autoScoreAmp"
     const autoMiss = document.getElementById("autoMiss"); // get the element with the ID "autoMiss"
     const autoDrop = document.getElementById("autoDrop"); // get the element with the ID "autoDrop"
-    const pickUp = document.getElementById("pickUp"); // get the element with the ID "pickUp"
+    const pickUpSource = document.getElementById("pickUpSource"); // get the element with the ID "pickUpSource"
+    const pickUpFloor = document.getElementById("pickUpFloor"); // get the element with the ID "pickUpFloor"
+    const scoreSpeaker = document.getElementById("scoreSpeaker"); // get the element with the ID "pickUpSpeaker"
+    const scoreAmp = document.getElementById("scoreAmp"); // get the element with the ID "scoreAmp"
     const miss = document.getElementById("miss"); // get the element with the ID "miss"
     const drop = document.getElementById("drop"); // get the element with the ID "drop"
     const defense = document.getElementById("defense"); // get the element with the ID "defense"
     const cooperation = document.getElementById("cooperation"); // get the element with the ID "cooperation"
     const amplified = document.getElementById("amplified"); // get the element with the ID "amplified"
 
-    setMarkTime(autoPickUp, AUTO_PICK_UP, autoPickUps); // set a mark time for the element with ID "autoPickUp"
+    setMarkTime(autoPickUpSource, AUTO_PICK_UP_SOURCE, autoPickUpSources); // set a mark time for the element with ID "autoPickUpSource"
+    setMarkTime(autoPickUpFloor, AUTO_PICK_UP_FLOOR, autoPickUpFloors); // set a mark time for the element with ID "autoPickUpFloor"
+    setMarkTime(autoScoreSpeaker, AUTO_SCORED_SPEAKER, autoScoreSpeakers); // set a mark time for the element with ID "autoPickUpSpeaker"
+    setMarkTime(autoScoreAmp, AUTO_SCORED_AMP, autoScoreAmps); // set a mark time for the element with ID "autoScoreAmp"
     setMarkTime(autoMiss, AUTO_MISS, autoMisses); // set a mark time for the element with ID "autoMiss"
     setMarkTime(autoDrop, AUTO_DROP, autoDrops); // set a mark time for the element with ID "autoDrop"
-    setMarkTime(pickUp, PICK_UP, pickUps); // set a mark time for the element with ID "pickUp"
+    setMarkTime(pickUpSource, PICK_UP_SOURCE, pickUpSources); // set a mark time for the element with ID "pickUpSource"
+    setMarkTime(pickUpFloor, PICK_UP_FLOOR, pickUpFloors); // set a mark time for the element with ID "pickUpFloor"
+    setMarkTime(scoreSpeaker, SCORED_SPEAKER, scoreSpeakers); // set a mark time for the element with ID "scoreSpeaker"
+    setMarkTime(scoreAmp, SCORED_AMP, scoreAmps); // set a mark time for the element with ID "scoreAmp"
     setMarkTime(miss, MISS, misses); // set a mark time for the element with ID "miss"
     setMarkTime(drop, DROP, drops); // set a mark time for the element with ID "drop"
     setMarkTime(defense, DEFENSE, defenses); // set a mark time for the element with ID "defense"
@@ -151,6 +183,7 @@ function setMarkTime(element, storageKey, array) {
         localStorage.setItem(storageKey, JSON.stringify(array));
 
         var button = document.createElement("button");
+
         undoValues[undoValues.length] = 1
         button.classList.add("undo_button")
         button.textContent = displayTime + " - " + element.innerHTML;
@@ -167,9 +200,8 @@ function setMarkTime(element, storageKey, array) {
                 button.style.color = "white";
                 undoValues[button.number] = 1
             }
-        });
-        undoContainer.insertAdjacentElement('afterbegin', button)
-
+       });
+       undoContainer.insertAdjacentElement('afterbegin', button)
     });
 }
 
