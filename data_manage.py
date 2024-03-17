@@ -3,12 +3,27 @@ import json
 import os
 import scoutingutil
 from scoutingutil import Column, configs, Table, SheetsService
+from typing import Generator
 
 # constants used for key names
 START = "start"
 END = "end"
 END_AUTO = "endAuto"
-MATCH_INPUT_NAMES = ("score", "move", "pickup", "dropped", "defend")
+SPEAKER_FASTEST = "speaker-fastest"
+SPEAKER_SLOWEST = "speaker-slowest"
+SPEAKER_AVERAGE = "speaker-average"
+AMP_FASTEST = "amp-fastest"
+AMP_SLOWEST = "amp-slowest"
+AMP_AVERAGE = "amp-average"
+
+MATCH_INPUT_NAMES = ("autoPickUpSource", "autoPickUpFloor", "autoScoreSpeaker", "autoScoreAmp", "autoMiss", "autoDrop", "pickUpSource", 
+                     "pickUpFloor", "scoreSpeaker", "scoreAmp", "miss", "drop", "defense", "cooperation", "amplified", "chainState", "chainPosition")
+
+MATCH_INPUT_DELTA_NAMES = {
+    "scoreSpeaker":(SPEAKER_FASTEST, SPEAKER_SLOWEST, SPEAKER_AVERAGE),
+    "scoreAmp":(AMP_FASTEST, AMP_SLOWEST, AMP_AVERAGE)
+}
+
 LOCAL_TIMEZONE:tzinfo = datetime.now().astimezone().tzinfo
 
 # directory and file paths
@@ -72,6 +87,29 @@ def prep_data(data:dict[str]):
         data[END_AUTO] = min(new_end, data[END])
     else:
         data[END_AUTO] = parse_isodate(data[END_AUTO])
+        
+    for deltaname, (fastname, slowname, avgname) in MATCH_INPUT_DELTA_NAMES.items():
+        dts:Generator[datetime, None, None] = iter_teleop(data[deltaname], data)
+        deltas = []
+        fast_delta = float("inf") #min
+        slow_delta = 0 #max
+        current:datetime = data[END_AUTO]
+
+        for dt in dts:
+            delta = (dt-current).total_seconds()
+            if delta < fast_delta:
+                fast_delta = delta
+            if delta > slow_delta:
+                slow_delta = delta
+            current = dt
+            deltas.append(delta)
+
+        if deltas:
+            data[fastname] = fast_delta
+            data[slowname] = slow_delta
+            data[avgname] = (sum(deltas)/len(deltas)) if deltas else 0
+        else:
+            data[fastname] = data[slowname] = data[avgname] = None
 
 def from_utc_timestamp(value:int)->datetime: #assuming that value is a javascript timestamp in ms since python takes timestamp in seconds
     return datetime.fromtimestamp(value/1000, tz=timezone.utc).astimezone(LOCAL_TIMEZONE)
@@ -96,7 +134,7 @@ def handle_upload(raw:"dict[str]"):
 
     save_local(raw)
 
-    # prep_data(raw)
+    prep_data(raw) #it works!
 
     row = ScoutingData.process_data(raw)
 
@@ -145,7 +183,13 @@ class ScoutingData(Table):
     picked_up_note_amp = Column("PICKED UP FROM SOURCE", "pickUpSource", process_data=count_column_teleop)
     picked_up_note_floor = Column("PICKED UP FROM FLOOR", "pickUpFloor", process_data=count_column_teleop)
     scored_speaker = Column("SCORED NOTES THROUGH SPEAKER", "scoreSpeaker", process_data=count_column_teleop)
+    speaker_fastest = Column("SPEAKER FASTEST", SPEAKER_FASTEST)
+    speaker_slowest = Column("SPEAKER SLOWEST", SPEAKER_SLOWEST)
+    speaker_average = Column("SPEAKER AVERAGE", SPEAKER_AVERAGE)
     scored_amp = Column("SCORED NOTES THROUGH AMP", "scoreAmp", process_data=count_column_teleop)
+    amp_fastest = Column("AMP FASTEST", AMP_FASTEST)
+    amp_slowest = Column("AMP SLOWEST", AMP_SLOWEST)
+    amp_average = Column("AMP AVERAGE", AMP_AVERAGE)
     missed_shot = Column("MISSED SHOT", "miss", process_data=count_column_teleop)
     dropped_notes = Column("DROPPED NOTES", "drop", process_data=count_column_teleop)
     defense = Column("DEFENSE", "defense", process_data=count_column_teleop)

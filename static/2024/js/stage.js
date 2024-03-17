@@ -49,7 +49,7 @@ window.addEventListener("load", () => {
 
 function getUTCNow() {
     let d = new Date();
-    return d.getTime() + d.getTimezoneOffset()*60000; //60000 ms in 1 minute 
+    return d.toISOString();
 }
 
 function setMarkTime(element, storageKey, array) {

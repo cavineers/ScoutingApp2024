@@ -11,7 +11,7 @@ document.getElementById("positionDisplay").textContent = position;
 
 function getUTCNow() {
     let d = new Date();
-    return d.getTime() + d.getTimezoneOffset()*60000; //60000 ms in 1 minute 
+    return d.toISOString();
 }
 
 window.addEventListener("load", () => {
