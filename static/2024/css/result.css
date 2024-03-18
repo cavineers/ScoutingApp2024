@@ -49,3 +49,27 @@ h1 {
   font-size: 2vh;
   color: white;
 }
+
+@keyframes rainbow {
+  0% {color: red;}
+  14% {color: orange;}
+  28% {color: yellow;}
+  42% {color: lime;}
+  57% {color: blue;}
+  71% {color: indigo;}
+  85% {color: violet;}
+  100% {color: red;}
+}
+
+.rainbow {
+  display: inline-block;
+  width: 100%;
+  height: fit-content;
+}
+
+.rainbow h1 {
+  width: 100%;
+  font-size: 4vh;
+  text-align: center;
+  animation: rainbow 2s linear infinite;
+}

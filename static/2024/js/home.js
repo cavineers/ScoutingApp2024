@@ -55,13 +55,20 @@ function verifyInfo(inputs) {
       outputError("Enter your name (The name of the person scouting).");
       return false;
   }
-  //TODO fix this
-  else if (inputs.robot !== undefined) {
-      outputError("Select alliance robot.")
+  else if (!inputs.robotState) {
+      outputError("Please select which robot you are scouting.");
       return false;
   }
   return true;
 }
+
+window.onload = function() {
+    var select = document.getElementById('name');
+    select.onchange = function() {
+        select.style.color = this.value == 'placeholder' ? '#777' : '#fff';
+    };
+    select.onchange();
+};
 
 function outputError(message) {
   console.error(message);
