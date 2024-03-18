@@ -55,7 +55,7 @@ function verifyInfo(inputs) {
       outputError("Enter your name (The name of the person scouting).");
       return false;
   }
-  else if (!inputs.robotState) {
+  else if (!inputs.robotState == false) {
       outputError("Please select which robot you are scouting.");
       return false;
   }
