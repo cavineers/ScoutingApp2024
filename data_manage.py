@@ -70,7 +70,6 @@ def iter_teleop(data, raw:dict[str]):
             yield dt
 
 # function to prepare data by converting ISO date strings to datetime objects
-# im going to kill this stupid start/end def
 def prep_data(data:dict[str]):
     if "start" not in data or "end" not in data:
         return
@@ -109,7 +108,7 @@ def prep_data(data:dict[str]):
             data[slowname] = slow_delta
             data[avgname] = (sum(deltas)/len(deltas)) if deltas else 0
         else:
-            data[fastname] = data[slowname] = data[avgname] = None
+            data[fastname] = data[slowname] = data[avgname] = 0
 
 def from_utc_timestamp(value:int)->datetime: #assuming that value is a javascript timestamp in ms since python takes timestamp in seconds
     return datetime.fromtimestamp(value/1000, tz=timezone.utc).astimezone(LOCAL_TIMEZONE)
