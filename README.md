@@ -76,9 +76,44 @@ Quickly run the flask app on `0.0.0.0:80` with
 - Linux/Apple: &emsp;`python3 main.py`
 
 ### Specify host IP and port
-Specify IP and port to host with
-- Windows:  &emsp;`py -m ScoutingApp.__main host=<ip> port=<port>`
-- Linux/Apple: &emsp;`python3 -m ScoutingApp.__main host=<ip> port=<port>`
+For specific IP and port hosting, follow these steps:
+1. run the instance
+2. open command prompt
+3. type in `ssh -i [key.pem file] ubuntu@[ip]`
+4. type y (if it asks to confirm the ip, which it shouldn't) then you should be in the ubuntu server (it should say `ubuntu@ip-172-31-17-157:~$` to the left of where you're typing)
+5. im splitting this step up because its a lot, so here you go:
+     a. you need to create a projects and scoutingapp2024 directory, so you'll use `mkdir`. do `mkdir projects` to create a directory called "projects"
+     b. do `sudo apt update` to update the apt and then do `sudo apt install python3` (must have pythong 3.10 or higher, you can do `python3 --version` to check) 
+     c. do `sudo apt-get install python3-pip` to install pip (you can also check what version you're using with `python3 -m pip --version`)
+     d. ok now you gotta install all of the pip packages (you can find this on the github in the readme for furture reference) using this script `python3 -m pip install --upgrade Flask google-api-python-client google-auth-httplib2 google-auth-oauthlib waitress`
+     e. then do `cd projects` to relocate into the project folder, then clone the scoutingapp2024 repo using `git clone [put repo url here] [whatever you put after the url is what the folder will be called]`
+     f. then do `cd [whatever you called the folder]` to relocate into the scoutingapp2024 folder
+6. open up another terminal and do `cd [where your scoutingapp2024 folder is located]`
+7. put in the script `scp -i [where your key.pem file is located] config.json token.json ubuntu@[ip]:~/projects/[whatever you called the scoutingapp2024 folder in the ubuntu server]/` (think back to step 5 part e) if that all worked, you can go back to the original terminal with you being in the ubuntu server
+8. do `ls` to ensure the `config.json` and `token.json` are in the scoutingapp2024 folder, as well as everything else thats in the scoutingapp2024 repo (make sure you are in the ubuntu server)
+9. you should now be ready to run the ip and host the scouting app. to do this, you must enter in `python3 main.py --port[port number]` (i use 2048 but you must have it above 1023 and below 49151? not sure the exact number of how high you can go, but i know you must be above 1023)
+10. if it says its running on `serving 0.0.0.0 on port [port number]` then go into your local browser, and type in `[ip]:[port number]` to run the app.
+11. and that's it
+
+### EXTRAS:
+
+12. if you wanna run it with nohup, which gets rid of a servers hang up so it can still run with the laptop in sleep mode or just off, you must run `nohup python3 main.py --port[port number] &`. `serving 0.0.0.0 on port [port number]` will not appear if you run it with nohup, you can still run `top` though. you can also press enter and if it basically dupes the last line no problem, its running. if it ever doesn't do that, the server is rather slow or has stopped running, which you should then have to stop the instance and start it up again (wait for its status to be STOPPED to start it up again)
+13. if you get an error that says something like `nohup: ignoring input and appending output to 'nohup.out'` run `cat nohup.out`
+14. you dont have to repeat all of these steps every single time you want to host the ip btw, you only need to do it once (unless you change the `config.json` or `token.json`) you have to do
+     a. run `ssh -i [key.pem file] ubuntu@[ip]`
+     b. type in `cd projects` then `cd [what you called the scoutingapp2024 folder in the ubuntu server`
+     c. (OPTIONAL) only do this if you pushed anything to the repo: do `git fetch` and then `git pull`
+     d. run `python3 main.py --port[port number]` or the nohup version
+15. if you want to edit the `config.json` or `token.json` you would type `vim token.js`, then copy local contents, then paste into remote, and to exit you would press `esc` and then `:wq`
+    
+### Stress Testing
+Iff you ever want to stress test the server for testing, you can use `siege` which is used for load testing and server benchmarking servers (not rainbow 6 siege you troglodytes). if you wanna test it, you would:
+1. do step 14 except dont do the last part yet
+2. do `sudo apt-get update`, `sudo apt-get install apache2-utils`, `sudo apt-get install sysbench`, `sudo apt-get install stress-ng`, `sudo apt install siege`
+3. open up another terminal and also do step 14 except the last part
+4. go back to the first terminal and then host the ip using `python3 main.py --port[port number]` or the nohup version
+5. go to the second terminal and run `siege -c [concurrent users] -r [number of repetitions] [url]`
+6. this should simulate however many users however many times you want where you're hosting the ip, causing stress (which is what you want for stress testing)
 
 ## Contact Info
 hey, you, yes you, whoever you may be in the future, if you want to contact us or have any questions about the scouting app, do so by emailing us!
