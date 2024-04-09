@@ -107,7 +107,7 @@ For specific IP and port hosting, follow these steps:
 15. if you want to edit the `config.json` or `token.json` you would type `vim token.js`, then copy local contents, then paste into remote, and to exit you would press `esc` and then `:wq`
     
 ### Stress Testing
-Iff you ever want to stress test the server for testing, you can use `siege` which is used for load testing and server benchmarking servers (not rainbow 6 siege you troglodytes). if you wanna test it, you would:
+If you ever want to stress test the server for testing, you can use `siege` which is used for load testing and server benchmarking servers (not rainbow 6 siege you troglodytes). if you wanna test it, you would:
 1. do step 14 except dont do the last part yet
 2. do `sudo apt-get update`, `sudo apt-get install apache2-utils`, `sudo apt-get install sysbench`, `sudo apt-get install stress-ng`, `sudo apt install siege`
 3. open up another terminal and also do step 14 except the last part
